@@ -1,0 +1,111 @@
+{# src/FT/ProjetStageBundle/Resources/views/index.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Bienvenue sur la page d'accueil de mon site {% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href=" {{ asset('css/bootstrap.css') }}">
+    {% endblock %}
+    <style>
+        html {
+            background-color: white;
+        }
+
+        body {
+            width: 80%;
+            margin: auto;
+            margin-top: 20px;
+            background-color: lightgrey;
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        nav li:hover {
+            background-color: lightgrey;
+        }
+        footer {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Gestion étudiants et formateurs</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="#">Page d'accueil</a></li>
+            <li><a href="#">Liste des étudiants</a></li>
+            <li><a href="#">Liste des formateurs</a></li>
+            <li><a href="#">Liste des projets</a></li>
+            <li><a href="#">Liste des équipes</a></li>
+            <li><a href="{{ path('ft_user_connexion') }}">Connexion</a></li>
+        </ul>
+    </div>
+</nav>
+{% block body %}
+    <div class="container">
+        <h3><a href="#">Les 3 derniers projets créés</a></h3>
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                    mauris
+                    condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
+                    euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                    mauris
+                    condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
+                    euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
+                    porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+                    ut
+                    fermentum massa justo sit amet risus.</p>
+                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+        </div>
+
+        <h3><a href="#">Les 3 dernières équipes créés</a></h3>
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                    mauris
+                    condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
+                    euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                    mauris
+                    condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
+                    euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
+                    porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+                    ut
+                    fermentum massa justo sit amet risus.</p>
+                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+<hr>
+
+<footer>
+    <p>&copy; Florian Taffaneau, ENS Cachan</p>
+</footer>
+</body>
+</html>

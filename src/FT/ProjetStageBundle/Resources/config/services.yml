@@ -1,0 +1,4 @@
+services:
+#    ft_projet_stage.example:
+#        class: FT\ProjetStageBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

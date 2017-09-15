@@ -1,0 +1,3 @@
+ft_projet_stage:
+    resource: "@FTProjetStageBundle/Resources/config/routing.yml"
+    prefix:   /
