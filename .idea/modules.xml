@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ProjetStage.iml" filepath="$PROJECT_DIR$/.idea/ProjetStage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../TutorielSymfony/.idea/TutorielSymfony.iml" filepath="$PROJECT_DIR$/../TutorielSymfony/.idea/TutorielSymfony.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../accor/accor/.idea/accor.iml" filepath="$PROJECT_DIR$/../accor/accor/.idea/accor.iml" />
     </modules>
   </component>
 </project>

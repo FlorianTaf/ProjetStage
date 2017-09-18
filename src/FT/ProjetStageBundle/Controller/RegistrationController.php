@@ -10,7 +10,9 @@ namespace FT\ProjetStageBundle\Controller;
 
 
 use FT\ProjetStageBundle\Entity\Personne;
+use FT\ProjetStageBundle\Form\PersonneType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class RegistrationController extends Controller
 {
@@ -19,9 +21,17 @@ class RegistrationController extends Controller
         return $this->render('FTProjetStageBundle:Registration:connexion.html.twig');
     }
 
-    public function vueInscriptionAction()
+    public function vueInscriptionAction(Request $request)
     {
-        return $this->render('FTProjetStageBundle:Registration:inscription.html.twig');
+        $personne = new Personne();
+        $form = $this->createForm(PersonneType::class, $personne);
+
+        if($request->isMethod('POST')){
+            $form->handleRequest($request);
+            //Traitement à faire
+        }
+
+        return $this->render('FTProjetStageBundle:Registration:inscription.html.twig', array('form' => $form->createView()));
     }
 
     public function vueResetPasswordAction()

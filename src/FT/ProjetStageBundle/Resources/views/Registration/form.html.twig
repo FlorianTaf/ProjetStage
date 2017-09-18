@@ -1,0 +1,161 @@
+{{ form_start(form, {'attr': {'id': 'register-form', 'class': 'text-left'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form, {'attr': {'class' :'login-form-main-message'}}) }}
+
+    {# Génération manuelle et éclatée : #}
+<div class="main-login-form">
+    <div class="login-group">
+        {# Nom #}
+        <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.nom, "Nom", {'label_attr': {'class': 'form-control'}}) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.nom) }}
+
+            {{ form_widget(form.nom, {'attr': {'class': 'form-control', 'id': 'lastname'}}) }}
+        </div>
+
+        {# Prénom #}
+        <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.prenom, "Prénom", {'label_attr': {'class': 'form-control'}}) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.prenom) }}
+
+            {{ form_widget(form.prenom, {'attr': {'class': 'form-control', 'id': 'firstname'}}) }}
+        </div>
+
+        {# Pseudo #}
+        <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.username, "Pseudo", {'label_attr': {'class': 'form-control'}}) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.username) }}
+
+            {{ form_widget(form.username, {'attr': {'class': 'form-control', 'id': 'username'}}) }}
+        </div>
+
+        {# Email #}
+        <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.email, "Confirmation du mot de passe", {'label_attr': {'class': 'form-control'}}) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.email) }}
+
+            {{ form_widget(form.email, {'attr': {'class': 'form-control', 'id': 'email'}}) }}
+        </div>
+
+        {# Mot de passe #}
+        <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.password, "Mot de passe", {'label_attr': {'class': 'form-control'}}) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.password) }}
+
+            {{ form_widget(form.password, {'attr': {'class': 'form-control', 'id': 'password'}}) }}
+        </div>
+
+
+        {# Type de personne #}
+        <div class="form-group login-group-checkbox">
+            {# Génération du label. #}
+            {#{{ form_label(form.type, "Votre statut", {'label_attr': {'class': 'form-control'}}) }}#}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {#{{ form_errors(form.type) }}#}
+
+            {#{{ form_widget(form.type, {'attr': {'class': 'form-control', 'id': 'type'}}) }}#}
+        </div>
+
+    </div>
+
+    {# Bouton submit #}
+    <div class="form-group login-group">
+        {# Génération du label. #}
+        {{ form_label(form.save, "S'inscrire", {'label_attr': {'class': 'form-control'}}) }}
+
+        {{ form_widget(form.save, {'attr': {'class': 'fa fa-chevron-right'}}) }}
+    </div>
+
+    {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+    {{ form_widget(form.save, {'attr': {'class': 'login-button'}}) }}
+
+    {# Génération automatique des champs pas encore écrits.
+       Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+       et tous les champs cachés (type « hidden »). #}
+    {{ form_rest(form) }}
+
+    {# Fermeture de la balise <form> du formulaire HTML #}
+    {{ form_end(form) }}
+    <div class="etc-login-form">
+        <p>Déjà un compte? <a href=" {{ path('ft_user_connexion') }}">Connectez-vous ici</a></p>
+    </div>
+</div>
+
+{# On charge la bibliothèque jQuery. Ici, je la prends depuis le CDN google
+   mais si vous l'avez en local, changez simplement l'adresse. #}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+{# Voici le script en question : #}
+<script type="text/javascript">
+    $(document).ready(function () {
+        // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
+        var $container = $('div#oc_platformbundle_advert_categories');
+        // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
+        var index = $container.find(':input').length;
+        // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
+        $('#add_category').click(function (e) {
+            addCategory($container);
+            e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+            return false;
+        });
+        // On ajoute un premier champ automatiquement s'il n'en existe pas déjà un (cas d'une nouvelle annonce par exemple).
+        if (index == 0) {
+            addCategory($container);
+        } else {
+            // S'il existe déjà des catégories, on ajoute un lien de suppression pour chacune d'entre elles
+            $container.children('div').each(function () {
+                addDeleteLink($(this));
+            });
+        }
+
+        // La fonction qui ajoute un formulaire CategoryType
+        function addCategory($container) {
+            // Dans le contenu de l'attribut « data-prototype », on remplace :
+            // - le texte "__name__label__" qu'il contient par le label du champ
+            // - le texte "__name__" qu'il contient par le numéro du champ
+            var template = $container.attr('data-prototype')
+                .replace(/__name__label__/g, 'Catégorie n°' + (index + 1))
+                .replace(/__name__/g, index)
+            ;
+            // On crée un objet jquery qui contient ce template
+            var $prototype = $(template);
+            // On ajoute au prototype un lien pour pouvoir supprimer la catégorie
+            addDeleteLink($prototype);
+            // On ajoute le prototype modifié à la fin de la balise <div>
+            $container.append($prototype);
+            // Enfin, on incrémente le compteur pour que le prochain ajout se fasse avec un autre numéro
+            index++;
+        }
+
+        // La fonction qui ajoute un lien de suppression d'une catégorie
+        function addDeleteLink($prototype) {
+            // Création du lien
+            var $deleteLink = $('<a href="#" class="btn btn-danger">Supprimer</a>');
+            // Ajout du lien
+            $prototype.append($deleteLink);
+            // Ajout du listener sur le clic du lien pour effectivement supprimer la catégorie
+            $deleteLink.click(function (e) {
+                $prototype.remove();
+                e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+                return false;
+            });
+        }
+    });
+</script>

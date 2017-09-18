@@ -12,6 +12,8 @@
     <div class="text-center" style="padding:50px 0">
         <div class="logo">Inscription</div>
         <div class="login-form-1">
+            {{ include("FTProjetStageBundle:Registration:form.html.twig") }}
+            {#
             <form id="register-form" class="text-left">
                 <div class="login-form-main-message"></div>
                 <div class="main-login-form">
@@ -48,6 +50,7 @@
                     <p>Déjà un compte? <a href=" {{ path('ft_user_connexion') }} ">Connectez-vous ici</a></p>
                 </div>
             </form>
+            #}
         </div>
     </div>
 {% endblock %}
