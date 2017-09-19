@@ -9,86 +9,89 @@
         {# Nom #}
         <div class="form-group">
             {# Génération du label. #}
-            {{ form_label(form.nom, "Nom", {'label_attr': {'class': 'form-control'}}) }}
+            {{ form_label(form.nom) }}
 
             {# Affichage des erreurs pour ce champ précis. #}
             {{ form_errors(form.nom) }}
 
-            {{ form_widget(form.nom, {'attr': {'class': 'form-control', 'id': 'lastname'}}) }}
+            {{ form_widget(form.nom) }}
         </div>
 
         {# Prénom #}
         <div class="form-group">
             {# Génération du label. #}
-            {{ form_label(form.prenom, "Prénom", {'label_attr': {'class': 'form-control'}}) }}
+            {{ form_label(form.prenom) }}
 
             {# Affichage des erreurs pour ce champ précis. #}
             {{ form_errors(form.prenom) }}
 
-            {{ form_widget(form.prenom, {'attr': {'class': 'form-control', 'id': 'firstname'}}) }}
+            {{ form_widget(form.prenom) }}
         </div>
 
         {# Pseudo #}
         <div class="form-group">
             {# Génération du label. #}
-            {{ form_label(form.username, "Pseudo", {'label_attr': {'class': 'form-control'}}) }}
+            {{ form_label(form.username) }}
 
             {# Affichage des erreurs pour ce champ précis. #}
             {{ form_errors(form.username) }}
 
-            {{ form_widget(form.username, {'attr': {'class': 'form-control', 'id': 'username'}}) }}
+            {{ form_widget(form.username) }}
+        </div>
+
+        {# Téléphone #}
+        <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.telephone) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.telephone) }}
+
+            {{ form_widget(form.telephone) }}
         </div>
 
         {# Email #}
         <div class="form-group">
             {# Génération du label. #}
-            {{ form_label(form.email, "Confirmation du mot de passe", {'label_attr': {'class': 'form-control'}}) }}
+            {{ form_label(form.email) }}
 
             {# Affichage des erreurs pour ce champ précis. #}
             {{ form_errors(form.email) }}
 
-            {{ form_widget(form.email, {'attr': {'class': 'form-control', 'id': 'email'}}) }}
+            {{ form_widget(form.email) }}
         </div>
 
         {# Mot de passe #}
         <div class="form-group">
             {# Génération du label. #}
-            {{ form_label(form.password, "Mot de passe", {'label_attr': {'class': 'form-control'}}) }}
+            {{ form_label(form.password) }}
 
             {# Affichage des erreurs pour ce champ précis. #}
             {{ form_errors(form.password) }}
 
-            {{ form_widget(form.password, {'attr': {'class': 'form-control', 'id': 'password'}}) }}
+            {{ form_widget(form.password) }}
         </div>
 
+        <div class="form-group">
+            <label for="password_confirm" class="form-control">Confirmation du mot de passe</label>
+            <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="mdp123">
+        </div>
 
-        {# Type de personne #}
-        <div class="form-group login-group-checkbox">
+        {# Statut de la personne #}
+        <div class="form-group">
             {# Génération du label. #}
-            {#{{ form_label(form.type, "Votre statut", {'label_attr': {'class': 'form-control'}}) }}#}
+            {{ form_label(form.type, "Statut", {'label_attr': {'class': 'form-control'}}) }}
 
             {# Affichage des erreurs pour ce champ précis. #}
-            {#{{ form_errors(form.type) }}#}
+            {{ form_errors(form.type) }}
 
-            {#{{ form_widget(form.type, {'attr': {'class': 'form-control', 'id': 'type'}}) }}#}
+            {{ form_widget(form.type) }}
         </div>
 
     </div>
 
-    {# Bouton submit #}
-    <div class="form-group login-group">
-        {# Génération du label. #}
-        {{ form_label(form.save, "S'inscrire", {'label_attr': {'class': 'form-control'}}) }}
+    {{ form_widget(form.save) }}
 
-        {{ form_widget(form.save, {'attr': {'class': 'fa fa-chevron-right'}}) }}
-    </div>
-
-    {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-    {{ form_widget(form.save, {'attr': {'class': 'login-button'}}) }}
-
-    {# Génération automatique des champs pas encore écrits.
-       Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
-       et tous les champs cachés (type « hidden »). #}
     {{ form_rest(form) }}
 
     {# Fermeture de la balise <form> du formulaire HTML #}
