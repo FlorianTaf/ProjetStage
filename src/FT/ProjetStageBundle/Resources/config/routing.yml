@@ -4,12 +4,12 @@ ft_projet_stage_homepage:
 
 #Connexion utilisateur
 ft_user_connexion:
-    path:     /connexion
-    defaults: {_controller: FTProjetStageBundle:Registration:vueConnexion }
+    path:     /login
+    defaults: {_controller: FTProjetStageBundle:Registration:login }
 #Inscription utilisateur
 ft_user_inscription:
-    path:     /inscription
-    defaults: {_controller: FTProjetStageBundle:Registration:inscription }
+    path:     /registration
+    defaults: {_controller: FTProjetStageBundle:Registration:registration }
 #Reset password utilisateur
 ft_user_reset_password:
     path:     /resetPassword

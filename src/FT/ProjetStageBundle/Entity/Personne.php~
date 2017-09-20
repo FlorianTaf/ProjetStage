@@ -74,6 +74,11 @@ class Personne
     private $formateur;
 
     /**
+     * @ORM\ManyToOne(targetEntity="FT\ProjetStageBundle\Entity\Role", inversedBy="personnes")
+     */
+    private $role;
+
+    /**
      * Get id
      *
      * @return int
@@ -230,11 +235,11 @@ class Personne
     /**
      * Set etudiant
      *
-     * @param \OC\PlatformBundle\Entity\Etudiant $etudiant
+     * @param \FT\ProjetStageBundle\Entity\Etudiant $etudiant
      *
      * @return Personne
      */
-    public function setEtudiant(\OC\PlatformBundle\Entity\Etudiant $etudiant = null)
+    public function setEtudiant(\FT\ProjetStageBundle\Entity\Etudiant $etudiant = null)
     {
         $this->etudiant = $etudiant;
 
@@ -244,7 +249,7 @@ class Personne
     /**
      * Get etudiant
      *
-     * @return \OC\PlatformBundle\Entity\Etudiant
+     * @return \FT\ProjetStageBundle\Entity\Etudiant
      */
     public function getEtudiant()
     {
@@ -273,5 +278,29 @@ class Personne
     public function getFormateur()
     {
         return $this->formateur;
+    }
+
+    /**
+     * Set role
+     *
+     * @param \FT\ProjetStageBundle\Entity\Role $role
+     *
+     * @return Personne
+     */
+    public function setRole(\FT\ProjetStageBundle\Entity\Role $role = null)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return \FT\ProjetStageBundle\Entity\Role
+     */
+    public function getRole()
+    {
+        return $this->role;
     }
 }

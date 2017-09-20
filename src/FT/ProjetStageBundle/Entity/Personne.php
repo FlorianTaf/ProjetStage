@@ -3,6 +3,7 @@
 namespace FT\ProjetStageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Personne
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="personne")
  * @ORM\Entity(repositoryClass="FT\ProjetStageBundle\Repository\PersonneRepository")
  */
-class Personne
+class Personne implements UserInterface, \Serializable
 {
     /**
      * @var int
@@ -72,6 +73,11 @@ class Personne
      * @ORM\OneToOne(targetEntity="FT\ProjetStageBundle\Entity\Formateur", cascade={"persist", "remove"})
      */
     private $formateur;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="FT\ProjetStageBundle\Entity\Role", inversedBy="personnes")
+     */
+    private $role;
 
     /**
      * Get id
@@ -273,5 +279,67 @@ class Personne
     public function getFormateur()
     {
         return $this->formateur;
+    }
+
+    /**
+     * Set role
+     *
+     * @param \FT\ProjetStageBundle\Entity\Role $role
+     *
+     * @return Personne
+     */
+    public function setRole(\FT\ProjetStageBundle\Entity\Role $role = null)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+
+    /**
+     * Get role
+     *
+     * @return \FT\ProjetStageBundle\Entity\Role
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    public function getRoles()
+    {
+        return array($this->role->getName());
+    }
+
+    public function getSalt()
+    {
+        return null;
+    }
+
+    public function eraseCredentials()
+    {
+        return null;
+    }
+
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->password,
+            // see section on salt below
+            // $this->salt,
+        ));
+    }
+
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->username,
+            $this->password,
+            // see section on salt below
+            // $this->salt
+            ) = unserialize($serialized);
     }
 }
