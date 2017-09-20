@@ -27,10 +27,19 @@ class RegistrationController extends Controller
         $form = $this->createForm(PersonneType::class, $personne);
 
         if ($request->isMethod('POST')) {
-            $form->handleRequest($request);
-            //Traitement à faire
+            if ($form->handleRequest($request)->isValid()) {
+                $passwordConfirm = $request->request->get('password_confirm');
+                var_dump($passwordConfirm);
+                $type = $request->request->get('type');
+                if($type === 'formateur'){
+                    $personne->setType('f');
+                }
+                else{
+                    $personne->setType('e');
+                }
+                var_dump($type);
+            }
         }
-
         return $this->render('FTProjetStageBundle:Registration:inscription.html.twig', array('form' => $form->createView()));
     }
 

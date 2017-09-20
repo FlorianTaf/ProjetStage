@@ -41,7 +41,7 @@ class PersonneType extends AbstractType
                     array('class' => 'form-control'), 'attr' =>
                     array('class' => 'form-control', 'placeholder' => 'florian.taffaneau@laposte.net')))
             ->add('password', PasswordType::class,
-                array('label' => 'Mot de passe', 'required' => true, 'label_attr' =>
+                array('label' => 'Mot de passe', 'required' => true, 'data' => 'etudiant', 'label_attr' =>
                     array('class' => 'form-control'), 'attr' =>
                     array('class' => 'form-control', 'placeholder' => 'mdp123')))
             ->add('type', ChoiceType::class,

@@ -99,6 +99,9 @@
     <div class="etc-login-form">
         <p>Déjà un compte? <a href=" {{ path('ft_user_connexion') }}">Connectez-vous ici</a></p>
     </div>
+    <div class="loader-gif" style="width: 100%; height: 30px">
+
+    </div>
 </div>
 
 {# On charge la bibliothèque jQuery. Ici, je la prends depuis le CDN google
@@ -108,6 +111,11 @@
 {# Voici le script en question : #}
 <script type="text/javascript">
     $(document).ready(function () {
+        //Spinner pour le chargement au clic du bouton d'inscription
+        $('.login-button').on('click', function () {
+            $('.loader-gif').html('<img src="../fonts/gifs/spinner.gif" style="display: block; margin: 0 auto;">');
+        });
+
         // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
         var $container = $('div#oc_platformbundle_advert_categories');
         // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
@@ -160,5 +168,6 @@
                 return false;
             });
         }
+
     });
 </script>
