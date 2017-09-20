@@ -9,7 +9,7 @@ ft_user_connexion:
 #Inscription utilisateur
 ft_user_inscription:
     path:     /inscription
-    defaults: {_controller: FTProjetStageBundle:Registration:vueInscription }
+    defaults: {_controller: FTProjetStageBundle:Registration:inscription }
 #Reset password utilisateur
 ft_user_reset_password:
     path:     /resetPassword

@@ -64,12 +64,14 @@ class Personne
     private $password;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="type", type="string", length=1)
+     * @ORM\OneToOne(targetEntity="FT\ProjetStageBundle\Entity\Etudiant", cascade={"persist", "remove"})
      */
-    private $type;
+    private $etudiant;
 
+    /**
+     * @ORM\OneToOne(targetEntity="FT\ProjetStageBundle\Entity\Formateur", cascade={"persist", "remove"})
+     */
+    private $formateur;
 
     /**
      * Get id
@@ -202,26 +204,74 @@ class Personne
     }
 
     /**
-     * Set type
+     * Set username
      *
-     * @param string $type
+     * @param string $username
      *
      * @return Personne
      */
-    public function setType($type)
+    public function setUsername($username)
     {
-        $this->type = $type;
+        $this->username = $username;
 
         return $this;
     }
 
     /**
-     * Get type
+     * Get username
      *
      * @return string
      */
-    public function getType()
+    public function getUsername()
     {
-        return $this->type;
+        return $this->username;
+    }
+
+    /**
+     * Set etudiant
+     *
+     * @param \OC\PlatformBundle\Entity\Etudiant $etudiant
+     *
+     * @return Personne
+     */
+    public function setEtudiant(\OC\PlatformBundle\Entity\Etudiant $etudiant = null)
+    {
+        $this->etudiant = $etudiant;
+
+        return $this;
+    }
+
+    /**
+     * Get etudiant
+     *
+     * @return \OC\PlatformBundle\Entity\Etudiant
+     */
+    public function getEtudiant()
+    {
+        return $this->etudiant;
+    }
+
+    /**
+     * Set formateur
+     *
+     * @param \FT\ProjetStageBundle\Entity\Formateur $formateur
+     *
+     * @return Personne
+     */
+    public function setFormateur(\FT\ProjetStageBundle\Entity\Formateur $formateur = null)
+    {
+        $this->formateur = $formateur;
+
+        return $this;
+    }
+
+    /**
+     * Get formateur
+     *
+     * @return \FT\ProjetStageBundle\Entity\Formateur
+     */
+    public function getFormateur()
+    {
+        return $this->formateur;
     }
 }

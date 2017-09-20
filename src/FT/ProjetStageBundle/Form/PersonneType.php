@@ -43,11 +43,7 @@ class PersonneType extends AbstractType
             ->add('password', PasswordType::class,
                 array('label' => 'Mot de passe', 'required' => true, 'data' => 'etudiant', 'label_attr' =>
                     array('class' => 'form-control'), 'attr' =>
-                    array('class' => 'form-control', 'placeholder' => 'mdp123')))
-            ->add('type', ChoiceType::class,
-                array('choices' =>
-                    array('etudiant' => 'Étudiant', 'formateur' => 'Formateur'), 'required' => true, 'preferred_choices' =>
-                    array('etudiant'), 'multiple' => false, 'expanded' => true))
+                    array('class' => 'form-control', 'id' => 'password', 'placeholder' => 'mdp123')))
             ->add('save', SubmitType::class,
                 array('attr' =>
                     array('class' => 'login-button')));
