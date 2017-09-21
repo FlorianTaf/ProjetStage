@@ -17,3 +17,6 @@ ft_personne_modif_password:
 ft_personne_profile:
     path: /personne/profile
     defaults: {_controller: FTProjetStageBundle:Personne:profile }
+ft_liste_etudiants:
+    path: /listeEtudiants
+    defaults: {_controller: FTProjetStageBundle:Etudiant:liste }

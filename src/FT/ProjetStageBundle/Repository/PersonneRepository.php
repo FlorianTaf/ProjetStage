@@ -10,15 +10,11 @@ namespace FT\ProjetStageBundle\Repository;
  */
 class PersonneRepository extends \Doctrine\ORM\EntityRepository
 {
-    /*
-    public function loadUserByUsername($username)
+    public function loadEtudiants()
     {
         return $this->createQueryBuilder('p')
-            ->where('p.username = :username OR p.email = :email')
-            ->setParameter('username', $username)
-            ->setParameter('email', $username)
+            ->where('p.etudiant_id IS NOT NULL')
             ->getQuery()
-            ->getOneOrNullResult();
+            ->getResult();
     }
-    */
 }

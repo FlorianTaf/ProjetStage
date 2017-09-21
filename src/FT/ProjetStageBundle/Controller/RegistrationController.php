@@ -43,11 +43,14 @@ class RegistrationController extends Controller
 
         $personne = new Personne();
         $form = $this->createForm(PersonneType::class, $personne);
+        //$form = $this->createForm(new PersonneType($this->getDoctrine()->getManager()), $personne);
         if ($request->isMethod('POST')) {
             if ($form->handleRequest($request)->isValid()) {
                 $em = $this->getDoctrine()->getManager();
                 $data = $form->getData(); // On récupère toutes les données saisies dans le formulaire
 
+
+                echo $data->getRole()->getName();
                 //On vérifie que l'adresse n'est pas utilisée
                 $mail = $em->getRepository('FTProjetStageBundle:Personne')->findBy(array('email' => $data->getEmail()));
                 if ($mail != null) {
@@ -73,15 +76,15 @@ class RegistrationController extends Controller
                 }
 
                 //On check si la personne est étudiante ou formateur
-                $type = $request->request->get('type');
-                if ($type === 'formateur') {
+                $role = $data->getRole();
+                if ($role->getName() === 'ROLE_FORMATEUR') {
                     $formateur = new Formateur();
                     $personne->setFormateur($formateur);
-                    $personne->setRole(2);
+                    $personne->setRole($role);
                 } else {
                     $etudiant = new Etudiant();
                     $personne->setEtudiant($etudiant);
-                    $personne->setRole(1);
+                    $personne->setRole($role);
                 }
                 $em->persist($personne);
                 $em->flush();

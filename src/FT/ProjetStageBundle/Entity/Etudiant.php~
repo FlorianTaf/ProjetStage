@@ -1,0 +1,39 @@
+<?php
+
+namespace FT\ProjetStageBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Etudiant
+ *
+ * @ORM\Table(name="etudiant")
+ * @ORM\Entity(repositoryClass="FT\ProjetStageBundle\Repository\EtudiantRepository")
+ */
+class Etudiant
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\OneToOne(targetEntity="FT\ProjetStageBundle\Entity\Etudiant", inversedBy="etudiant", cascade={"persist", "remove"})
+     */
+    private $personne;
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}
+

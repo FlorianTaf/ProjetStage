@@ -1,13 +1,15 @@
 {# src/FT/ProjetStageBundle/Resources/views/index.html.twig #}
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>{% block title %}Bienvenue sur la page d'accueil de mon site {% endblock %}</title>
     {% block stylesheets %}
         <link rel="stylesheet" href=" {{ asset('css/bootstrap.css') }}">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-        <link href=" {{ asset('css/registration.css') }}" rel="stylesheet">
+        <link href=" {{ asset('css/registration.css') }}"
+              rel="stylesheet"> <!-- Stylesheet pour tout ce qui touche à la connexion, inscription, modif profile etc -->
+        <link rel="stylesheet" href="{{ asset('css/liste.css') }}"><!-- Stylesheet pour les listes étudiants/projets -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     {% endblock %}
     <style>
@@ -26,6 +28,7 @@
         nav li:hover {
             background-color: lightgrey;
         }
+
         footer {
             margin-left: 10px;
         }
@@ -34,29 +37,32 @@
 <body>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Gestion étudiants et formateurs</a>
-        </div>
         <ul class="nav navbar-nav">
             <li><a href="{{ path('ft_projet_stage_homepage') }}">Page d'accueil</a></li>
-            <li><a href="#">Liste des étudiants</a></li>
+            <li><a href="{{ path('ft_liste_etudiants') }}">Liste des étudiants</a></li>
             <li><a href="#">Liste des formateurs</a></li>
             <li><a href="#">Liste des projets</a></li>
             <li><a href="#">Liste des équipes</a></li>
             {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
-            <li id="navBarConnexion"><a href="{{ path('ft_personne_connexion') }}">Connexion</a></li>
+                <li id="navBarConnexion"><a href="{{ path('ft_personne_connexion') }}">Connexion</a></li>
             {% endif %}
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <li><a href="{{ path('logout') }}">Déconnexion</a></li>
                 <style>
-                    #navBarConnexion{
+                    #navBarConnexion {
                         display: none;
                     }
                 </style>
             {% endif %}
         </ul>
     </div>
-    <div style="border-top: solid; border-color: lightgrey; border-width: 1px;">Connecté en tant que {{ personne.username }}</div>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <div style="border-top: solid; border-color: lightgrey; border-width: 1px;">
+            <span style="margin-left: 30px;">
+                Connecté en tant que {{ personne.username }}
+            </span>
+        </div>
+    {% endif %}
 </nav>
 {% block body %}
     <div class="container">
@@ -120,11 +126,12 @@
 <hr>
 
 <footer>
-    <p>&copy; Florian Taffaneau, ENS Cachan</p>
+    <p style="margin-left: 20px;">&copy; Florian Taffaneau, ENS Cachan</p>
 </footer>
 {% block js %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="{{ asset('js/spinner.js') }}"></script>
+    <script src="{{ asset('js/liste.js') }}"></script>
 {% endblock %}
 </body>
 </html>

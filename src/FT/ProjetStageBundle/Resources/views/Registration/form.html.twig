@@ -79,13 +79,14 @@
                    placeholder="mdp123">
         </div>
 
-        {# Statut de la personne #}
-        <div class="form-group login-group-checkbox">
-            <input type="radio" class="" name="type" id="etudiant" checked="checked" value="etudiant">
-            <label for="etudiant">Étudiant</label>
+        <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.role) }}
 
-            <input type="radio" class="" name="type" id="formateur" value="formateur">
-            <label for="formateur">Formateur</label>
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.role) }}
+
+            {{ form_widget(form.role, { value: 'ROLE_ETUDIANT'}) }}
         </div>
 
     </div>
