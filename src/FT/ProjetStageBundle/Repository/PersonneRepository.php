@@ -12,8 +12,9 @@ class PersonneRepository extends \Doctrine\ORM\EntityRepository
 {
     public function loadEtudiants()
     {
-        return $this->createQueryBuilder('p')
-            ->where('p.etudiant_id IS NOT NULL')
+        $qb = $this->createQueryBuilder('p');
+        return $qb
+            ->where($qb->expr()->isNotNull('p.etudiant'))
             ->getQuery()
             ->getResult();
     }

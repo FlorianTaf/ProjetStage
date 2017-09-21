@@ -92,6 +92,8 @@ class PersonneController extends Controller
 
             return $this->redirectToRoute('ft_personne_profile');
         }
-        return $this->render('FTProjetStageBundle:Personne:modifPassword.html.twig');
+        return $this->render('FTProjetStageBundle:Personne:modifPassword.html.twig', array(
+            'personne' => $personne
+        ));
     }
 }

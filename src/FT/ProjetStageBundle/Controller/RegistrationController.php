@@ -94,4 +94,10 @@ class RegistrationController extends Controller
         }
         return $this->render('FTProjetStageBundle:Registration:inscription.html.twig', array('form' => $form->createView()));
     }
+
+    //Méthode à coder avec envoi de mail (swiftmailer)
+    public function resetPasswordAction()
+    {
+        return $this->render('FTProjetStageBundle:Registration:resetPassword.html.twig');
+    }
 }

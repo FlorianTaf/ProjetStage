@@ -41,3 +41,7 @@ security:
                 always_remember_me: true
             security: true
             anonymous: true
+
+    access_control:
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/personne, roles: [ROLE_ETUDIANT, ROLE_FORMATEUR] }

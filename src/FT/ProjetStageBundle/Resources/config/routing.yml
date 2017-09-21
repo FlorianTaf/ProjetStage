@@ -12,11 +12,14 @@ ft_personne_inscription:
     defaults: {_controller: FTProjetStageBundle:Registration:registration }
 #Reset password utilisateur
 ft_personne_modif_password:
-    path:     /resetPassword
+    path:     /personne/modifPassword
     defaults: {_controller: FTProjetStageBundle:Personne:modifPassword }
 ft_personne_profile:
     path: /personne/profile
     defaults: {_controller: FTProjetStageBundle:Personne:profile }
 ft_liste_etudiants:
-    path: /listeEtudiants
+    path: /personne/listeEtudiants
     defaults: {_controller: FTProjetStageBundle:Etudiant:liste }
+ft_reset_password:
+    path: /resetPassword
+    defaults: {_controller: FTProjetStageBundle:Registration:resetPassword }
