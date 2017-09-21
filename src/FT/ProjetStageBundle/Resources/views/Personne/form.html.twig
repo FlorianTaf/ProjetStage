@@ -1,0 +1,133 @@
+{{ form_start(form, {'attr': {'id': 'register-form', 'class': 'text-left'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form, {'attr': {'class' :'login-form-main-message'}}) }}
+
+    {# Génération manuelle et éclatée : #}
+<div class="main-login-form">
+    <div class="login-group">
+        {# Nom #}
+        <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.nom) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.nom) }}
+
+            {{ form_widget(form.nom) }}
+        </div>
+
+        {# Prénom #}
+        <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.prenom) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.prenom) }}
+
+            {{ form_widget(form.prenom) }}
+        </div>
+
+        {# Pseudo #}
+        <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.username) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.username) }}
+
+            {{ form_widget(form.username) }}
+        </div>
+
+        {# Téléphone #}
+        <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.telephone) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.telephone) }}
+
+            {{ form_widget(form.telephone) }}
+        </div>
+
+        {# Email #}
+        <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.email) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.email) }}
+
+            {{ form_widget(form.email) }}
+        </div>
+
+        {# Mot de passe #}
+        <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.password) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.password) }}
+
+            {{ form_widget(form.password) }}
+        </div>
+
+        {# Confirmation du mot de passe #}
+        <div class="form-group">
+            <label for="password_confirm" class="form-control">Confirmation du mot de passe</label>
+            <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="mdp123">
+        </div>
+
+        {# Statut de la personne #}
+        <div class="form-group login-group-checkbox">
+            <input type="radio" class="" name="type" id="etudiant" checked="checked" value="etudiant">
+            <label for="etudiant">Étudiant</label>
+
+            <input type="radio" class="" name="type" id="formateur" value="formateur">
+            <label for="formateur">Formateur</label>
+        </div>
+
+    </div>
+
+    {{ form_widget(form.save) }}
+
+    {{ form_rest(form) }}
+
+    {# Fermeture de la balise <form> du formulaire HTML #}
+    {{ form_end(form) }}
+    <div class="etc-login-form">
+        <p>Déjà un compte? <a href=" {{ path('ft_user_connexion') }}">Connectez-vous ici</a></p>
+    </div>
+    <div class="loader-gif" style="width: 100%; height: 30px">
+
+    </div>
+</div>
+
+{# On charge la bibliothèque jQuery. Ici, je la prends depuis le CDN google
+   mais si vous l'avez en local, changez simplement l'adresse. #}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+{# Voici le script en question : #}
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Spinner pour le chargement au clic du bouton d'inscription
+        $('.login-button').on('click', function () {
+            $('.loader-gif').html('<img src="../fonts/gifs/spinner.gif" style="display: block; margin: 0 auto;">');
+        });
+
+        /*
+        $('#register-form').submit(function () {
+            var password = $('#password').val();
+            var passwordConfirm = $('#password_confirm').val();
+            if (password != passwordConfirm){
+                alert('tamerelapute');
+                return false;
+            }
+            else{
+                alert('tamereestcool');
+                return true;
+            }
+        });
+        */
+    });
+</script>

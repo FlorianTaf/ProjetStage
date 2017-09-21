@@ -10,6 +10,7 @@ namespace FT\ProjetStageBundle\Repository;
  */
 class PersonneRepository extends \Doctrine\ORM\EntityRepository
 {
+    /*
     public function loadUserByUsername($username)
     {
         return $this->createQueryBuilder('p')
@@ -19,4 +20,5 @@ class PersonneRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery()
             ->getOneOrNullResult();
     }
+    */
 }

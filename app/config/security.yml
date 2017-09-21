@@ -27,7 +27,7 @@ security:
             form_login:
                 login_path: login
                 check_path: login_check
-                default_target_path: /
+                default_target_path: personne_profile
                 always_use_default_target_path: true
                 #csrf_token_generator: security.csrf.token_manager
             logout:
