@@ -67,4 +67,31 @@ class PersonneController extends Controller
             array('form' => $form->createView(),
                 'personne' => $personne));
     }
+
+    public function modifPasswordAction(Request $request)
+    {
+        $personne = $this->getUser();
+        $password = $personne->getPassword();
+        $em = $this->getDoctrine()->getManager();
+
+        if ($request->isMethod('POST')) {
+            $oldPassword = $request->request->get('_oldPassword');
+            $newPassword = $request->request->get('_newPassword');
+            $newPasswordConfirm = $request->request->get('_newPasswordConfirm');
+
+            //Si les mots de passe ne sont pas bons, on renvoie l'utilisateur vers le formulaire de modification de mdp
+            if (($password != $oldPassword) || ($newPassword != $newPasswordConfirm) || (($password != $oldPassword) && ($newPasswordConfirm != $newPasswordConfirm))){
+                $error = "Le(s) mot de passe(s) ne correspondent pas";
+                return $this->render('FTProjetStageBundle:Personne:modifPassword.html.twig', array(
+                    'error' => $error
+                ));
+            }
+            //Si c'est ok, on flush l'entité en modifiant bien le mpd
+            $personne->setPassword($newPassword);
+            $em->flush();
+
+            return $this->redirectToRoute('ft_personne_profile');
+        }
+        return $this->render('FTProjetStageBundle:Personne:modifPassword.html.twig');
+    }
 }

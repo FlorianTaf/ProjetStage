@@ -15,6 +15,9 @@ class AccueilController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('FTProjetStageBundle::index.html.twig');
+        $personne = $this->getUser();
+        return $this->render('FTProjetStageBundle::index.html.twig', array(
+            'personne' => $personne
+        ));
     }
 }

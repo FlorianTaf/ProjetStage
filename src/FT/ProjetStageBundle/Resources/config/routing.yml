@@ -3,14 +3,17 @@ ft_projet_stage_homepage:
     defaults: { _controller: FTProjetStageBundle:Accueil:index }
 
 #Connexion utilisateur
-ft_user_connexion:
+ft_personne_connexion:
     path:     /login
     defaults: {_controller: FTProjetStageBundle:Registration:login }
 #Inscription utilisateur
-ft_user_inscription:
+ft_personne_inscription:
     path:     /registration
     defaults: {_controller: FTProjetStageBundle:Registration:registration }
 #Reset password utilisateur
-ft_user_reset_password:
+ft_personne_modif_password:
     path:     /resetPassword
-    defaults: {_controller: FTProjetStageBundle:Registration:vueResetPassword }
+    defaults: {_controller: FTProjetStageBundle:Personne:modifPassword }
+ft_personne_profile:
+    path: /personne/profile
+    defaults: {_controller: FTProjetStageBundle:Personne:profile }

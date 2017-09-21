@@ -30,6 +30,4 @@ class PersonneEditType extends AbstractType
     {
         return PersonneType::class;
     }
-
-
 }

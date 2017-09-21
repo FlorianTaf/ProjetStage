@@ -38,14 +38,25 @@
             <a class="navbar-brand" href="#">Gestion étudiants et formateurs</a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="#">Page d'accueil</a></li>
+            <li><a href="{{ path('ft_projet_stage_homepage') }}">Page d'accueil</a></li>
             <li><a href="#">Liste des étudiants</a></li>
             <li><a href="#">Liste des formateurs</a></li>
             <li><a href="#">Liste des projets</a></li>
             <li><a href="#">Liste des équipes</a></li>
-            <li><a href="{{ path('ft_user_connexion') }}">Connexion</a></li>
+            {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+            <li id="navBarConnexion"><a href="{{ path('ft_personne_connexion') }}">Connexion</a></li>
+            {% endif %}
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li><a href="{{ path('logout') }}">Déconnexion</a></li>
+                <style>
+                    #navBarConnexion{
+                        display: none;
+                    }
+                </style>
+            {% endif %}
         </ul>
     </div>
+    <div style="border-top: solid; border-color: lightgrey; border-width: 1px;">Connecté en tant que {{ personne.username }}</div>
 </nav>
 {% block body %}
     <div class="container">

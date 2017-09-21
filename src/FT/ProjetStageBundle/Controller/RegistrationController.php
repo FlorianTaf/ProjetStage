@@ -91,18 +91,4 @@ class RegistrationController extends Controller
         }
         return $this->render('FTProjetStageBundle:Registration:inscription.html.twig', array('form' => $form->createView()));
     }
-
-    public function vueResetPasswordAction()
-    {
-        return $this->render('FTProjetStageBundle:Registration:resetPassword.html.twig');
-    }
-
-    public function memberInscriptionAction(Request $request, Personne $personne)
-    {
-        $entity = $this->getDoctrine()->getManager()->getRepository('FTProjetStageBundle:Personne');
-        if ($entity != null) {
-            $request->getSession()->getFlashBag()->add('warning', 'Un utilisateur portant ce nom et/ou cet email existe déjà');
-            return $this->render('ft_user_inscription', array('personne' => $entity));
-        }
-    }
 }
