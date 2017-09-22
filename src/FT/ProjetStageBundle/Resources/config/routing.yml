@@ -59,6 +59,7 @@ ft_personne_mesEquipes:
     defaults: { _controller: FTProjetStageBundle:Etudiant:mesEquipes }
     requirements:
         id: \d+
+#Création d'équipe
 ft_personne_creerEquipe:
     path: /personne/creerEquipe
     defaults: { _controller: FTProjetStageBundle:Etudiant:creerEquipe }

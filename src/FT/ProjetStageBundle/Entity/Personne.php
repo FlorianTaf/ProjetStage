@@ -3,7 +3,7 @@
 namespace FT\ProjetStageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
 /**
  * Personne
@@ -11,7 +11,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Table(name="personne")
  * @ORM\Entity(repositoryClass="FT\ProjetStageBundle\Repository\PersonneRepository")
  */
-class Personne implements UserInterface, \Serializable
+class Personne implements AdvancedUserInterface, \Serializable
 {
     /**
      * @var int
@@ -341,5 +341,25 @@ class Personne implements UserInterface, \Serializable
             // see section on salt below
             // $this->salt
             ) = unserialize($serialized);
+    }
+
+    public function isAccountNonExpired()
+    {
+        return true;
+    }
+
+    public function isAccountNonLocked()
+    {
+        return true;
+    }
+
+    public function isCredentialsNonExpired()
+    {
+        return true;
+    }
+
+    public function isEnabled()
+    {
+        return true;
     }
 }

@@ -4,7 +4,7 @@ security:
         FT\ProjetStageBundle\Entity\Personne:
             algorithm: plaintext
     role_hierarchy:
-        ROLE_ADMIN:        [ROLE_FORMATEUR, ROLE_ETUDIANT]
+        ROLE_ADMIN: [ROLE_FORMATEUR, ROLE_ETUDIANT]
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         in_memory:
@@ -43,5 +43,12 @@ security:
             anonymous: true
 
     access_control:
-        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/admin, roles: [ROLE_ADMIN] }
+
+        - { path: /personne/mesProjetsProprietaire, roles: [ROLE_FORMATEUR] }
+        - { path: /personne/creerProjet, roles: [ROLE_FORMATEUR] }
+
+        - { path: /personne/creerEquipe, roles: [ROLE_ETUDIANT] }
+        - { path: /personne/mesEquipes, roles: [ROLE_ETUDIANT] }
+
         - { path: ^/personne, roles: [ROLE_ETUDIANT, ROLE_FORMATEUR] }

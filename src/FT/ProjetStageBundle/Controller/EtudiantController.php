@@ -66,7 +66,7 @@ class EtudiantController extends Controller
             }
         }
 
-        return $this->render('FTProjetStageBundle:Etudiant:creerProjet.html.twig', array(
+        return $this->render('FTProjetStageBundle:Etudiant:creerEquipe.html.twig', array(
             'form' => $form->createView(),
             'personne' => $personne
         ));
