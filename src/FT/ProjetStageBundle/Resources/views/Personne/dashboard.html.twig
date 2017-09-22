@@ -1,0 +1,11 @@
+{% extends 'FTProjetStageBundle::index.html.twig' %}
+
+{% block body %}
+    <div id="fixedContainer">
+        <div id="fixedDiv">
+            <li class="fixedLi"><a href="{{ path('ft_personne_profile') }}">Modifier mon profil</a></li>
+            <li class="fixedLi"><a href="{{ path('ft_personne_mesProjets_proprietaire', {'id': personne.id}) }}">Voir ma liste de projets</a></li>
+            <li class="fixedLi"><a href="{{ path('ft_personne_creerProjet') }}">Créer un projet</a></li>
+        </div>
+    </div>
+{% endblock %}

@@ -55,7 +55,6 @@ class PersonneType extends AbstractType
             ->add('role', EntityType::class, array(
                 'class' => 'FTProjetStageBundle:Role',
                 //'data' => $this->em->getReference('FTProjetStageBundle:Role', 1),
-                'empty_data' => 'ROLE_ETUDIANT',
                 'query_builder' => function (EntityRepository $er){
                     return $er->createQueryBuilder('r')
                         ->where('r.name != :roleAdmin')->setParameter('roleAdmin', 'ROLE_ADMIN');
@@ -64,7 +63,8 @@ class PersonneType extends AbstractType
                 'required' => true,
                 'multiple' => false,
                 'expanded' => true,
-                'label' => 'Role', 'label_attr' => array(
+                'label' => 'Role',
+                'label_attr' => array(
                     'class' => 'form-control'
                 ),
             ))

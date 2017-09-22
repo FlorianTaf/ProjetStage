@@ -18,4 +18,13 @@ class PersonneRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function loadFormateurs()
+    {
+        $qb = $this->createQueryBuilder('p');
+        return $qb
+            ->where($qb->expr()->isNotNull('p.formateur'))
+            ->getQuery()
+            ->getResult();
+    }
 }

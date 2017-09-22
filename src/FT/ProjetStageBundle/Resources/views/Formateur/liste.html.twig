@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="container">
-        <h2>Liste des étudiants</h2>
+        <h2>Liste des formateurs</h2>
         <table class="table">
             <thead>
             <tr>
@@ -12,12 +12,12 @@
             </tr>
             </thead>
             <tbody>
-            {% for etudiant in listeEtudiants %}
+            {% for formateur in listeFormateurs %}
                 <tr>
-                    <td>{{ etudiant.nom }}</td>
-                    <td>{{ etudiant.prenom }}</td>
-                    <td>{{ etudiant.email }}</td>
-                    <td><button class="btn btn-primary" type="submit"><a href="#">Voir équipes</a></button></td>
+                    <td>{{ formateur.nom }}</td>
+                    <td>{{ formateur.prenom }}</td>
+                    <td>{{ formateur.email }}</td>
+                    <td><button class="btn btn-primary" type="submit"><a href="#">Voir projets</a></button></td>
                 </tr>
             {% endfor %}
             </tbody>

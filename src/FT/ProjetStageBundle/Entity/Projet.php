@@ -57,12 +57,18 @@ class Projet
     private $idProprietaire;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="idSessionFormation", type="integer")
+     * @ORM\OneToOne(targetEntity="FT\ProjetStageBundle\Entity\SessionFormation")
      */
     private $idSessionFormation;
 
+    /*
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="idSessionFormation", type="integer")
+
+    private $idSessionFormation;
+    */
 
     /**
      * Get id

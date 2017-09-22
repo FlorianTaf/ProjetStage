@@ -1,25 +1,54 @@
+#Page d'accueil
 ft_projet_stage_homepage:
     path:     /
     defaults: { _controller: FTProjetStageBundle:Accueil:index }
 
+#Tout ce qui concerne l'utilisateur
 #Connexion utilisateur
 ft_personne_connexion:
     path:     /login
-    defaults: {_controller: FTProjetStageBundle:Registration:login }
+    defaults: { _controller: FTProjetStageBundle:Registration:login }
 #Inscription utilisateur
 ft_personne_inscription:
     path:     /registration
-    defaults: {_controller: FTProjetStageBundle:Registration:registration }
+    defaults: { _controller: FTProjetStageBundle:Registration:registration }
 #Reset password utilisateur
-ft_personne_modif_password:
-    path:     /personne/modifPassword
-    defaults: {_controller: FTProjetStageBundle:Personne:modifPassword }
-ft_personne_profile:
-    path: /personne/profile
-    defaults: {_controller: FTProjetStageBundle:Personne:profile }
-ft_liste_etudiants:
-    path: /personne/listeEtudiants
-    defaults: {_controller: FTProjetStageBundle:Etudiant:liste }
 ft_reset_password:
     path: /resetPassword
-    defaults: {_controller: FTProjetStageBundle:Registration:resetPassword }
+    defaults: { _controller: FTProjetStageBundle:Registration:resetPassword }
+#Modif profil utilisateur
+ft_personne_modif_password:
+    path:     /personne/modifPassword
+    defaults: { _controller: FTProjetStageBundle:Personne:modifPassword }
+ft_personne_profile:
+    path: /personne/profile
+    defaults: { _controller: FTProjetStageBundle:Personne:profile }
+#Dashboard utilisateur
+ft_personne_dashboard:
+    path: /personne/dashboard
+    defaults: { _controller: FTProjetStageBundle:Personne:dashboard }
+
+#Liste des étudiants/formateurs/projets/équipes
+ft_liste_etudiants:
+    path: /personne/listeEtudiants
+    defaults: { _controller: FTProjetStageBundle:Etudiant:liste }
+ft_liste_formateurs:
+    path: /personne/listeFormateurs
+    defaults: { _controller: FTProjetStageBundle:Formateur:liste }
+ft_liste_projets:
+    path: /personne/listeProjets
+    defaults: { _controller: FTProjetStageBundle:Projet:liste }
+ft_liste_equipes:
+    path: /personne/listeEquipes
+    defaults: { _controller: FTProjetStageBundle:Equipe:liste }
+
+#Projets de la personne en question
+ft_personne_mesProjets_proprietaire:
+    path: /personne/mesProjetsProprietaire/{id}
+    defaults: { _controller: FTProjetStageBundle:Formateur:mesProjetsProprietaire }
+    requirements:
+        id: \d+
+#Création de projet
+ft_personne_creerProjet:
+    path: /personne/creerProjet
+    defaults: { _controller: FTProjetStageBundle:Formateur:creerProjet }

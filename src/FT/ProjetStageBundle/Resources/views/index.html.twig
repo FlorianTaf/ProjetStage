@@ -10,6 +10,7 @@
         <link href=" {{ asset('css/registration.css') }}"
               rel="stylesheet"> <!-- Stylesheet pour tout ce qui touche à la connexion, inscription, modif profile etc -->
         <link rel="stylesheet" href="{{ asset('css/liste.css') }}"><!-- Stylesheet pour les listes étudiants/projets -->
+        <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}"><!-- Stylesheet pour le dashboard -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     {% endblock %}
     <style>
@@ -40,13 +41,13 @@
         <ul class="nav navbar-nav">
             <li><a href="{{ path('ft_projet_stage_homepage') }}">Page d'accueil</a></li>
             <li><a href="{{ path('ft_liste_etudiants') }}">Liste des étudiants</a></li>
-            <li><a href="#">Liste des formateurs</a></li>
-            <li><a href="#">Liste des projets</a></li>
-            <li><a href="#">Liste des équipes</a></li>
+            <li><a href="{{ path('ft_liste_formateurs') }}">Liste des formateurs</a></li>
+            <li><a href="{{ path('ft_liste_projets') }}">Liste des projets</a></li>
+            <li><a href="{{ path('ft_liste_equipes') }}">Liste des équipes</a></li>
             {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
                 <li id="navBarConnexion"><a href="{{ path('ft_personne_connexion') }}">Connexion</a></li>
             {% endif %}
-            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                 <li><a href="{{ path('logout') }}">Déconnexion</a></li>
                 <style>
                     #navBarConnexion {
@@ -64,6 +65,7 @@
         </div>
     {% endif %}
 </nav>
+
 {% block body %}
     <div class="container">
         <h3><a href="#">Les 3 derniers projets créés</a></h3>
@@ -123,15 +125,12 @@
         </div>
     </div>
 {% endblock %}
-<hr>
-
 <footer>
-    <p style="margin-left: 20px;">&copy; Florian Taffaneau, ENS Cachan</p>
+    <p style="margin-left: 20px; margin-top: 80px; margin-bottom: -20px;">&copy; Florian Taffaneau, ENS Cachan</p>
 </footer>
 {% block js %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="{{ asset('js/spinner.js') }}"></script>
-    <script src="{{ asset('js/liste.js') }}"></script>
 {% endblock %}
 </body>
 </html>

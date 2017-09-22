@@ -1,0 +1,65 @@
+{{ form_start(form, {'attr': {'id': 'register-form', 'class': 'text-left'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form, {'attr': {'class' :'login-form-main-message'}}) }}
+
+    {# Génération manuelle et éclatée : #}
+<div class="main-login-form">
+    <div class="login-group">
+        {# Titre #}
+        <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.titre) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.titre) }}
+
+            {{ form_widget(form.titre) }}
+        </div>
+
+        {# Sujet #}
+        <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.sujet) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.sujet) }}
+
+            {{ form_widget(form.sujet) }}
+        </div>
+
+        {# Date limite de rendue #}
+        <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.dateLimite) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.dateLimite) }}
+
+            {{ form_widget(form.dateLimite) }}
+        </div>
+
+        {# Session liée au projet #}
+        <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.idSessionFormation) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.idSessionFormation) }}
+
+            {{ form_widget(form.idSessionFormation) }}
+        </div>
+
+    </div>
+
+    {{ form_widget(form.save) }}
+
+    {{ form_rest(form) }}
+
+    {# Fermeture de la balise <form> du formulaire HTML #}
+    {{ form_end(form) }}
+
+    <div class="loader-gif" style="width: 100%; height: 30px">
+
+    </div>
+</div>

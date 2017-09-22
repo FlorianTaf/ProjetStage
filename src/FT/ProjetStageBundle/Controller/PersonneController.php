@@ -96,4 +96,12 @@ class PersonneController extends Controller
             'personne' => $personne
         ));
     }
+
+    public function dashboardAction()
+    {
+        $personne = $this->getUser();
+        return $this->render('FTProjetStageBundle:Personne:dashboard.html.twig', array(
+            'personne' => $personne
+        ));
+    }
 }

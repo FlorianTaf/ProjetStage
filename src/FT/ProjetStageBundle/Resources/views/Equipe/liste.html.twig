@@ -1,0 +1,26 @@
+{% extends "FTProjetStageBundle::index.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <h2>Liste des équipes</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Numéro de l'équipe</th>
+                <th>Propriétaire</th>
+                <th>Date de création</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for equipe in listeEquipes %}
+                <tr>
+                    <td>{{ equipe.id }}</td>
+                    <td>{{ equipe.idProprietaire }}</td>
+                    <td>{{ equipe.dateCreation }}</td>
+                    <td><button class="btn btn-primary" type="submit"><a href="#">Voir les membres</a></button></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
