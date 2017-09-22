@@ -29,7 +29,7 @@ class SessionFormation
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity="FT\ProjetStageBundle\Entity\SessionFormation", mappedBy="sessionFormation")
+     * @ORM\OneToMany(targetEntity="FT\ProjetStageBundle\Entity\Projet", mappedBy="sessionFormation")
      */
     private $projets;
 
