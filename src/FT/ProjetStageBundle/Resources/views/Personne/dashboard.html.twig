@@ -4,8 +4,16 @@
     <div id="fixedContainer">
         <div id="fixedDiv">
             <li class="fixedLi"><a href="{{ path('ft_personne_profile') }}">Modifier mon profil</a></li>
-            <li class="fixedLi"><a href="{{ path('ft_personne_mesProjets_proprietaire', {'id': personne.id}) }}">Voir ma liste de projets</a></li>
-            <li class="fixedLi"><a href="{{ path('ft_personne_creerProjet') }}">Créer un projet</a></li>
+            {% if is_granted('ROLE_FORMATEUR') %}
+                <li class="fixedLi"><a href="{{ path('ft_personne_mesProjets_proprietaire', {'id': personne.id}) }}">Voir
+                        ma liste de projets</a></li>
+                <li class="fixedLi"><a href="{{ path('ft_personne_creerProjet') }}">Créer un projet</a></li>
+            {% endif %}
+            {% if is_granted('ROLE_ETUDIANT') %}
+                <li class="fixedLi"><a href="{{ path('ft_personne_mesEquipes', {'id': personne.id}) }}">Voir
+                        mes équipes</a></li>
+                <li class="fixedLi"><a href="{{ path('ft_personne_creerEquipe') }}">Créer une équipe</a></li>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

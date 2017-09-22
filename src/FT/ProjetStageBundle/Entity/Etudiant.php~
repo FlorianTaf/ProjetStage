@@ -22,9 +22,10 @@ class Etudiant
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="FT\ProjetStageBundle\Entity\Etudiant", inversedBy="etudiant", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="FT\ProjetStageBundle\Entity\Etudiant", mappedBy="proprietaire")
      */
-    private $personne;
+    private $equipes;
+
 
     /**
      * Get id

@@ -62,8 +62,6 @@ class FormateurController extends Controller
                 $interval = $dateTime->diff($dateLimite);
                 $days = $interval->format('%a');
 
-                echo $days;
-
                 //On vérifie que la date limite soit supérieure d'au moins 7 jours à la date de création
                 if ($dateTime > $dateLimite || $days < 7) {
                     $errorDate = new FormError('Erreur, la date limite doit être supérieure ou égale à 7 jours de la date de création');

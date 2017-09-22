@@ -66,45 +66,5 @@ class SessionFormation
     {
         return $this->nom;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->projets = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add projet
-     *
-     * @param \FT\ProjetStageBundle\Entity\SessionFormation $projet
-     *
-     * @return SessionFormation
-     */
-    public function addProjet(\FT\ProjetStageBundle\Entity\SessionFormation $projet)
-    {
-        $this->projets[] = $projet;
-
-        return $this;
-    }
-
-    /**
-     * Remove projet
-     *
-     * @param \FT\ProjetStageBundle\Entity\SessionFormation $projet
-     */
-    public function removeProjet(\FT\ProjetStageBundle\Entity\SessionFormation $projet)
-    {
-        $this->projets->removeElement($projet);
-    }
-
-    /**
-     * Get projets
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getProjets()
-    {
-        return $this->projets;
-    }
 }
+

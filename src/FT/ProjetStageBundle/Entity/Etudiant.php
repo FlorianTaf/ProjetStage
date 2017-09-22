@@ -21,6 +21,11 @@ class Etudiant
      */
     private $id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="FT\ProjetStageBundle\Entity\Equipe", mappedBy="proprietaire")
+     */
+    private $equipes;
+
 
     /**
      * Get id
@@ -31,5 +36,45 @@ class Etudiant
     {
         return $this->id;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->equipes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add equipe
+     *
+     * @param \FT\ProjetStageBundle\Entity\Etudiant $equipe
+     *
+     * @return Etudiant
+     */
+    public function addEquipe(\FT\ProjetStageBundle\Entity\Etudiant $equipe)
+    {
+        $this->equipes[] = $equipe;
+
+        return $this;
+    }
+
+    /**
+     * Remove equipe
+     *
+     * @param \FT\ProjetStageBundle\Entity\Etudiant $equipe
+     */
+    public function removeEquipe(\FT\ProjetStageBundle\Entity\Etudiant $equipe)
+    {
+        $this->equipes->removeElement($equipe);
+    }
+
+    /**
+     * Get equipes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEquipes()
+    {
+        return $this->equipes;
+    }
+}

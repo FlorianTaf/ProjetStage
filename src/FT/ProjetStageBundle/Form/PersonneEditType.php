@@ -20,7 +20,8 @@ class PersonneEditType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->remove('password');
+            ->remove('password')
+            ->remove('role');
     }
 
     /**

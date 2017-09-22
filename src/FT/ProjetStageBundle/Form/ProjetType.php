@@ -23,14 +23,14 @@ class ProjetType extends AbstractType
                     'class' => 'form-control'), 'attr' => array(
                         'class' => 'form-control', 'placeholder' => 'Mon titre')))
             ->add('dateLimite', DateType::class, array(
-                'label' => 'dateLimite', 'required' => true, 'label_attr' => array(
+                'label' => 'Date limite de rendu', 'required' => true, 'label_attr' => array(
                     'class' => 'form-control'), 'attr' => array(
                     'class' => 'form-control')))
             ->add('sujet', TextType::class, array(
                 'label' => 'Sujet', 'required' => true, 'label_attr' => array(
                     'class' => 'form-control'), 'attr' => array(
                     'class' => 'form-control', 'placeholder' => 'Mon sujet')))
-            ->add('idSessionFormation', EntityType::class, array(
+            ->add('sessionFormation', EntityType::class, array(
                 'class' => 'FTProjetStageBundle:SessionFormation',
                 'choice_label' => 'nom',
                 'required' => true,

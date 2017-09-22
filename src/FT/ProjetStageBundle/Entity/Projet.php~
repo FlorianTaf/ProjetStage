@@ -215,3 +215,4 @@ class Projet
         return $this->sessionFormation;
     }
 }
+
