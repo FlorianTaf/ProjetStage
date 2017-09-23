@@ -1,8 +1,7 @@
 security:
     provider: db_provider
     encoders:
-        FT\ProjetStageBundle\Entity\Personne:
-            algorithm: plaintext
+        FT\ProjetStageBundle\Entity\Personne: bcrypt
     role_hierarchy:
         ROLE_ADMIN: [ROLE_FORMATEUR, ROLE_ETUDIANT]
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded

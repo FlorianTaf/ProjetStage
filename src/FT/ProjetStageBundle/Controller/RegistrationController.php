@@ -50,7 +50,6 @@ class RegistrationController extends Controller
                 $data = $form->getData(); // On récupère toutes les données saisies dans le formulaire
 
 
-                echo $data->getRole()->getName();
                 //On vérifie que l'adresse n'est pas utilisée
                 $mail = $em->getRepository('FTProjetStageBundle:Personne')->findBy(array('email' => $data->getEmail()));
                 if ($mail != null) {
@@ -61,7 +60,7 @@ class RegistrationController extends Controller
 
                 //On récupère le password et le password_confirm pour les comparer
                 $password = $data->getPassword();
-                $password_confirm = $request->request->get('password_confirm');
+                $password_confirm = htmlspecialchars($request->request->get('password_confirm'));
                 //On vérifie les 2 mots de passe
                 if ($password != $password_confirm) {
                     $errorPassword = new FormError('Vos mots de passe ne correspondent pas!');
@@ -74,6 +73,11 @@ class RegistrationController extends Controller
                         array('form' => $form->createView(),
                             'personne' => $personne));
                 }
+
+                //On va hasher le mot de passe
+                $encodedPassword = $this->get('security.password_encoder')->encodePassword($personne, $password);
+                $personne->setPassword($encodedPassword);
+
 
                 //On check si la personne est étudiante ou formateur
                 $role = $data->getRole();

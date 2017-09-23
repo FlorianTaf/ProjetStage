@@ -50,7 +50,6 @@ class EtudiantController extends Controller
         $form = $this->createForm(EquipeType::class, $equipe);
 
         if ($request->isMethod('POST')) {
-            var_dump($personne);
             if ($form->handleRequest($request)->isValid()) {
                 $em = $this->getDoctrine()->getManager();
 
