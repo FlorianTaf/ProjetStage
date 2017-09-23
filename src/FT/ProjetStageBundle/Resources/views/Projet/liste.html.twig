@@ -17,7 +17,7 @@
                     <td>{{ projet.titre }}</td>
                     <td>{{ projet.sujet }}</td>
                     <td>{{ projet.idProprietaire }}</td>
-                    <td><button class="btn btn-primary" type="submit"><a href="#">Voir les équipes participantes</a></button></td>
+                    <td><button class="btn btn-primary" type="submit"><a href="{{ path('ft_projet_equipes_participantes', {'id': projet.id }) }}">Voir les équipes participantes</a></button></td>
                 </tr>
             {% endfor %}
             </tbody>
