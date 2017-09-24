@@ -60,7 +60,7 @@ class Personne implements AdvancedUserInterface, \Serializable
     /**
      * @var string
      *
-     * @ORM\Column(name="password", type="string", length=30)
+     * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
 
