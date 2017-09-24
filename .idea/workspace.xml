@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="532d1234-7ed9-4d88-85c3-b5500fd6faee" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Equipe/listeMembres.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/EquipeController.php" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/EquipeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Equipe.php" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Equipe.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Personne.php" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Personne.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Equipe/liste.html.twig" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Equipe/liste.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../TutorielSymfony/bin/symfony_requirements" afterPath="$PROJECT_DIR$/../TutorielSymfony/bin/symfony_requirements" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../TutorielSymfony/var/SymfonyRequirements.php" afterPath="$PROJECT_DIR$/../TutorielSymfony/var/SymfonyRequirements.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../TutorielSymfony/web/config.php" afterPath="$PROJECT_DIR$/../TutorielSymfony/web/config.php" />
@@ -99,8 +93,8 @@
       <file leaf-file-name="listeMembres.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Equipe/listeMembres.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+            <state relative-caret-position="483">
+              <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -311,12 +305,12 @@
       <workItem from="1506103215762" duration="537000" />
       <workItem from="1506160516435" duration="8672000" />
       <workItem from="1506255550035" duration="1449000" />
-      <workItem from="1506257914155" duration="3151000" />
+      <workItem from="1506257914155" duration="3750000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33470000" />
+    <option name="totallyTimeSpent" value="34069000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -720,8 +714,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Equipe/listeMembres.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+        <state relative-caret-position="483">
+          <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
           <folding />
         </state>
       </provider>
