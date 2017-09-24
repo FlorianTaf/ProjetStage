@@ -40,6 +40,12 @@ class Equipe
     private $dateCreation;
 
     /**
+     * @ORM\ManyToMany(targetEntity="FT\ProjetStageBundle\Entity\Personne", cascade={"persist", "remove"})
+     * @ORM\JoinTable(name="ft_membre_equipe")
+     */
+    private $etudiants;
+
+    /**
      * Get id
      *
      * @return int
@@ -157,5 +163,39 @@ class Equipe
     public function getProjets()
     {
         return $this->projets;
+    }
+
+    /**
+     * Add etudiant
+     *
+     * @param \FT\ProjetStageBundle\Entity\Etudiant $etudiant
+     *
+     * @return Equipe
+     */
+    public function addEtudiant(\FT\ProjetStageBundle\Entity\Etudiant $etudiant)
+    {
+        $this->etudiants[] = $etudiant;
+
+        return $this;
+    }
+
+    /**
+     * Remove etudiant
+     *
+     * @param \FT\ProjetStageBundle\Entity\Etudiant $etudiant
+     */
+    public function removeEtudiant(\FT\ProjetStageBundle\Entity\Etudiant $etudiant)
+    {
+        $this->etudiants->removeElement($etudiant);
+    }
+
+    /**
+     * Get etudiants
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEtudiants()
+    {
+        return $this->etudiants;
     }
 }

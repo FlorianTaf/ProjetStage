@@ -52,6 +52,12 @@ ft_personne_mesProjets_proprietaire:
 ft_personne_creerProjet:
     path: /personne/creerProjet
     defaults: { _controller: FTProjetStageBundle:Formateur:creerProjet }
+#Équipes liées au projet en question
+ft_projet_equipes_participantes:
+    path: /personne/projet/equipesParticipants/{id}
+    defaults: { _controller: FTProjetStageBundle:Projet:equipesParticipantes }
+    requirements:
+        id: \d+
 
 #Équipes de la personne en question
 ft_personne_mesEquipes:
@@ -63,3 +69,9 @@ ft_personne_mesEquipes:
 ft_personne_creerEquipe:
     path: /personne/creerEquipe
     defaults: { _controller: FTProjetStageBundle:Etudiant:creerEquipe }
+#Étudiants dans l'équipe
+ft_equipe_etudiants:
+    path: /personne/equipe/etudiants/{id}
+    defaults: { _controller: FTProjetStageBundle:Equipe:equipeEtudiants }
+    requirements:
+        id: \d+

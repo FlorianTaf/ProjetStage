@@ -9,19 +9,28 @@
 namespace FT\ProjetStageBundle\Controller;
 
 
+use FT\ProjetStageBundle\Entity\Equipe;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class EquipeController extends Controller
 {
     public function listeAction()
     {
-        $personne = $this->getUser();
         $em = $this->getDoctrine()->getManager();
         $listeEquipes = $em->getRepository('FTProjetStageBundle:Equipe')->findAll();
 
         return $this->render('FTProjetStageBundle:Equipe:liste.html.twig', array(
-            'personne' => $personne,
             'listeEquipes' => $listeEquipes
+        ));
+    }
+
+    public function equipeEtudiantsAction(Equipe $equipe)
+    {
+        $listeMembres = $equipe->getEtudiants();
+
+        return $this->render('FTProjetStageBundle:Equipe:listeMembres.html.twig', array(
+            'equipe' => $equipe,
+            'listeMembres' => $listeMembres
         ));
     }
 }

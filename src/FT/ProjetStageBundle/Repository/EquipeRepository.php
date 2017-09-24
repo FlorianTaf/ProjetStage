@@ -10,4 +10,12 @@ namespace FT\ProjetStageBundle\Repository;
  */
 class EquipeRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getEquipesParticipantes($idProjet)
+    {
+        return $this->createQueryBuilder('e')
+            ->leftJoin('e.projets', 'p')
+            ->addSelect('p')
+            ->where('p.id = :idProjet')->setParameter('idProjet', $idProjet)
+            ->getQuery()->getResult();
+    }
 }

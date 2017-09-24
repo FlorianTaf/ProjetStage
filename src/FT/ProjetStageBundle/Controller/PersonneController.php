@@ -75,19 +75,25 @@ class PersonneController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         if ($request->isMethod('POST')) {
-            $oldPassword = $request->request->get('_oldPassword');
-            $newPassword = $request->request->get('_newPassword');
-            $newPasswordConfirm = $request->request->get('_newPasswordConfirm');
+            $oldPassword = htmlspecialchars($request->request->get('_oldPassword'));
+            $newPassword = htmlspecialchars($request->request->get('_newPassword'));
+            $newPasswordConfirm = htmlspecialchars($request->request->get('_newPasswordConfirm'));
 
             //Si les mots de passe ne sont pas bons, on renvoie l'utilisateur vers le formulaire de modification de mdp
-            if (($password != $oldPassword) || ($newPassword != $newPasswordConfirm) || (($password != $oldPassword) && ($newPasswordConfirm != $newPasswordConfirm))){
+            if (!($this->get('security.password_encoder')->isPasswordValid($personne, $oldPassword))
+                || ($newPassword != $newPasswordConfirm)
+                || (!($this->get('security.password_encoder')->isPasswordValid($personne, $oldPassword)) && ($newPasswordConfirm != $newPasswordConfirm))) {
                 $error = "Le(s) mot de passe(s) ne correspondent pas";
                 return $this->render('FTProjetStageBundle:Personne:modifPassword.html.twig', array(
                     'error' => $error
                 ));
             }
+
+            //On hash le mot de passe
+            $encodedPassword = $this->get('security.password_encoder')->encodePassword($personne, $newPassword);
+
             //Si c'est ok, on flush l'entité en modifiant bien le mpd
-            $personne->setPassword($newPassword);
+            $personne->setPassword($encodedPassword);
             $em->flush();
 
             return $this->redirectToRoute('ft_personne_profile');

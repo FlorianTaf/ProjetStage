@@ -10,4 +10,5 @@ namespace FT\ProjetStageBundle\Repository;
  */
 class ProjetRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }

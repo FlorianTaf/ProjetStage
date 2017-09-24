@@ -61,6 +61,7 @@ class Projet
      */
     private $sessionFormation;
 
+
     /**
      * Get id
      *

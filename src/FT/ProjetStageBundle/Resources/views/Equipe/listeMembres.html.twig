@@ -1,0 +1,25 @@
+{% extends "FTProjetStageBundle::index.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <h2>Liste des membres de l'équipe n°{{ equipe.id }}</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for membre in listeMembres %}
+                <tr>
+                    <td>{{ membre.nom }}</td>
+                    <td>{{ membre.prenom  }}</td>
+                    <td>{{ membre.email  }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
