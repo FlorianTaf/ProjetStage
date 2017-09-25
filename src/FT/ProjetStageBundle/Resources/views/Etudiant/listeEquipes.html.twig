@@ -8,15 +8,15 @@
             <tr>
                 <th>Numéro de l'équipe</th>
                 <th>Propriétaire</th>
-                <th>Titre du projet de l'équipe</th>
+                <th>Nombre de projets pour l'équipe</th>
             </tr>
             </thead>
             <tbody>
             {% for equipe in listeEquipes %}
                 <tr>
                     <td>{{ equipe.id }}</td>
-                    <td>{{ equipe.idProprietaire }}</td>
-                    <td>{{ equipe.projet.titre }}</td>
+                    <td>{{ equipe.proprietaire.nom }} {{ equipe.proprietaire.prenom }}</td>
+                    <td>{{ equipe.projets|length }}</td>
                 </tr>
             {% endfor %}
             </tbody>

@@ -71,7 +71,6 @@ class PersonneController extends Controller
     public function modifPasswordAction(Request $request)
     {
         $personne = $this->getUser();
-        $password = $personne->getPassword();
         $em = $this->getDoctrine()->getManager();
 
         if ($request->isMethod('POST')) {
@@ -105,9 +104,7 @@ class PersonneController extends Controller
 
     public function dashboardAction()
     {
-        $personne = $this->getUser();
         return $this->render('FTProjetStageBundle:Personne:dashboard.html.twig', array(
-            'personne' => $personne
         ));
     }
 }

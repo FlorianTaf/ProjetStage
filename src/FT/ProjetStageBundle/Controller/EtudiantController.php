@@ -19,12 +19,10 @@ class EtudiantController extends Controller
 {
     public function listeAction()
     {
-        $personne = $this->getUser();
         $em = $this->getDoctrine()->getManager();
-        $listeEtudiants = $em->getRepository('FTProjetStageBundle:Personne')->loadEtudiants();
+        $listeEtudiants = $em->getRepository('FTProjetStageBundle:Etudiant')->findAll();
 
         return $this->render('FTProjetStageBundle:Etudiant:liste.html.twig', array(
-            'personne' => $personne,
             'listeEtudiants' => $listeEtudiants
         ));
     }
@@ -33,11 +31,10 @@ class EtudiantController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $listeEquipes = $em->getRepository('FTProjetStageBundle:Equipe')->findBy(array(
-            'idProprietaire' => $personne->getEtudiant()
+            'proprietaire' => $personne->getId()
         ));
 
         return $this->render('FTProjetStageBundle:Etudiant:listeEquipes.html.twig', array(
-            'personne' => $personne,
             'listeEquipes' => $listeEquipes,
         ));
     }
@@ -54,20 +51,17 @@ class EtudiantController extends Controller
                 $em = $this->getDoctrine()->getManager();
 
                 $equipe->setDateCreation(new \DateTime());
-                $equipe->setProprietaire($personne->getEtudiant());
+                $equipe->setProprietaire($personne);
 
                 $em->persist($equipe);
                 $em->flush();
 
-                return $this->redirectToRoute('ft_personne_dashboard', array(
-                    'personne' => $personne
-                ));
+                return $this->redirectToRoute('ft_personne_dashboard');
             }
         }
 
         return $this->render('FTProjetStageBundle:Etudiant:creerEquipe.html.twig', array(
             'form' => $form->createView(),
-            'personne' => $personne
         ));
     }
 }

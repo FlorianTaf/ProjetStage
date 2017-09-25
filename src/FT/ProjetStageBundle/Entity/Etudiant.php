@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="etudiant")
  * @ORM\Entity(repositoryClass="FT\ProjetStageBundle\Repository\EtudiantRepository")
  */
-class Etudiant
+class Etudiant extends Personne
 {
     /**
      * @var int
@@ -19,13 +19,12 @@ class Etudiant
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\OneToMany(targetEntity="FT\ProjetStageBundle\Entity\Equipe", mappedBy="proprietaire")
      */
     private $equipes;
-
 
     /**
      * Get id

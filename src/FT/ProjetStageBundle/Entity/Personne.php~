@@ -3,14 +3,18 @@
 namespace FT\ProjetStageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
 /**
  * Personne
  *
  * @ORM\Table(name="personne")
  * @ORM\Entity(repositoryClass="FT\ProjetStageBundle\Repository\PersonneRepository")
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="typePersonne", type="string")
+ * @ORM\DiscriminatorMap({"personne" = "Personne", "etudiant" = "Etudiant", "formateur" = "Formateur"})
  */
-class Personne
+class Personne implements AdvancedUserInterface, \Serializable
 {
     /**
      * @var int
@@ -59,7 +63,7 @@ class Personne
     /**
      * @var string
      *
-     * @ORM\Column(name="password", type="string", length=30)
+     * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
 
@@ -77,6 +81,13 @@ class Personne
      * @ORM\ManyToOne(targetEntity="FT\ProjetStageBundle\Entity\Role", inversedBy="personnes")
      */
     private $role;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=1)
+     */
+    private $typePersonne;
 
     /**
      * Get id
@@ -294,6 +305,7 @@ class Personne
         return $this;
     }
 
+
     /**
      * Get role
      *
@@ -302,5 +314,62 @@ class Personne
     public function getRole()
     {
         return $this->role;
+    }
+
+    public function getRoles()
+    {
+        return array($this->role->getName());
+    }
+
+    public function getSalt()
+    {
+        return null;
+    }
+
+    public function eraseCredentials()
+    {
+        return null;
+    }
+
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->password,
+            // see section on salt below
+            // $this->salt,
+        ));
+    }
+
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->username,
+            $this->password,
+            // see section on salt below
+            // $this->salt
+            ) = unserialize($serialized);
+    }
+
+    public function isAccountNonExpired()
+    {
+        return true;
+    }
+
+    public function isAccountNonLocked()
+    {
+        return true;
+    }
+
+    public function isCredentialsNonExpired()
+    {
+        return true;
+    }
+
+    public function isEnabled()
+    {
+        return true;
     }
 }

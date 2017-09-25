@@ -50,11 +50,9 @@ class Projet
     private $sujet;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="idProprietaire", type="integer")
+     * @ORM\ManyToOne(targetEntity="FT\ProjetStageBundle\Entity\Formateur", inversedBy="projets")
      */
-    private $idProprietaire;
+    private $proprietaire;
 
     /**
      * @ORM\ManyToOne(targetEntity="FT\ProjetStageBundle\Entity\SessionFormation", inversedBy="projets")
@@ -169,30 +167,6 @@ class Projet
     }
 
     /**
-     * Set idProprietaire
-     *
-     * @param integer $idProprietaire
-     *
-     * @return Projet
-     */
-    public function setIdProprietaire($idProprietaire)
-    {
-        $this->idProprietaire = $idProprietaire;
-
-        return $this;
-    }
-
-    /**
-     * Get idProprietaire
-     *
-     * @return int
-     */
-    public function getIdProprietaire()
-    {
-        return $this->idProprietaire;
-    }
-
-    /**
      * Set sessionFormation
      *
      * @param integer $sessionFormation
@@ -214,5 +188,29 @@ class Projet
     public function getSessionFormation()
     {
         return $this->sessionFormation;
+    }
+
+    /**
+     * Set proprietaire
+     *
+     * @param \FT\ProjetStageBundle\Entity\Formateur $proprietaire
+     *
+     * @return Projet
+     */
+    public function setProprietaire(\FT\ProjetStageBundle\Entity\Formateur $proprietaire = null)
+    {
+        $this->proprietaire = $proprietaire;
+
+        return $this;
+    }
+
+    /**
+     * Get proprietaire
+     *
+     * @return \FT\ProjetStageBundle\Entity\Formateur
+     */
+    public function getProprietaire()
+    {
+        return $this->proprietaire;
     }
 }
