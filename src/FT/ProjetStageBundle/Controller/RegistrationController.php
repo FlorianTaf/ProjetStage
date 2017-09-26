@@ -89,6 +89,17 @@ class RegistrationController extends Controller
                     'class' => 'form-control'
                 ),
             ))
+            ->add('sessionFormation', EntityType::class, array(
+                'class' => 'FTProjetStageBundle:SessionFormation',
+                'choice_label' => 'nom',
+                'required' => false,
+                'multiple' => false,
+                'expanded' => false,
+                'label' => 'Session de formation',
+                'label_attr' => array(
+                    'class' => 'form-control'
+                ),
+            ))
             ->add('save', SubmitType::class, array(
                 'attr' => array(
                     'class' => 'login-button')))
@@ -125,13 +136,28 @@ class RegistrationController extends Controller
                     $error = true;
                 }
 
-                if ($error === true) {
-                    return $this->render('FTProjetStageBundle:Registration:inscription.html.twig',
-                        array('form' => $form->createView()));
-                }
-
                 //On check si la personne est étudiante ou formateur
                 $role = $data['role'];
+
+                //On va vérifier que dans le cas où on a un étudiant, il a bien coché la session de formation
+                if ($role->getName() === 'ROLE_ETUDIANT') {
+                    $session = $data['sessionFormation'];
+                    if($session === null) {
+                        $errorSession = 'Vous devez sélectionner une session de formation si vous êtes étudiant !!!';
+                        $error = true;
+                    }
+                }
+
+                //Si on a une seule erreur, on renvoie le formulaire avec les messages correspondants
+                if ($error === true) {
+                    if (!isset($errorSession)){
+                        $errorSession = null;
+                    }
+                    return $this->render('FTProjetStageBundle:Registration:inscription.html.twig',
+                        array('form' => $form->createView(),
+                            'errorSession' => $errorSession));
+                }
+
                 if ($role->getName() === 'ROLE_FORMATEUR') {
                     //$personne->setRole($role);
                     $formateur = new Formateur();
@@ -154,6 +180,7 @@ class RegistrationController extends Controller
                     $etudiant->setTelephone($data['telephone']);
                     $etudiant->setUsername($data['username']);
                     $etudiant->setRole($role);
+                    $etudiant->setSessionFormation($session);
                     //On va hasher le mot de passe
                     $encodedPassword = $this->get('security.password_encoder')->encodePassword($etudiant, $password);
                     $etudiant->setPassword($encodedPassword);

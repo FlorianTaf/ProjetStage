@@ -27,6 +27,12 @@ class Etudiant extends Personne
     private $equipes;
 
     /**
+     * @ORM\ManyToOne(targetEntity="FT\ProjetStageBundle\Entity\SessionFormation", inversedBy="etudiants")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $sessionFormation;
+
+    /**
      * Get id
      *
      * @return int
@@ -75,5 +81,29 @@ class Etudiant extends Personne
     public function getEquipes()
     {
         return $this->equipes;
+    }
+
+    /**
+     * Set sessionFormation
+     *
+     * @param \FT\ProjetStageBundle\Entity\SessionFormation $sessionFormation
+     *
+     * @return Etudiant
+     */
+    public function setSessionFormation(\FT\ProjetStageBundle\Entity\SessionFormation $sessionFormation)
+    {
+        $this->sessionFormation = $sessionFormation;
+
+        return $this;
+    }
+
+    /**
+     * Get sessionFormation
+     *
+     * @return \FT\ProjetStageBundle\Entity\SessionFormation
+     */
+    public function getSessionFormation()
+    {
+        return $this->sessionFormation;
     }
 }
