@@ -13,6 +13,7 @@ use Symfony\Component\Security\Core\User\AdvancedUserInterface;
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="typePersonne", type="string")
  * @ORM\DiscriminatorMap({"personne" = "Personne", "etudiant" = "Etudiant", "formateur" = "Formateur"})
+ * @ORM\HasLifecycleCallbacks()
  */
 abstract class Personne implements AdvancedUserInterface, \Serializable
 {
@@ -71,6 +72,13 @@ abstract class Personne implements AdvancedUserInterface, \Serializable
      * @ORM\ManyToOne(targetEntity="FT\ProjetStageBundle\Entity\Role", inversedBy="personnes")
      */
     protected $role;
+
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="dateUpdate", type="datetime", nullable=true)
+     */
+    protected $dateUpdate;
 
     /**
      * Get id
@@ -306,5 +314,37 @@ abstract class Personne implements AdvancedUserInterface, \Serializable
     public function isEnabled()
     {
         return true;
+    }
+
+    /**
+     * Set dateUpdate
+     *
+     * @param \DateTime $dateUpdate
+     *
+     * @return Personne
+     */
+    public function setDateUpdate($dateUpdate)
+    {
+        $this->dateUpdate = $dateUpdate;
+
+        return $this;
+    }
+
+    /**
+     * Get dateUpdate
+     *
+     * @return \DateTime
+     */
+    public function getDateUpdate()
+    {
+        return $this->dateUpdate;
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function updateDate()
+    {
+        $this->setDateUpdate(new \DateTime());
     }
 }
