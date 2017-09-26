@@ -29,6 +29,7 @@ class Equipe
 
     /**
      * @ORM\ManyToOne(targetEntity="FT\ProjetStageBundle\Entity\Etudiant", inversedBy="equipes")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $proprietaire;
 
@@ -40,7 +41,7 @@ class Equipe
     private $dateCreation;
 
     /**
-     * @ORM\ManyToMany(targetEntity="FT\ProjetStageBundle\Entity\Personne", cascade={"persist", "remove"})
+     * @ORM\ManyToMany(targetEntity="FT\ProjetStageBundle\Entity\Etudiant", cascade={"persist", "remove"})
      * @ORM\JoinTable(name="ft_membre_equipe")
      */
     private $etudiants;

@@ -43,12 +43,14 @@ class EtudiantController extends Controller
     {
         $personne = $this->getUser();
         $equipe = new Equipe();
+        $em = $this->getDoctrine()->getManager();
 
-        $form = $this->createForm(EquipeType::class, $equipe);
+        $membresWithoutUser = $em->getRepository('FTProjetStageBundle:Etudiant')->getEtudiantWithouUser($personne->getUSername());
+
+        $form = $this->createForm(EquipeType::class, $equipe, array('usernames' => $membresWithoutUser));
 
         if ($request->isMethod('POST')) {
             if ($form->handleRequest($request)->isValid()) {
-                $em = $this->getDoctrine()->getManager();
 
                 $equipe->setDateCreation(new \DateTime());
                 $equipe->setProprietaire($personne);

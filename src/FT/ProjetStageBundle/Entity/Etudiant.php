@@ -32,6 +32,8 @@ class Etudiant extends Personne
      */
     private $sessionFormation;
 
+
+
     /**
      * Get id
      *
