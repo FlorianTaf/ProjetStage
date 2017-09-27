@@ -4,10 +4,12 @@
     {{ form_errors(form, {'attr': {'class' :'login-form-main-message'}}) }}
 
     {# Génération manuelle et éclatée : #}
-{% if errorSession is not null %}
-    <div class="alert alert-danger">
-        {{ errorSession }}
-    </div>
+{% if errorSession is defined %}
+    {% if errorSession is not null %}
+        <div class="alert alert-danger">
+            {{ errorSession }}
+        </div>
+    {% endif %}
 {% endif %}
 <div class="main-login-form">
     <div class="login-group">

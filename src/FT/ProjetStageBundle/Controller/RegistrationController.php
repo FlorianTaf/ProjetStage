@@ -21,6 +21,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class RegistrationController extends Controller
@@ -171,6 +172,7 @@ class RegistrationController extends Controller
                     $encodedPassword = $this->get('security.password_encoder')->encodePassword($formateur, $password);
                     $formateur->setPassword($encodedPassword);
                     $em->persist($formateur);
+                    $personne = $formateur;
                 } else {
                     //$personne->setRole($role);
                     $etudiant = new Etudiant();
@@ -185,11 +187,17 @@ class RegistrationController extends Controller
                     $encodedPassword = $this->get('security.password_encoder')->encodePassword($etudiant, $password);
                     $etudiant->setPassword($encodedPassword);
                     $em->persist($etudiant);
+                    $personne = $etudiant;
                 }
 
                 $em->flush();
 
-                return $this->render('FTProjetStageBundle::index.html.twig');
+                //Pour rediriger l'utilisateur une fois qu'il s'est inscrit
+                $token = new UsernamePasswordToken($personne, null, 'main', $personne->getRoles());
+                $this->get('security.token_storage')->setToken($token);
+                $this->get('session')->set('_security_main', serialize($token));
+
+                return $this->redirectToRoute('ft_personne_dashboard');
             }
         }
         return $this->render('FTProjetStageBundle:Registration:inscription.html.twig', array('form' => $form->createView()));
