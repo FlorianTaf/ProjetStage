@@ -4,6 +4,11 @@
     {{ form_errors(form, {'attr': {'class' :'login-form-main-message'}}) }}
 
     {# Génération manuelle et éclatée : #}
+{% if errorSession is not null %}
+    <div class="alert alert-danger">
+        {{ errorSession }}
+    </div>
+{% endif %}
 <div class="main-login-form">
     <div class="login-group">
         {# Nom #}
@@ -86,7 +91,17 @@
             {# Affichage des erreurs pour ce champ précis. #}
             {{ form_errors(form.role) }}
 
-            {{ form_widget(form.role, { value: 'ROLE_ETUDIANT'}) }}
+            {{ form_widget(form.role) }}
+        </div>
+
+        <div class="champSession form-group">
+            {# Génération du label. #}
+            {{ form_label(form.sessionFormation) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.sessionFormation) }}
+
+            {{ form_widget(form.sessionFormation) }}
         </div>
 
     </div>

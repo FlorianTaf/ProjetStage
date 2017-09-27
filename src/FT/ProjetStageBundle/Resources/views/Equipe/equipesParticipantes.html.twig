@@ -15,7 +15,7 @@
             {% for equipe in listeEquipes %}
                 <tr>
                     <td>{{ equipe.id }}</td>
-                    <td>{{ equipe.proprietaire.id }}</td>
+                    <td>{{ equipe.proprietaire.nom }} {{ equipe.proprietaire.prenom }}</td>
                     <td>{{ equipe.dateCreation|date('d/m/Y') }}</td>
                     <td><button class="btn btn-primary" type="submit"><a href="#">Voir les membres</a></button></td>
                 </tr>

@@ -34,6 +34,11 @@ class SessionFormation
     private $projets;
 
     /**
+     * @ORM\OneToMany(targetEntity="FT\ProjetStageBundle\Entity\Etudiant", mappedBy="sessionFormation")
+     */
+    private $etudiants;
+
+    /**
      * Get id
      *
      * @return int
@@ -106,5 +111,39 @@ class SessionFormation
     public function getProjets()
     {
         return $this->projets;
+    }
+
+    /**
+     * Add etudiant
+     *
+     * @param \FT\ProjetStageBundle\Entity\Etudiant $etudiant
+     *
+     * @return SessionFormation
+     */
+    public function addEtudiant(\FT\ProjetStageBundle\Entity\Etudiant $etudiant)
+    {
+        $this->etudiants[] = $etudiant;
+
+        return $this;
+    }
+
+    /**
+     * Remove etudiant
+     *
+     * @param \FT\ProjetStageBundle\Entity\Etudiant $etudiant
+     */
+    public function removeEtudiant(\FT\ProjetStageBundle\Entity\Etudiant $etudiant)
+    {
+        $this->etudiants->removeElement($etudiant);
+    }
+
+    /**
+     * Get etudiants
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEtudiants()
+    {
+        return $this->etudiants;
     }
 }

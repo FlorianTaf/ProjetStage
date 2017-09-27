@@ -20,12 +20,10 @@ class FormateurController extends Controller
 {
     public function listeAction()
     {
-        $personne = $this->getUser();
         $em = $this->getDoctrine()->getManager();
-        $listeFormateurs = $em->getRepository('FTProjetStageBundle:Personne')->loadFormateurs();
+        $listeFormateurs = $em->getRepository('FTProjetStageBundle:Formateur')->findAll();
 
         return $this->render('FTProjetStageBundle:Formateur:liste.html.twig', array(
-            'personne' => $personne,
             'listeFormateurs' => $listeFormateurs
         ));
     }
@@ -35,11 +33,10 @@ class FormateurController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $listeProjetsProprietaire = $em->getRepository('FTProjetStageBundle:Projet')->findBy(array(
-            'idProprietaire' => $personne->getFormateur()
+            'proprietaire' => $personne->getId()
         ));
 
         return $this->render('FTProjetStageBundle:Formateur:listeProjetsProprietaire.html.twig', array(
-            'personne' => $personne,
             'listeProjetsProprietaire' => $listeProjetsProprietaire
         ));
     }
@@ -74,15 +71,13 @@ class FormateurController extends Controller
 
                 //Si c'est ok, on valide les champs qui ne sont pas demandés à l'utilisateur
                 $projet->setDateCreation(new \DateTime());
-                $projet->setIdProprietaire($personne->getId());
+                $projet->setProprietaire($personne);
 
                 //On persiste et on flush
                 $em->persist($projet);
                 $em->flush();
 
-                return $this->redirectToRoute('ft_personne_dashboard', array(
-                    'personne' => $personne
-                ));
+                return $this->redirectToRoute('ft_personne_dashboard');
             }
         }
 

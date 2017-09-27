@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="etudiant")
  * @ORM\Entity(repositoryClass="FT\ProjetStageBundle\Repository\EtudiantRepository")
  */
-class Etudiant
+class Etudiant extends Personne
 {
     /**
      * @var int
@@ -19,12 +19,19 @@ class Etudiant
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\OneToMany(targetEntity="FT\ProjetStageBundle\Entity\Equipe", mappedBy="proprietaire")
      */
     private $equipes;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="FT\ProjetStageBundle\Entity\SessionFormation", inversedBy="etudiants")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $sessionFormation;
+
 
 
     /**
@@ -76,5 +83,29 @@ class Etudiant
     public function getEquipes()
     {
         return $this->equipes;
+    }
+
+    /**
+     * Set sessionFormation
+     *
+     * @param \FT\ProjetStageBundle\Entity\SessionFormation $sessionFormation
+     *
+     * @return Etudiant
+     */
+    public function setSessionFormation(\FT\ProjetStageBundle\Entity\SessionFormation $sessionFormation)
+    {
+        $this->sessionFormation = $sessionFormation;
+
+        return $this;
+    }
+
+    /**
+     * Get sessionFormation
+     *
+     * @return \FT\ProjetStageBundle\Entity\SessionFormation
+     */
+    public function getSessionFormation()
+    {
+        return $this->sessionFormation;
     }
 }

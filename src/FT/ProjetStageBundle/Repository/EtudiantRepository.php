@@ -10,4 +10,13 @@ namespace FT\ProjetStageBundle\Repository;
  */
 class EtudiantRepository extends \Doctrine\ORM\EntityRepository
 {
+    //Pour avoir tous les étudiants sauf celui qui est en train de créer l'équipe
+    public function getEtudiantWithouUser($user)
+    {
+        $query = $this->createQueryBuilder('e')
+            ->where('e.username != :username')->setParameter('username', $user)
+            ->getQuery()->getResult();
+        //On ne retourne pas le résultat ici mais juste la requête pour s'en reservir pour notre paginator (via knp-paginator)
+        return $query;
+    }
 }

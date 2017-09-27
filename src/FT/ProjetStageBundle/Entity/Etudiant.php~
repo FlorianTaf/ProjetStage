@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="etudiant")
  * @ORM\Entity(repositoryClass="FT\ProjetStageBundle\Repository\EtudiantRepository")
  */
-class Etudiant
+class Etudiant extends Personne
 {
     /**
      * @var int
@@ -19,13 +19,18 @@ class Etudiant
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="FT\ProjetStageBundle\Entity\Etudiant", mappedBy="proprietaire")
+     * @ORM\OneToMany(targetEntity="FT\ProjetStageBundle\Entity\Equipe", mappedBy="proprietaire")
      */
     private $equipes;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="FT\ProjetStageBundle\Entity\SessionFormation", inversedBy="etudiants")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $sessionFormation;
 
     /**
      * Get id
@@ -36,5 +41,45 @@ class Etudiant
     {
         return $this->id;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->equipes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add equipe
+     *
+     * @param \FT\ProjetStageBundle\Entity\Etudiant $equipe
+     *
+     * @return Etudiant
+     */
+    public function addEquipe(\FT\ProjetStageBundle\Entity\Etudiant $equipe)
+    {
+        $this->equipes[] = $equipe;
+
+        return $this;
+    }
+
+    /**
+     * Remove equipe
+     *
+     * @param \FT\ProjetStageBundle\Entity\Etudiant $equipe
+     */
+    public function removeEquipe(\FT\ProjetStageBundle\Entity\Etudiant $equipe)
+    {
+        $this->equipes->removeElement($equipe);
+    }
+
+    /**
+     * Get equipes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEquipes()
+    {
+        return $this->equipes;
+    }
+}

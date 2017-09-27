@@ -10,8 +10,12 @@ use Symfony\Component\Security\Core\User\AdvancedUserInterface;
  *
  * @ORM\Table(name="personne")
  * @ORM\Entity(repositoryClass="FT\ProjetStageBundle\Repository\PersonneRepository")
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="typePersonne", type="string")
+ * @ORM\DiscriminatorMap({"personne" = "Personne", "etudiant" = "Etudiant", "formateur" = "Formateur"})
+ * @ORM\HasLifecycleCallbacks()
  */
-class Personne implements AdvancedUserInterface, \Serializable
+abstract class Personne implements AdvancedUserInterface, \Serializable
 {
     /**
      * @var int
@@ -20,64 +24,61 @@ class Personne implements AdvancedUserInterface, \Serializable
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=45)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=45)
      */
-    private $prenom;
+    protected $prenom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="username", type="string", length=45)
      */
-    private $username;
+    protected $username;
 
     /**
      * @var string
      *
      * @ORM\Column(name="telephone", type="string", length=20)
      */
-    private $telephone;
+    protected $telephone;
 
     /**
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=50, unique=true)
      */
-    private $email;
+    protected $email;
 
     /**
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255)
      */
-    private $password;
-
-    /**
-     * @ORM\OneToOne(targetEntity="FT\ProjetStageBundle\Entity\Etudiant", cascade={"persist", "remove"})
-     */
-    private $etudiant;
-
-    /**
-     * @ORM\OneToOne(targetEntity="FT\ProjetStageBundle\Entity\Formateur", cascade={"persist", "remove"})
-     */
-    private $formateur;
+    protected $password;
 
     /**
      * @ORM\ManyToOne(targetEntity="FT\ProjetStageBundle\Entity\Role", inversedBy="personnes")
      */
-    private $role;
+    protected $role;
+
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="dateUpdate", type="datetime", nullable=true)
+     */
+    protected $dateUpdate;
 
     /**
      * Get id
@@ -234,54 +235,6 @@ class Personne implements AdvancedUserInterface, \Serializable
     }
 
     /**
-     * Set etudiant
-     *
-     * @param \FT\ProjetStageBundle\Entity\Etudiant $etudiant
-     *
-     * @return Personne
-     */
-    public function setEtudiant(\FT\ProjetStageBundle\Entity\Etudiant $etudiant = null)
-    {
-        $this->etudiant = $etudiant;
-
-        return $this;
-    }
-
-    /**
-     * Get etudiant
-     *
-     * @return \FT\ProjetStageBundle\Entity\Etudiant
-     */
-    public function getEtudiant()
-    {
-        return $this->etudiant;
-    }
-
-    /**
-     * Set formateur
-     *
-     * @param \FT\ProjetStageBundle\Entity\Formateur $formateur
-     *
-     * @return Personne
-     */
-    public function setFormateur(\FT\ProjetStageBundle\Entity\Formateur $formateur = null)
-    {
-        $this->formateur = $formateur;
-
-        return $this;
-    }
-
-    /**
-     * Get formateur
-     *
-     * @return \FT\ProjetStageBundle\Entity\Formateur
-     */
-    public function getFormateur()
-    {
-        return $this->formateur;
-    }
-
-    /**
      * Set role
      *
      * @param \FT\ProjetStageBundle\Entity\Role $role
@@ -361,5 +314,37 @@ class Personne implements AdvancedUserInterface, \Serializable
     public function isEnabled()
     {
         return true;
+    }
+
+    /**
+     * Set dateUpdate
+     *
+     * @param \DateTime $dateUpdate
+     *
+     * @return Personne
+     */
+    public function setDateUpdate($dateUpdate)
+    {
+        $this->dateUpdate = $dateUpdate;
+
+        return $this;
+    }
+
+    /**
+     * Get dateUpdate
+     *
+     * @return \DateTime
+     */
+    public function getDateUpdate()
+    {
+        return $this->dateUpdate;
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function updateDate()
+    {
+        $this->setDateUpdate(new \DateTime());
     }
 }

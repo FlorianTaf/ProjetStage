@@ -50,16 +50,15 @@ class Projet
     private $sujet;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="idProprietaire", type="integer")
+     * @ORM\ManyToOne(targetEntity="FT\ProjetStageBundle\Entity\Formateur", inversedBy="projets")
      */
-    private $idProprietaire;
+    private $proprietaire;
 
     /**
      * @ORM\ManyToOne(targetEntity="FT\ProjetStageBundle\Entity\SessionFormation", inversedBy="projets")
      */
     private $sessionFormation;
+
 
     /**
      * Get id
@@ -168,30 +167,6 @@ class Projet
     }
 
     /**
-     * Set idProprietaire
-     *
-     * @param integer $idProprietaire
-     *
-     * @return Projet
-     */
-    public function setIdProprietaire($idProprietaire)
-    {
-        $this->idProprietaire = $idProprietaire;
-
-        return $this;
-    }
-
-    /**
-     * Get idProprietaire
-     *
-     * @return int
-     */
-    public function getIdProprietaire()
-    {
-        return $this->idProprietaire;
-    }
-
-    /**
      * Set sessionFormation
      *
      * @param integer $sessionFormation
@@ -215,4 +190,3 @@ class Projet
         return $this->sessionFormation;
     }
 }
-

@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="formateur")
  * @ORM\Entity(repositoryClass="FT\ProjetStageBundle\Repository\FormateurRepository")
  */
-class Formateur
+class Formateur extends Personne
 {
     /**
      * @var int
@@ -19,8 +19,12 @@ class Formateur
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="FT\ProjetStageBundle\Entity\Projet", mappedBy="proprietaire")
+     */
+    private $projets;
 
     /**
      * Get id
@@ -31,5 +35,45 @@ class Formateur
     {
         return $this->id;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->projets = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add projet
+     *
+     * @param \FT\ProjetStageBundle\Entity\Projet $projet
+     *
+     * @return Formateur
+     */
+    public function addProjet(\FT\ProjetStageBundle\Entity\Projet $projet)
+    {
+        $this->projets[] = $projet;
+
+        return $this;
+    }
+
+    /**
+     * Remove projet
+     *
+     * @param \FT\ProjetStageBundle\Entity\Projet $projet
+     */
+    public function removeProjet(\FT\ProjetStageBundle\Entity\Projet $projet)
+    {
+        $this->projets->removeElement($projet);
+    }
+
+    /**
+     * Get projets
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProjets()
+    {
+        return $this->projets;
+    }
+}

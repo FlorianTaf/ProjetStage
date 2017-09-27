@@ -4,7 +4,6 @@ namespace FT\ProjetStageBundle\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -28,6 +27,18 @@ class EquipeType extends AbstractType
                     'class' => 'form-control'
                 )
             ))
+            ->add('etudiants', EntityType::class, array(
+                'class' => 'FTProjetStageBundle:Etudiant',
+                'choices' => $options['usernames'],
+                'choice_label' => 'username',
+                'required' => true,
+                'multiple' => true,
+                'expanded' => false,
+                'label' => 'Étudiant',
+                'label_attr' => array(
+                    'class' => 'form-control'
+                )
+            ))
             ->add('save', SubmitType::class, array(
                 'attr' => array(
                     'class' => 'login-button'
@@ -41,7 +52,8 @@ class EquipeType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'FT\ProjetStageBundle\Entity\Equipe'
+            'data_class' => 'FT\ProjetStageBundle\Entity\Equipe',
+            'usernames' => array()
         ));
     }
 

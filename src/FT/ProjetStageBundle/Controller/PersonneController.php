@@ -45,7 +45,7 @@ class PersonneController extends Controller
                 //Si le pseudo est déjà utilisé
                 if ($username != null && $username->getUsername() != $usernameBefore) {
                     $username = new FormError('Le pseudo est déjà utilisé!');
-                    $form->get('email')->addError($username);
+                    $form->get('username')->addError($username);
                     $error = true;
                 }
 
@@ -71,7 +71,6 @@ class PersonneController extends Controller
     public function modifPasswordAction(Request $request)
     {
         $personne = $this->getUser();
-        $password = $personne->getPassword();
         $em = $this->getDoctrine()->getManager();
 
         if ($request->isMethod('POST')) {
@@ -98,16 +97,12 @@ class PersonneController extends Controller
 
             return $this->redirectToRoute('ft_personne_profile');
         }
-        return $this->render('FTProjetStageBundle:Personne:modifPassword.html.twig', array(
-            'personne' => $personne
-        ));
+        return $this->render('FTProjetStageBundle:Personne:modifPassword.html.twig');
     }
 
     public function dashboardAction()
     {
-        $personne = $this->getUser();
         return $this->render('FTProjetStageBundle:Personne:dashboard.html.twig', array(
-            'personne' => $personne
         ));
     }
 }
