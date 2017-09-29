@@ -9,7 +9,6 @@
         <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
         <link href=" {{ asset('css/registration.css') }}"
               rel="stylesheet"> <!-- Stylesheet pour tout ce qui touche à la connexion, inscription, modif profile etc -->
-        <link rel="stylesheet" href="{{ asset('css/liste.css') }}"><!-- Stylesheet pour les listes étudiants/projets -->
         <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}"><!-- Stylesheet pour le dashboard -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     {% endblock %}
@@ -49,6 +48,7 @@
             {% endif %}
             {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                 <li><a href="{{ path('logout') }}">Déconnexion</a></li>
+                <li><a href="{{ path('ft_recherche') }}" id="hrefRecherche">Recherche</a></li>
                 <style>
                     #navBarConnexion {
                         display: none;
@@ -128,10 +128,9 @@
 <footer>
     <p style="margin-left: 20px; margin-top: 80px; margin-bottom: -20px;">&copy; Florian Taffaneau, ENS Cachan</p>
 </footer>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 {% block js %}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="{{ asset('js/spinner.js') }}"></script>
-    <script src="{{ asset('js/loadSessionFormationChamp.js') }}"
 {% endblock %}
+
 </body>
 </html>

@@ -1,0 +1,164 @@
+{% extends 'FTProjetStageBundle::index.html.twig' %}
+
+{% block body %}
+    <div class="text-center" style="padding:50px 0">
+        <div class="logo">Recherche</div>
+        <div class="login-form-1">
+            <select id="typeRecherche" onchange="getSelectedValue()">
+                <option value="rien">Veuillez sélectionner une option</option>
+                <option value="personne">Personne</option>
+                <option value="projet">Projet</option>
+            </select>
+            <form id="register-form" class="text-left" action="" method="post">
+                <!--<div class="login-form-main-message"></div>-->
+                <div class="alert alert-danger" style="display: none;"></div>
+                <!-- Formulaire pour la recherche d'une personne -->
+                <div class="main-login-form">
+                    <div class="login-group" id="rechercheParPersonne">
+                        <input type="radio" id="nom" name="personne" value="nom">
+                        <label for="nom">Par nom</label><br>
+
+                        <input type="radio" id="email" name="personne" value="email">
+                        <label for="email">Par email</label>
+
+                        <input type="radio" id="nomEmail" name="personne" value="nomEmail">
+                        <label for="nomEmail">Par nom ou par email</label>
+
+                        <label for="findPersonne" class="sr-only">Find personne</label>
+                        <input type="text" class="form-control" name="findPersonne"
+                               placeholder="Entrez le nom/email recherché">
+                    </div>
+
+                    <!-- Formulaire pour la recherche d'un projet -->
+                    <div class="login-group" id="rechercheParProjet">
+                        <input type="radio" id="titre" name="projet" value="titre">
+                        <label for="titre">Par titre</label><br>
+
+                        <input type="radio" id="sujet" name="projet" value="sujet">
+                        <label for="sujet">Par sujet</label>
+
+                        <label for="findProjet" class="sr-only">Find projet</label>
+                        <input type="text" class="form-control" name="findProjet"
+                               placeholder="Entrez le titre/sujet recherché">
+                    </div>
+                    <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% if (personnes is defined) and (personnes is null) %}
+        <div class="container"><h2>Aucune personne n'a été trouvé par rapport à votre crtière :( :( :(</h2></div>
+    {% endif %}
+    {% if (projets is defined) and (projets is null) %}
+        <div class="container"><h2>Aucun projet n'a été trouvé par rapport à votre crtière :( :( :(</h2></div>
+    {% endif %}
+    {% if (personnes is defined) or (projets is defined) %}
+        <div class="container">
+            <h2>Liste des {% if personnes is defined %}personnes {% else %}projets {% endif %}</h2>
+            <table class="table">
+                <thead>
+                <tr>
+                    {% if personnes is defined %}
+                        <th>Nom</th>
+                        <th>Prénom</th>à&&
+                        <th>Email</th>
+                        <th>Pseudo</th>
+                    {% else %}
+                        <th>Titre</th>
+                        <th>Sujet</th>
+                        <th>Date de crétaion</th>
+                        <th>Propriétaire</th>
+                    {% endif %}
+                </tr>
+                </thead>
+                <tbody>
+                {% if personnes is defined %}
+                    {% for personne in personnes %}
+                        <tr>
+                            <td>{{ personne.nom }}</td>
+                            <td>{{ personne.prenom }}</td>
+                            <td>{{ personne.email }}</td>
+                            <td>{{ personne.username }}</td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    {% for projet in projets %}
+                        <tr>
+                            <td>{{ projet.titre }}</td>
+                            <td>{{ projet.sujet }}</td>
+                            <td>{{ projet.dateCreation|date('d/m/Y') }}</td>
+                            <td>{{ projet.proprietaire.nom }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+{% endblock %}
+        {% block js %}
+            <script type="text/javascript" src="{{ asset('js/search.js') }}"></script>
+            <script>
+
+                $(document).ready(function () {
+                    $('#rechercheParPersonne').hide();
+                    $('#rechercheParProjet').hide();
+
+                    $('.login-button').on('click', function () {
+                        var selectedValue = getSelectedValue();
+                        //Si on a rien cliqué, erreur
+                        console.log(selectedValue);
+                        if (selectedValue == "rien") {
+                            $('.alert-danger').css('display', 'block');
+                            $('.alert-danger').html('Erreur, veuillez sélectionner un type de recherche !!!');
+                            $('.alert-danger').fadeOut(3000);
+
+                            return false;
+                        }
+                        //Si on a sélectionné personne
+                        if (selectedValue == "personne") {
+                            //Si on n'a pas sélectionné de critère de recherche, erreur
+                            var selectedRadioButton = $('input[name=personne]:checked').val();
+                            if (typeof selectedRadioButton === 'undefined') {
+                                $('.alert-danger').css('display', 'block');
+                                $('.alert-danger').html('Erreur, vous devez sélectionner un critère de recherche !!!');
+                                $('.alert-danger').fadeOut(3000);
+                                return false;
+                            }
+                            $('#register-form').attr('action', '{{ path('ft_recherche_personne') }}');
+                        }
+                        //Si on a sélectionné projet
+                        if (selectedValue == "projet") {
+                            //Si on n'a pas sélectionné de critère de recherche, erreur
+                            var selectedRadioButton = $('input[name=projet]:checked').val();
+                            if (typeof selectedRadioButton === 'undefined') {
+                                alert('ok gros con');
+                                $('.alert-danger').css('display', 'block');
+                                $('.alert-danger').html('Erreur, vous devez sélectionner un critère de recherche !!!');
+                                $('.alert-danger').fadeOut(3000);
+                                return false;
+                            }
+                            $('#register-form').attr('action', '{{ path('ft_recherche_projet') }}');
+                        }
+                    });
+                });
+
+                function getSelectedValue() {
+                    var selectedValue = document.getElementById("typeRecherche").value;
+
+                    if (selectedValue == "rien") {
+                        $('#rechercheParPersonne').hide();
+                        $('#rechercheParProjet').hide();
+                    }
+                    if (selectedValue == "personne") {
+                        $('#rechercheParPersonne').show();
+                        $('#rechercheParProjet').hide();
+                    }
+                    if (selectedValue == "projet") {
+                        $('#rechercheParProjet').show();
+                        $('#rechercheParPersonne').hide();
+                    }
+                    return selectedValue;
+                }
+            </script>
+        {% endblock %}

@@ -1,8 +1,9 @@
-$(document).ready( function () {
-    if(document.getElementById('form_role_1').checked){
+$(document).ready(function () {
+    alert('lol');
+    if (document.getElementById('form_role_1').checked) {
         $('.champSession').show();
     }
-    else{
+    else {
         //On cache le champ de session de formation au chargement du formulaire pour la 1ère fois
         $('.champSession').hide();
     }
@@ -19,6 +20,6 @@ $(document).ready( function () {
 
     //On enlève la partie graphique du message d'erreur au clique sur le bouton du formulaire
     $('#form_save').on('click', function () {
-       $('.alert-danger').hide();
+        $('.alert-danger').hide();
     });
 });

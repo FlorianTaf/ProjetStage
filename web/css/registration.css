@@ -159,7 +159,7 @@ label.form-invalid:after {
     transition: all ease-in-out 200ms;
 }
 .login-form-main-message.show {
-    height: auto;
+    height: 200px;
     opacity: 1;
     padding: 10px 20px 10px 17px;
 }

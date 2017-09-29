@@ -10,5 +10,25 @@ namespace FT\ProjetStageBundle\Repository;
  */
 class PersonneRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getPersonneLikeNom($nom)
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.nom LIKE :nom')->setParameter('nom', '%' . $nom . '%')
+            ->getQuery()->getResult();
+    }
 
+    public function getPersonneLikeMail($mail)
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.email LIKE :email')->setParameter('email', '%' . $mail . '%')
+            ->getQuery()->getResult();
+    }
+
+    public function getPersonneLikeNomOrMail($nomMail)
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.nom LIKE :nomMail')->setParameter('nomMail', '%' . $nomMail . '%')
+            ->orWhere('p.email LIK :nomMail')->setParameter('nomMail', '%' . $nomMail . '%' )
+            ->getQuery()->getResult();
+    }
 }

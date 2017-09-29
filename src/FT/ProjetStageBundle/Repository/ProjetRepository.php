@@ -10,5 +10,17 @@ namespace FT\ProjetStageBundle\Repository;
  */
 class ProjetRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getProjetLikeTitre($titre)
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.titre LIKE :titre')->setParameter('titre', '%' . $titre . '%')
+            ->getQuery()->getResult();
+    }
 
+    public function getProjetLikeSujet($sujet)
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.sujet LIKE :sujet')->setParameter('sujet', '%' . $sujet . '%')
+            ->getQuery()->getResult();
+    }
 }

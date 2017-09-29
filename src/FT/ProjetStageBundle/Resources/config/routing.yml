@@ -75,3 +75,14 @@ ft_equipe_etudiants:
     defaults: { _controller: FTProjetStageBundle:Equipe:equipeEtudiants }
     requirements:
         id: \d+
+
+#Onglet de recherche
+ft_recherche:
+    path: /personne/recherche
+    defaults: { _controller: FTProjetStageBundle:Search:search }
+ft_recherche_personne:
+    path: /personne/recherchePersonne
+    defaults: { _controller: FTProjetStageBundle:Search:searchPersonne }
+ft_recherche_projet:
+    path: /personne/rechercheProjet
+    defaults: { _controller: FTProjetStageBundle:Search:searchProjet }
