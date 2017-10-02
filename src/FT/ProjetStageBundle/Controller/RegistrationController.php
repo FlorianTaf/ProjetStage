@@ -143,7 +143,7 @@ class RegistrationController extends Controller
                 //On va vérifier que dans le cas où on a un étudiant, il a bien coché la session de formation
                 if ($role->getName() === 'ROLE_ETUDIANT') {
                     $session = $data['sessionFormation'];
-                    if($session === null) {
+                    if ($session === null) {
                         $errorSession = 'Vous devez sélectionner une session de formation si vous êtes étudiant !!!';
                         $error = true;
                     }
@@ -151,7 +151,7 @@ class RegistrationController extends Controller
 
                 //Si on a une seule erreur, on renvoie le formulaire avec les messages correspondants
                 if ($error === true) {
-                    if (!isset($errorSession)){
+                    if (!isset($errorSession)) {
                         $errorSession = null;
                     }
                     return $this->render('FTProjetStageBundle:Registration:inscription.html.twig',
@@ -191,6 +191,14 @@ class RegistrationController extends Controller
                 }
 
                 $em->flush();
+
+                //On envoie un mail à l'utilisateur
+                $message = \Swift_Message::newInstance()
+                    ->setSubject('Hello !!!')
+                    ->setFrom('florian.taffaneau2@gmail.com')
+                    ->setTo($personne->getEmail())
+                    ->setBody('Bonjour et bienvenue sur ce magnifique site!');
+                $this->container->get('mailer')->send($message);
 
                 //Pour rediriger l'utilisateur une fois qu'il s'est inscrit
                 $token = new UsernamePasswordToken($personne, null, 'main', $personne->getRoles());

@@ -46,12 +46,6 @@
             </form>
         </div>
     </div>
-    {% if (personnes is defined) and (personnes is null) %}
-        <div class="container"><h2>Aucune personne n'a été trouvé par rapport à votre crtière :( :( :(</h2></div>
-    {% endif %}
-    {% if (projets is defined) and (projets is null) %}
-        <div class="container"><h2>Aucun projet n'a été trouvé par rapport à votre crtière :( :( :(</h2></div>
-    {% endif %}
     {% if (personnes is defined) or (projets is defined) %}
         <div class="container">
             <h2>Liste des {% if personnes is defined %}personnes {% else %}projets {% endif %}</h2>
@@ -60,7 +54,7 @@
                 <tr>
                     {% if personnes is defined %}
                         <th>Nom</th>
-                        <th>Prénom</th>à&&
+                        <th>Prénom</th>
                         <th>Email</th>
                         <th>Pseudo</th>
                     {% else %}
@@ -96,69 +90,70 @@
         </div>
     {% endif %}
 {% endblock %}
-        {% block js %}
-            <script type="text/javascript" src="{{ asset('js/search.js') }}"></script>
-            <script>
+    {% block js %}
+        {{ parent() }}
+        <script>
 
-                $(document).ready(function () {
-                    $('#rechercheParPersonne').hide();
-                    $('#rechercheParProjet').hide();
+            $(document).ready(function () {
+                $('#rechercheParPersonne').hide();
+                $('#rechercheParProjet').hide();
 
-                    $('.login-button').on('click', function () {
-                        var selectedValue = getSelectedValue();
-                        //Si on a rien cliqué, erreur
-                        console.log(selectedValue);
-                        if (selectedValue == "rien") {
+                $('.login-button').on('click', function () {
+                    var selectedValue = getSelectedValue();
+                    //Si on a rien cliqué, erreur
+                    console.log(selectedValue);
+                    if (selectedValue == "rien") {
+                        $('.alert-danger').css('display', 'block');
+                        $('.alert-danger').html('Erreur, veuillez sélectionner un type de recherche !!!');
+                        $('.alert-danger').fadeOut(3000);
+
+                        return false;
+                    }
+                    //Si on a sélectionné personne
+                    if (selectedValue == "personne") {
+                        //Si on n'a pas sélectionné de critère de recherche, erreur
+                        var selectedRadioButton = $('input[name=personne]:checked').val();
+                        if (typeof selectedRadioButton === 'undefined') {
                             $('.alert-danger').css('display', 'block');
-                            $('.alert-danger').html('Erreur, veuillez sélectionner un type de recherche !!!');
+                            $('.alert-danger').html('Erreur, vous devez sélectionner un critère de recherche !!!');
                             $('.alert-danger').fadeOut(3000);
-
                             return false;
                         }
-                        //Si on a sélectionné personne
-                        if (selectedValue == "personne") {
-                            //Si on n'a pas sélectionné de critère de recherche, erreur
-                            var selectedRadioButton = $('input[name=personne]:checked').val();
-                            if (typeof selectedRadioButton === 'undefined') {
-                                $('.alert-danger').css('display', 'block');
-                                $('.alert-danger').html('Erreur, vous devez sélectionner un critère de recherche !!!');
-                                $('.alert-danger').fadeOut(3000);
-                                return false;
-                            }
-                            $('#register-form').attr('action', '{{ path('ft_recherche_personne') }}');
-                        }
-                        //Si on a sélectionné projet
-                        if (selectedValue == "projet") {
-                            //Si on n'a pas sélectionné de critère de recherche, erreur
-                            var selectedRadioButton = $('input[name=projet]:checked').val();
-                            if (typeof selectedRadioButton === 'undefined') {
-                                alert('ok gros con');
-                                $('.alert-danger').css('display', 'block');
-                                $('.alert-danger').html('Erreur, vous devez sélectionner un critère de recherche !!!');
-                                $('.alert-danger').fadeOut(3000);
-                                return false;
-                            }
-                            $('#register-form').attr('action', '{{ path('ft_recherche_projet') }}');
-                        }
-                    });
-                });
+                        $('#register-form').attr('action', '{{ path('ft_recherche_personne') }}');
 
-                function getSelectedValue() {
-                    var selectedValue = document.getElementById("typeRecherche").value;
-
-                    if (selectedValue == "rien") {
-                        $('#rechercheParPersonne').hide();
-                        $('#rechercheParProjet').hide();
                     }
-                    if (selectedValue == "personne") {
-                        $('#rechercheParPersonne').show();
-                        $('#rechercheParProjet').hide();
-                    }
+                    //Si on a sélectionné projet
                     if (selectedValue == "projet") {
-                        $('#rechercheParProjet').show();
-                        $('#rechercheParPersonne').hide();
+                        //Si on n'a pas sélectionné de critère de recherche, erreur
+                        var selectedRadioButton = $('input[name=projet]:checked').val();
+                        if (typeof selectedRadioButton === 'undefined') {
+                            alert('ok gros con');
+                            $('.alert-danger').css('display', 'block');
+                            $('.alert-danger').html('Erreur, vous devez sélectionner un critère de recherche !!!');
+                            $('.alert-danger').fadeOut(3000);
+                            return false;
+                        }
+                        $('#register-form').attr('action', '{{ path('ft_recherche_projet') }}');
                     }
-                    return selectedValue;
+                });
+            });
+
+            function getSelectedValue() {
+                var selectedValue = document.getElementById("typeRecherche").value;
+
+                if (selectedValue == "rien") {
+                    $('#rechercheParPersonne').hide();
+                    $('#rechercheParProjet').hide();
                 }
-            </script>
-        {% endblock %}
+                if (selectedValue == "personne") {
+                    $('#rechercheParPersonne').show();
+                    $('#rechercheParProjet').hide();
+                }
+                if (selectedValue == "projet") {
+                    $('#rechercheParProjet').show();
+                    $('#rechercheParPersonne').hide();
+                }
+                return selectedValue;
+            }
+        </script>
+    {% endblock %}

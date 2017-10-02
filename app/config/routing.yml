@@ -11,10 +11,16 @@ login_check:
     path: /login_check
 logout:
     path: /logout
-personne_profile:
-    path: /personne/profile
+personne_dashboard:
+    path: /personne/dashboard
     defaults:
-        _controller: FTProjetStageBundle:Personne:profile
+        _controller: FTProjetStageBundle:Personne:dashboard
 
+#Databundle
+sg_datatables_bundle:
+    resource: "@SgDatatablesBundle/Controller/"
+    type:     annotation
+
+#JSRouting
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

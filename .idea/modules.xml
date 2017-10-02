@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../DtBundleDemo10/.idea/DtBundleDemo10.iml" filepath="$PROJECT_DIR$/../DtBundleDemo10/.idea/DtBundleDemo10.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/ProjetStage.iml" filepath="$PROJECT_DIR$/.idea/ProjetStage.iml" />
       <module fileurl="file://$PROJECT_DIR$/../TutorielSymfony/.idea/TutorielSymfony.iml" filepath="$PROJECT_DIR$/../TutorielSymfony/.idea/TutorielSymfony.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../accor/.idea/accor.iml" filepath="$PROJECT_DIR$/../accor/.idea/accor.iml" />
       <module fileurl="file://$PROJECT_DIR$/../accor/accor/.idea/accor.iml" filepath="$PROJECT_DIR$/../accor/accor/.idea/accor.iml" />
     </modules>
   </component>

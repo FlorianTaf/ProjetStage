@@ -102,7 +102,6 @@ class PersonneController extends Controller
 
     public function dashboardAction()
     {
-        return $this->render('FTProjetStageBundle:Personne:dashboard.html.twig', array(
-        ));
+        return $this->render('FTProjetStageBundle:Personne:dashboard.html.twig');
     }
 }

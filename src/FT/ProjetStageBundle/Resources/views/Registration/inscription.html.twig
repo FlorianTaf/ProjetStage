@@ -9,5 +9,6 @@
     </div>
 {% endblock %}
 {% block js %}
+    {{ parent() }}
     <script type="text/javascript" src="{{ asset('js/formulaireInscription.js') }}"></script>
 {% endblock %}

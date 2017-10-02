@@ -86,3 +86,16 @@ ft_recherche_personne:
 ft_recherche_projet:
     path: /personne/rechercheProjet
     defaults: { _controller: FTProjetStageBundle:Search:searchProjet }
+
+#Gestion admin
+ft_admin_dashboard:
+    path: /admin/dashboard
+    defaults: { _controller: FTProjetStageBundle:Admin:dashboard }
+ft_admin_personnes_liste:
+    path: /admin/dashboard_listePersonnes
+    defaults: { _controller: FTProjetStageBundle:Admin:listePersonnes }
+ft_admin_delete_personne:
+    path: /admin/dashboard_listePersonnes/delete/{id}
+    defaults: { _controller: FTProjetStageBundle:Admin:deletePersonne }
+    requirements:
+        id: \d+

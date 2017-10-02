@@ -22,7 +22,7 @@ class EtudiantController extends Controller
         $em = $this->getDoctrine()->getManager();
         $listeEtudiants = $em->getRepository('FTProjetStageBundle:Etudiant')->findAll();
 
-        return $this->render('FTProjetStageBundle:Etudiant:liste.html.twig', array(
+        return $this->render('FTProjetStageBundle:Etudiant:listePersonnes.html.twig', array(
             'listeEtudiants' => $listeEtudiants
         ));
     }

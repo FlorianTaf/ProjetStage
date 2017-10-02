@@ -12,7 +12,7 @@ use Symfony\Component\Security\Core\User\AdvancedUserInterface;
  * @ORM\Entity(repositoryClass="FT\ProjetStageBundle\Repository\PersonneRepository")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="typePersonne", type="string")
- * @ORM\DiscriminatorMap({"personne" = "Personne", "etudiant" = "Etudiant", "formateur" = "Formateur"})
+ * @ORM\DiscriminatorMap({"personne" = "Personne", "etudiant" = "Etudiant", "formateur" = "Formateur", "admin" = "Admin"})
  * @ORM\HasLifecycleCallbacks()
  */
 abstract class Personne implements AdvancedUserInterface, \Serializable

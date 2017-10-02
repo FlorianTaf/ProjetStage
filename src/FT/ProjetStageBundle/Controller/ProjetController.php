@@ -19,7 +19,7 @@ class ProjetController extends Controller
         $em = $this->getDoctrine()->getManager();
         $listeProjets = $em->getRepository('FTProjetStageBundle:Projet')->findAll();
 
-        return $this->render('FTProjetStageBundle:Projet:liste.html.twig', array(
+        return $this->render('FTProjetStageBundle:Projet:listePersonnes.html.twig', array(
             'listeProjets' => $listeProjets
         ));
     }

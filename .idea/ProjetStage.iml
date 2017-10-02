@@ -18,5 +18,7 @@
     </orderEntry>
     <orderEntry type="module" module-name="accor" />
     <orderEntry type="module" module-name="TutorielSymfony" />
+    <orderEntry type="module" module-name="DtBundleDemo10" />
+    <orderEntry type="module" module-name="accor" />
   </component>
 </module>

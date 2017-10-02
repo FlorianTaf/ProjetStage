@@ -28,7 +28,7 @@ class PersonneRepository extends \Doctrine\ORM\EntityRepository
     {
         return $this->createQueryBuilder('p')
             ->where('p.nom LIKE :nomMail')->setParameter('nomMail', '%' . $nomMail . '%')
-            ->orWhere('p.email LIK :nomMail')->setParameter('nomMail', '%' . $nomMail . '%' )
+            ->orWhere('p.email LIKE :nomMail')->setParameter('nomMail', '%' . $nomMail . '%' )
             ->getQuery()->getResult();
     }
 }

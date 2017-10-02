@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    alert('lol');
     if (document.getElementById('form_role_1').checked) {
         $('.champSession').show();
     }
