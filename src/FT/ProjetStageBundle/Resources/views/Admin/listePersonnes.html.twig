@@ -21,7 +21,7 @@
                     <td>{{ personne.email }}</td>
                     <td>{{ personne.username }}</td>
                     <td>
-                        <a href="{{ path('ft_admin_delete_personne', {'id': personne.id }) }}" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i
+                        <a href="{{ path('ft_admin_delete_personne', {'id': personne.id }) }}" id="test" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i
                                     class="glyphicon glyphicon-trash"></i>Supprimer</a>
                     </td>
                 </tr>
@@ -30,4 +30,12 @@
         </table>
         {#{{ sg_datatables_render(datatable) }}#}
     </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function () {
+
+        });
+    </script>
 {% endblock %}

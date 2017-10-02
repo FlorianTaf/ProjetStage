@@ -99,3 +99,8 @@ ft_admin_delete_personne:
     defaults: { _controller: FTProjetStageBundle:Admin:deletePersonne }
     requirements:
         id: \d+
+
+#Chat
+ft_chat_messages:
+    path: /chat
+    defaults: { _controller: FTProjetStageBundle:Message:listeMessages }

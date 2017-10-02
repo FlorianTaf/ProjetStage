@@ -81,6 +81,19 @@ abstract class Personne implements AdvancedUserInterface, \Serializable
     protected $dateUpdate;
 
     /**
+     * @var datetime
+     *
+     * @ORM\Column(name="dateInscription", type="datetime", nullable=true)
+     */
+    protected $dateInscription;
+
+    /**
+     * @ORM\OneToMany(targetEntity="FT\ProjetStageBundle\Entity\Message", mappedBy="sender")
+     */
+    protected $messages;
+
+
+    /**
      * Get id
      *
      * @return int
@@ -341,10 +354,83 @@ abstract class Personne implements AdvancedUserInterface, \Serializable
     }
 
     /**
-     * @ORM\PreUpdate
-     */
+ * @ORM\PreUpdate
+ */
     public function updateDate()
     {
         $this->setDateUpdate(new \DateTime());
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function updateDateInscription()
+    {
+        $this->setDateInscription(new \DateTime());
+    }
+
+    /**
+     * Set dateInscription
+     *
+     * @param \DateTime $dateInscription
+     *
+     * @return Personne
+     */
+    public function setDateInscription($dateInscription)
+    {
+        $this->dateInscription = $dateInscription;
+
+        return $this;
+    }
+
+    /**
+     * Get dateInscription
+     *
+     * @return \DateTime
+     */
+    public function getDateInscription()
+    {
+        return $this->dateInscription;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->messages = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add message
+     *
+     * @param \FT\ProjetStageBundle\Entity\Message $message
+     *
+     * @return Personne
+     */
+    public function addMessage(\FT\ProjetStageBundle\Entity\Message $message)
+    {
+        $this->messages[] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Remove message
+     *
+     * @param \FT\ProjetStageBundle\Entity\Message $message
+     */
+    public function removeMessage(\FT\ProjetStageBundle\Entity\Message $message)
+    {
+        $this->messages->removeElement($message);
+    }
+
+    /**
+     * Get messages
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMessages()
+    {
+        return $this->messages;
     }
 }
