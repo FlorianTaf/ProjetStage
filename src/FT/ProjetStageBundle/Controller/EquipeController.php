@@ -19,7 +19,7 @@ class EquipeController extends Controller
         $em = $this->getDoctrine()->getManager();
         $listeEquipes = $em->getRepository('FTProjetStageBundle:Equipe')->findAll();
 
-        return $this->render('FTProjetStageBundle:Equipe:listePersonnes.html.twig', array(
+        return $this->render('FTProjetStageBundle:Equipe:liste.html.twig', array(
             'listeEquipes' => $listeEquipes
         ));
     }

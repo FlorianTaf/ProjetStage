@@ -5,20 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="532d1234-7ed9-4d88-85c3-b5500fd6faee" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/MessageController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Message.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/chat.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FT/UploadBundle/Annotation/Uploadable.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FT/UploadBundle/Annotation/UploadableField.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FT/UploadBundle/Controller/DefaultController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FT/UploadBundle/DependencyInjection/Configuration.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FT/UploadBundle/DependencyInjection/UploadExtension.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FT/UploadBundle/Resources/config/routing.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FT/UploadBundle/Resources/config/services.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FT/UploadBundle/Resources/views/Default/index.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FT/UploadBundle/Tests/Controller/DefaultControllerTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FT/UploadBundle/UploadBundle.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Datatables/PersonneDatatable.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../DtBundleDemo10/bin/symfony_requirements" afterPath="$PROJECT_DIR$/../DtBundleDemo10/bin/symfony_requirements" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../DtBundleDemo10/src/AppBundle/Controller/EntityAController.php" afterPath="$PROJECT_DIR$/../DtBundleDemo10/src/AppBundle/Controller/EntityAController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../DtBundleDemo10/var/SymfonyRequirements.php" afterPath="$PROJECT_DIR$/../DtBundleDemo10/var/SymfonyRequirements.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../DtBundleDemo10/web/config.php" afterPath="$PROJECT_DIR$/../DtBundleDemo10/web/config.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/AdminController.php" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/AdminController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/EquipeController.php" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/EquipeController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/EtudiantController.php" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/EtudiantController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/FormateurController.php" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/FormateurController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/PersonneController.php" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/PersonneController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/ProjetController.php" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/ProjetController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/RegistrationController.php" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/RegistrationController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Personne.php" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Personne.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Admin/listePersonnes.html.twig" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Admin/listePersonnes.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/index.html.twig" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Form/PersonneType.php" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Form/PersonneType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Personne/form.html.twig" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Personne/form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Registration/form.html.twig" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Registration/form.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../accor/accor/src/BC/UserBundle/Controller/AdminUserController.php" afterPath="$PROJECT_DIR$/../accor/accor/src/BC/UserBundle/Controller/AdminUserController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../accor/accor/src/BC/UserBundle/DatasTables/UserTables.php" afterPath="$PROJECT_DIR$/../accor/accor/src/BC/UserBundle/DatasTables/UserTables.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../accor/accor/src/BC/UserBundle/Resources/views/AdminUser/listing.html.twig" afterPath="$PROJECT_DIR$/../accor/accor/src/BC/UserBundle/Resources/views/AdminUser/listing.html.twig" />
@@ -35,32 +52,10 @@
       <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="738">
-              <caret line="101" column="0" lean-forward="true" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+            <state relative-caret-position="126">
+              <caret line="41" column="5" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
               <folding>
                 <element signature="e#136#190#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Projet.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Projet.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="54" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="156" column="16" lean-forward="false" selection-start-line="156" selection-start-column="16" selection-end-line="156" selection-end-column="16" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -69,52 +64,90 @@
       <file leaf-file-name="Personne.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Personne.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3197">
-              <caret line="15" column="3" lean-forward="false" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="31" />
+            <state relative-caret-position="189">
+              <caret line="9" column="46" lean-forward="false" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessageController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/MessageController.php">
+      <file leaf-file-name="Uploadable.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FT/UploadBundle/Annotation/Uploadable.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="26" column="9" lean-forward="false" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+            <state relative-caret-position="336">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
-                <element signature="e#136#193#0#PHP" expanded="true" />
+                <element signature="e#6#89#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Message.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Message.php">
+      <file leaf-file-name="UploadableField.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FT/UploadBundle/Annotation/UploadableField.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-238">
-              <caret line="12" column="3" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+            <state relative-caret-position="546">
+              <caret line="31" column="9" lean-forward="false" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/config/routing.yml">
+      <file leaf-file-name="RegistrationController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/RegistrationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="743">
-              <caret line="105" column="71" lean-forward="false" selection-start-line="105" selection-start-column="71" selection-end-line="105" selection-end-column="71" />
-              <folding>
-                <marker date="1506958733620" expanded="true" signature="2555:3118" ph="ft_equipe_etudiants: &lt;3 keys&gt;" />
-              </folding>
+            <state relative-caret-position="3381">
+              <caret line="183" column="82" lean-forward="false" selection-start-line="183" selection-start-column="82" selection-end-line="183" selection-end-column="82" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminUserController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../accor/accor/src/BC/UserBundle/Controller/AdminUserController.php">
+      <file leaf-file-name="inscription.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Registration/inscription.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="651">
-              <caret line="213" column="31" lean-forward="false" selection-start-line="213" selection-start-column="19" selection-end-line="213" selection-end-column="31" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/composer.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="397">
+              <caret line="29" column="50" lean-forward="false" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppKernel.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="parameters.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="602">
+              <caret line="69" column="25" lean-forward="false" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -147,6 +180,7 @@
       <find>bc_user_load_ajax</find>
       <find>generateTable</find>
       <find>JsonResponse</find>
+      <find>$file</find>
     </findStrings>
     <dirStrings>
       <dir>D:\wamp64\www\ProjetStage\src\FT\ProjetStageBundle\Datatables</dir>
@@ -163,26 +197,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Personne/dashboard.html.twig" />
-        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Etudiant/listeEquipes.html.twig" />
-        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Formateur.php" />
-        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Projet.php" />
-        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/FormateurController.php" />
-        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/SessionFormation.php" />
         <option value="D:/Logiciels/PostGre/data/postgresql.conf" />
         <option value="E:/Dossier_Flo/CoursENS/GestionProjet/Projet/ProcedureStockeeProjetCollaboratif.sql" />
         <option value="$PROJECT_DIR$/web/js/loadSessionFormationChamp.js" />
-        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Registration/form.html.twig" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Projet/liste.html.twig" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Equipe/liste.html.twig" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Equipe/equipesParticipantes.html.twig" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Etudiant/liste.html.twig" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Etudiant.php" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Equipe.php" />
-        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Form/PersonneType.php" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Repository/EtudiantRepository.php" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Form/EquipeType.php" />
-        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/EtudiantController.php" />
         <option value="$PROJECT_DIR$/web/js/search.js" />
         <option value="$PROJECT_DIR$/web/css/registration.css" />
         <option value="$PROJECT_DIR$/web/bundles/fosjsrouting/js/router.js" />
@@ -190,22 +215,15 @@
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/SearchController.php" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Registration/inscription.html.twig" />
         <option value="$PROJECT_DIR$/web/js/formulaireInscription.js" />
-        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/PersonneController.php" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
         <option value="$PROJECT_DIR$/../accor/accor/src/BC/UserBundle/Resources/views/AdminUser/listing.html.twig" />
         <option value="$PROJECT_DIR$/../DtBundleDemo10/src/AppBundle/Controller/EntityAController.php" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Admin.php" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Admin/dashboard.html.twig" />
-        <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/app/AppKernel.php" />
-        <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Datatables/PersonneDatatable.php" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Repository/PersonneRepository.php" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Search/search.html.twig" />
-        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/RegistrationController.php" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
-        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
-        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Personne.php" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Message.php" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Admin/listePersonnes.html.twig" />
         <option value="$PROJECT_DIR$/../accor/accor/src/BC/UserBundle/DatasTables/UserTables.php" />
@@ -213,6 +231,22 @@
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/index.html.twig" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/MessageController.php" />
+        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/EtudiantController.php" />
+        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/FormateurController.php" />
+        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/ProjetController.php" />
+        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/EquipeController.php" />
+        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/PersonneController.php" />
+        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Form/PersonneType.php" />
+        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Registration/form.html.twig" />
+        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/RegistrationController.php" />
+        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Personne/form.html.twig" />
+        <option value="$PROJECT_DIR$/src/FT/UploadBundle/Annotation/Uploadable.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/app/AppKernel.php" />
+        <option value="$PROJECT_DIR$/app/config/routing.yml" />
+        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
+        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Personne.php" />
+        <option value="$PROJECT_DIR$/src/FT/UploadBundle/Annotation/UploadableField.php" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/AdminController.php" />
       </list>
     </option>
@@ -225,8 +259,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-6" />
-    <option name="y" value="21" />
+    <option name="x" value="671" />
+    <option name="y" value="2" />
     <option name="width" value="1125" />
     <option name="height" value="1038" />
   </component>
@@ -277,7 +311,22 @@
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="FT" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="ProjetStageBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="ProjetStage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjetStage" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="FT" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="UploadBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="ProjetStage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjetStage" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="FT" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="UploadBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Annotation" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -337,26 +386,34 @@
       <workItem from="1506780771430" duration="41508000" />
       <workItem from="1506947255609" duration="3230000" />
       <workItem from="1506954135980" duration="1167000" />
-      <workItem from="1506955437275" duration="5603000" />
+      <workItem from="1506955437275" duration="16974000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129516000" />
+    <option name="totallyTimeSpent" value="140887000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2859375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20247047" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12414578" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -380,122 +437,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Registration/inscription.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="18" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/formulaireInscription.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="23" column="3" lean-forward="false" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/PersonneController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="662">
-          <caret line="104" column="81" lean-forward="false" selection-start-line="104" selection-start-column="81" selection-end-line="104" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/SearchController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1016">
-          <caret line="70" column="5" lean-forward="false" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
-          <caret line="41" column="27" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DtBundleDemo10/src/AppBundle/DataFixtures/ORM/LoadData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1963">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DtBundleDemo10/src/AppBundle/Controller/EntityAController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="24" column="7" lean-forward="false" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="26" column="52" lean-forward="false" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DtBundleDemo10/web/bundles/fosjsrouting/js/router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DtBundleDemo10/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DtBundleDemo10/src/AppBundle/AppBundle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DtBundleDemo10/src/AppBundle/Resources/meta/LICENSE">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../accor/accor/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../accor/accor/web/AdminBundle/js/asset/French.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../DtBundleDemo10/src/AppBundle/Controller/PostController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="379">
           <caret line="44" column="22" lean-forward="false" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Etudiant/liste.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="23" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -562,13 +507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="14" column="69" lean-forward="false" selection-start-line="14" selection-start-column="69" selection-end-line="14" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Repository/ProjetRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -576,38 +514,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="25" column="72" lean-forward="false" selection-start-line="25" selection-start-column="72" selection-end-line="25" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/RegistrationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="200" column="40" lean-forward="false" selection-start-line="200" selection-start-column="40" selection-end-line="200" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/services.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="69" column="25" lean-forward="false" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -669,16 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="743">
-          <caret line="105" column="71" lean-forward="false" selection-start-line="105" selection-start-column="71" selection-end-line="105" selection-end-column="71" />
-          <folding>
-            <marker date="1506958733620" expanded="true" signature="2555:3118" ph="ft_equipe_etudiants: &lt;3 keys&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Message.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-238">
@@ -705,32 +605,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="156" column="16" lean-forward="false" selection-start-line="156" selection-start-column="16" selection-end-line="156" selection-end-column="16" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Personne.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3197">
-          <caret line="15" column="3" lean-forward="false" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Etudiant.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Equipe.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -747,6 +621,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Etudiant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Etudiant/liste.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="19" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/EtudiantController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="26" column="11" lean-forward="false" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1994">
+          <caret line="105" column="71" lean-forward="false" selection-start-line="105" selection-start-column="71" selection-end-line="105" selection-end-column="71" />
+          <folding>
+            <marker date="1506958733620" expanded="true" signature="2555:3118" ph="ft_equipe_etudiants: &lt;3 keys&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Projet.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
@@ -755,10 +663,182 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/FormateurController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="25" column="65" lean-forward="false" selection-start-line="25" selection-start-column="65" selection-end-line="25" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/ProjetController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="62" lean-forward="false" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/EquipeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="62" lean-forward="false" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3689">
+          <caret line="183" column="0" lean-forward="false" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/PersonneController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="26" column="37" lean-forward="false" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/registration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/formulaireInscription.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Registration/form.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="111" column="32" lean-forward="false" selection-start-line="111" selection-start-column="32" selection-end-line="111" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Personne/form.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="785">
+          <caret line="71" column="36" lean-forward="false" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Form/PersonneType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="707">
+          <caret line="80" column="7" lean-forward="false" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Personne/profile.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/UploadBundle/Annotation/Uploadable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#89#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Registration/inscription.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="29" column="50" lean-forward="false" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="69" column="25" lean-forward="false" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Personne.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="46" lean-forward="false" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/UploadBundle/Annotation/UploadableField.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="31" column="9" lean-forward="false" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/RegistrationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3381">
+          <caret line="183" column="82" lean-forward="false" selection-start-line="183" selection-start-column="82" selection-end-line="183" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="101" column="0" lean-forward="true" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+        <state relative-caret-position="126">
+          <caret line="41" column="5" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
           <folding>
             <element signature="e#136#190#0#PHP" expanded="true" />
           </folding>

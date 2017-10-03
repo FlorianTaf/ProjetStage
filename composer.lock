@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f25144bbb95eb5c919f112a8cdebe1d8",
+    "content-hash": "0c5d838d0c6723e6695e55ec397cdda0",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -1012,32 +1012,33 @@
         },
         {
             "name": "friendsofsymfony/jsrouting-bundle",
-            "version": "1.6.0",
+            "version": "1.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSJsRoutingBundle.git",
-                "reference": "2f52d924692647db02bbcb27c159fef03bf000c9"
+                "reference": "49c1069132dcef371fb526351569deabeb6f0d8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSJsRoutingBundle/zipball/2f52d924692647db02bbcb27c159fef03bf000c9",
-                "reference": "2f52d924692647db02bbcb27c159fef03bf000c9",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSJsRoutingBundle/zipball/49c1069132dcef371fb526351569deabeb6f0d8e",
+                "reference": "49c1069132dcef371fb526351569deabeb6f0d8e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
-                "symfony/console": "~2.0|3.*",
-                "symfony/framework-bundle": "~2.0|3.*",
-                "symfony/serializer": "~2.0|3.*",
+                "symfony/console": "~2.3|3.*",
+                "symfony/framework-bundle": "~2.3|3.*",
+                "symfony/serializer": "~2.3|3.*",
                 "willdurand/jsonp-callback-validator": "~1.0"
             },
             "require-dev": {
-                "symfony/expression-language": "~2.4|3.*"
+                "symfony/expression-language": "~2.4|3.*",
+                "symfony/phpunit-bridge": "^3.3"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5-dev"
+                    "dev-master": "1.6-dev"
                 }
             },
             "autoload": {
@@ -1066,7 +1067,7 @@
                 "javascript",
                 "routing"
             ],
-            "time": "2015-10-28T15:08:39+00:00"
+            "time": "2017-08-25T15:21:42+00:00"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1700,61 +1701,6 @@
             ],
             "description": "A security checker for your composer.lock",
             "time": "2017-08-22T22:18:16+00:00"
-        },
-        {
-            "name": "sg/datatablesbundle",
-            "version": "v1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/stwe/DatatablesBundle.git",
-                "reference": "90cc764e1f28b385d2a2c99bc732797dfa6bb931"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/stwe/DatatablesBundle/zipball/90cc764e1f28b385d2a2c99bc732797dfa6bb931",
-                "reference": "90cc764e1f28b385d2a2c99bc732797dfa6bb931",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/orm": "^2.5",
-                "friendsofsymfony/jsrouting-bundle": "1.6.0",
-                "php": ">=5.5.9",
-                "symfony/framework-bundle": "~3.0",
-                "symfony/options-resolver": "~3.0",
-                "symfony/property-access": "~3.0"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Sg\\DatatablesBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "stwe"
-                },
-                {
-                    "name": "SgDatatablesBundle contributors",
-                    "homepage": "https://github.com/stwe/DatatablesBundle/graphs/contributors"
-                }
-            ],
-            "description": "Symfony Datatable Bundle For Doctrine2 Entities",
-            "homepage": "https://github.com/stwe/DatatablesBundle",
-            "keywords": [
-                "data-table",
-                "datagrid",
-                "datatable",
-                "datatables",
-                "grid",
-                "pagination",
-                "symfony3",
-                "table"
-            ],
-            "time": "2017-09-04T08:12:56+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

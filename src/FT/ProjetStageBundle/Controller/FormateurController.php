@@ -23,7 +23,7 @@ class FormateurController extends Controller
         $em = $this->getDoctrine()->getManager();
         $listeFormateurs = $em->getRepository('FTProjetStageBundle:Formateur')->findAll();
 
-        return $this->render('FTProjetStageBundle:Formateur:listePersonnes.html.twig', array(
+        return $this->render('FTProjetStageBundle:Formateur:liste.html.twig', array(
             'listeFormateurs' => $listeFormateurs
         ));
     }

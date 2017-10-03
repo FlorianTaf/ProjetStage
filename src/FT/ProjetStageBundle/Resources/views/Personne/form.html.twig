@@ -61,6 +61,17 @@
             {{ form_widget(form.email) }}
         </div>
 
+        {# Email #}
+        <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.file) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.file) }}
+
+            {{ form_widget(form.file) }}
+        </div>
+
     </div>
 
     {{ form_widget(form.save) }}

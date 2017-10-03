@@ -7,6 +7,7 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -49,7 +50,7 @@ class PersonneType extends AbstractType
                     'class' => 'form-control'), 'attr' => array(
                         'class' => 'form-control', 'placeholder' => 'florian.taffaneau@laposte.net')))
             ->add('password', PasswordType::class, array(
-                'label' => 'Mot de passe', 'required' => true, 'data' => 'etudiant', 'label_attr' => array(
+                'label' => 'Mot de passe', 'required' => true, 'label_attr' => array(
                     'class' => 'form-control'), 'attr' => array(
                         'class' => 'form-control', 'id' => 'password', 'placeholder' => 'mdp123')))
             ->add('role', EntityType::class, array(
@@ -68,6 +69,10 @@ class PersonneType extends AbstractType
                     'class' => 'form-control'
                 ),
             ))
+            ->add('file', FileType::class, array(
+                'label' => 'Image', 'required' => false, 'label_attr' => array(
+                    'class' => 'form-control'), 'attr' => array(
+                        'class' => 'form-control', 'id' => 'image')))
             ->add('save', SubmitType::class, array(
                 'attr' => array(
                     'class' => 'login-button')));

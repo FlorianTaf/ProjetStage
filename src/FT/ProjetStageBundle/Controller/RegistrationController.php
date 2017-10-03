@@ -15,12 +15,15 @@ use FT\ProjetStageBundle\Entity\Personne;
 use FT\ProjetStageBundle\Form\PersonneType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -101,6 +104,10 @@ class RegistrationController extends Controller
                     'class' => 'form-control'
                 ),
             ))
+            ->add('file', FileType::class, array(
+                'label' => 'Image', 'required' => false, 'label_attr' => array(
+                    'class' => 'form-control'), 'attr' => array(
+                    'class' => 'form-control', 'id' => 'image')))
             ->add('save', SubmitType::class, array(
                 'attr' => array(
                     'class' => 'login-button')))
@@ -148,6 +155,11 @@ class RegistrationController extends Controller
                         $error = true;
                     }
                 }
+
+                //On va vérifier si on a bien une image (.jpg, .jpeg ou .png)
+                $file = htmlspecialchars($data['file']);
+                var_dump($file);
+                return new Response();
 
                 //Si on a une seule erreur, on renvoie le formulaire avec les messages correspondants
                 if ($error === true) {

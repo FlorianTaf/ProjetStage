@@ -3,7 +3,12 @@
 namespace FT\ProjetStageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use FT\UploadBundle\Annotation\Uploadable;
+use FT\UploadBundle\Annotation\UploadableField;
+
 
 /**
  * Personne
@@ -14,6 +19,7 @@ use Symfony\Component\Security\Core\User\AdvancedUserInterface;
  * @ORM\DiscriminatorColumn(name="typePersonne", type="string")
  * @ORM\DiscriminatorMap({"personne" = "Personne", "etudiant" = "Etudiant", "formateur" = "Formateur", "admin" = "Admin"})
  * @ORM\HasLifecycleCallbacks()
+ * @Uploadable()
  */
 abstract class Personne implements AdvancedUserInterface, \Serializable
 {
@@ -91,6 +97,22 @@ abstract class Personne implements AdvancedUserInterface, \Serializable
      * @ORM\OneToMany(targetEntity="FT\ProjetStageBundle\Entity\Message", mappedBy="sender")
      */
     protected $messages;
+
+    /**
+     * @var string
+     * @Assert\File(
+     *     maxSize = "700k",
+     *     mimeTypes = {"application/png", "application/jpg", "application/jpeg"},
+     *     mimeTypesMessage = "Veuillez sélectionner une image (png, jpg ou jpeg)"
+     * )
+     * @ORM\Column(name="filename", type="string", length=255)
+     */
+    protected $filename;
+
+    /**
+     * @UploadableField(filename="filename", path="uploads/images")
+     */
+    protected $file;
 
 
     /**
@@ -432,5 +454,45 @@ abstract class Personne implements AdvancedUserInterface, \Serializable
     public function getMessages()
     {
         return $this->messages;
+    }
+
+    /**
+     * Set filename
+     *
+     * @param string $filename
+     *
+     * @return Personne
+     */
+    public function setFilename($filename)
+    {
+        $this->filename = $filename;
+
+        return $this;
+    }
+
+    /**
+     * Get filename
+     *
+     * @return string
+     */
+    public function getFilename()
+    {
+        return $this->filename;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * @param File $file|null
+     */
+    public function setFile($file)
+    {
+        $this->file = $file;
     }
 }

@@ -17,6 +17,11 @@ use Symfony\Component\HttpFoundation\Request;
 
 class PersonneController extends Controller
 {
+    public function dashboardAction()
+    {
+        return $this->render('FTProjetStageBundle:Personne:dashboard.html.twig');
+    }
+
     public function profileAction(Request $request)
     {
         $personne = $this->getUser();
@@ -98,10 +103,5 @@ class PersonneController extends Controller
             return $this->redirectToRoute('ft_personne_profile');
         }
         return $this->render('FTProjetStageBundle:Personne:modifPassword.html.twig');
-    }
-
-    public function dashboardAction()
-    {
-        return $this->render('FTProjetStageBundle:Personne:dashboard.html.twig');
     }
 }

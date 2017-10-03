@@ -36,32 +36,6 @@ class AdminController extends Controller
         return $this->render('FTProjetStageBundle:Admin:listePersonnes.html.twig', array(
             'personnes' => $personnes
         ));
-
-        //$isAjax = $request->isXmlHttpRequest();
-
-        // Get your Datatable ...
-        //$datatable = $this->get('app.datatable.post');
-        //$datatable->buildDatatable();
-
-        // or use the DatatableFactory
-        //** @var DatatableInterface $datatable */
-
-        /*
-        $datatable = $this->get('sg_datatables.factory')->create(PersonneDatatable::class);
-        $datatable->buildDatatable();
-
-        if ($isAjax) {
-            $responseService = $this->get('sg_datatables.response');
-            $responseService->setDatatable($datatable);
-            $responseService->getDatatableQueryBuilder();
-
-            return $responseService->getResponse();
-        }
-
-        return $this->render('FTProjetStageBundle:Admin:listePersonnes.html.twig', array(
-            'datatable' => $datatable,
-        ));
-        */
     }
 
     public function deletePersonneAction(Personne $personne)
@@ -80,7 +54,7 @@ class AdminController extends Controller
                 'proprietaire' => $personneDelete
             ));
             //Si c'est pas null, alors la personne est propriétaire d'une équipe
-            if ($equipes != null ) {
+            if ($equipes != null) {
                 throw new Exception("Impossible de supprimer cet étudiant, il est propriétaire d'une équipe !!!");
             }
         }
@@ -99,3 +73,4 @@ class AdminController extends Controller
 
         return $this->redirectToRoute('ft_admin_personnes_liste');
     }
+}

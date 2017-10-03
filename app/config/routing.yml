@@ -1,3 +1,7 @@
+upload:
+    resource: "@UploadBundle/Resources/config/routing.yml"
+    prefix:   /
+
 ft_projet_stage:
     resource: "@FTProjetStageBundle/Resources/config/routing.yml"
     prefix:   /
@@ -15,11 +19,6 @@ personne_dashboard:
     path: /personne/dashboard
     defaults:
         _controller: FTProjetStageBundle:Personne:dashboard
-
-#Databundle
-sg_datatables_bundle:
-    resource: "@SgDatatablesBundle/Controller/"
-    type:     annotation
 
 #JSRouting
 fos_js_routing:

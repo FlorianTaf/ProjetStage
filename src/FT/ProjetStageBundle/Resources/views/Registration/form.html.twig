@@ -86,6 +86,7 @@
                    placeholder="mdp123">
         </div>
 
+        {# Rôle #}
         <div class="form-group">
             {# Génération du label. #}
             {{ form_label(form.role) }}
@@ -96,6 +97,7 @@
             {{ form_widget(form.role) }}
         </div>
 
+        {# Session de formation #}
         <div class="champSession form-group">
             {# Génération du label. #}
             {{ form_label(form.sessionFormation) }}
@@ -104,6 +106,17 @@
             {{ form_errors(form.sessionFormation) }}
 
             {{ form_widget(form.sessionFormation) }}
+        </div>
+
+        {# Image à choisir #}
+        <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.file) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.file) }}
+
+            {{ form_widget(form.file) }}
         </div>
 
     </div>
