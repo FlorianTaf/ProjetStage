@@ -1,10 +1,11 @@
+ft_projet_stage:
+    resource: "@FTProjetStageBundle/Resources/config/routing.yml"
+    prefix:   /
+
 upload:
     resource: "@UploadBundle/Resources/config/routing.yml"
     prefix:   /
 
-ft_projet_stage:
-    resource: "@FTProjetStageBundle/Resources/config/routing.yml"
-    prefix:   /
 
 #login et logout
 login:

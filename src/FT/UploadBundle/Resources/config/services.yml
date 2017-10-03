@@ -2,3 +2,12 @@ services:
 #    upload.example:
 #        class: FT\UploadBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+    upload.annotation_reader:
+        class: FT\UploadBundle\Annotation\UploadAnnotationReader
+        arguments: ["@annotations.reader"]
+
+    upload.subscriber:
+        class: FT\UploadBundle\Listener\UploadSubscriber
+        arguments: ["@upload.annotation_reader"]
+        tags:
+          - { name: doctrine.event_subscriber, connection: default }

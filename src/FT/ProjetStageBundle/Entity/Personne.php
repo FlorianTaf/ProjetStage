@@ -100,17 +100,13 @@ abstract class Personne implements AdvancedUserInterface, \Serializable
 
     /**
      * @var string
-     * @Assert\File(
-     *     maxSize = "700k",
-     *     mimeTypes = {"application/png", "application/jpg", "application/jpeg"},
-     *     mimeTypesMessage = "Veuillez sélectionner une image (png, jpg ou jpeg)"
-     * )
-     * @ORM\Column(name="filename", type="string", length=255)
+     *
+     * @ORM\Column(name="filename", type="string", length=255, nullable=true)
      */
     protected $filename;
 
     /**
-     * @UploadableField(filename="filename", path="uploads/images")
+     * @UploadableField(filename="filename", path="uploads")
      */
     protected $file;
 

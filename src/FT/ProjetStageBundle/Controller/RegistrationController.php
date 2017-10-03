@@ -105,6 +105,7 @@ class RegistrationController extends Controller
                 ),
             ))
             ->add('file', FileType::class, array(
+                'required' => false,
                 'label' => 'Image', 'required' => false, 'label_attr' => array(
                     'class' => 'form-control'), 'attr' => array(
                     'class' => 'form-control', 'id' => 'image')))
@@ -156,11 +157,6 @@ class RegistrationController extends Controller
                     }
                 }
 
-                //On va vérifier si on a bien une image (.jpg, .jpeg ou .png)
-                $file = htmlspecialchars($data['file']);
-                var_dump($file);
-                return new Response();
-
                 //Si on a une seule erreur, on renvoie le formulaire avec les messages correspondants
                 if ($error === true) {
                     if (!isset($errorSession)) {
@@ -195,9 +191,15 @@ class RegistrationController extends Controller
                     $etudiant->setUsername($data['username']);
                     $etudiant->setRole($role);
                     $etudiant->setSessionFormation($session);
+                    $etudiant->setFile($data['file']);
                     //On va hasher le mot de passe
                     $encodedPassword = $this->get('security.password_encoder')->encodePassword($etudiant, $password);
                     $etudiant->setPassword($encodedPassword);
+                    /*
+                    dump($this->get('upload.annotation_reader')->isUploadable($etudiant));
+                    dump($this->get('upload.annotation_reader')->getUploadableFields($etudiant));
+                    throw new Exception("lkdfdsfsdqf");
+                    */
                     $em->persist($etudiant);
                     $personne = $etudiant;
                 }
