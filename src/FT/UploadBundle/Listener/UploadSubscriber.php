@@ -87,6 +87,8 @@ class UploadSubscriber implements EventSubscriber
                 $file->move($annotation->getPath(), $filename);
                 //On met à jour notre filename (le champ de notre bdd lié au fichier (1er argument l'entité, 2ème le champ qu'on veut modifier, 3ème la valeur qu'on lui donne)
                 $accessor->setValue($entity, $annotation->getFilename(), $filename);
+                dump($file);
+                dump($filename);
             }
         }
     }
