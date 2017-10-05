@@ -41,6 +41,21 @@ class PersonneController extends Controller
                 $email = $em->getRepository('FTProjetStageBundle:Personne')->findOneBy(array('email' => $personne->getEmail()));
                 $username = $em->getRepository('FTProjetStageBundle:Personne')->findOneBy(array('username' => $personne->getUsername()));
 
+                /*
+                $mailOrUsername = $em->getRepository('FTProjetStageBundle:Personne')->getPersonneWithMailOrUsername(
+                    $personne->getUsername(),
+                    $personne->getEmail());
+
+                if ($mailOrUsername !== null) {
+                    $errorForm = new FormError('L\'adresse email et/ou le pseudo est déjà utilisé !!!');
+                    $form->get('email')->addError($errorForm);
+                    $form->get('username')->addError($errorForm);
+                    return $this->render('FTProjetStageBundle:Personne:profile.html.twig',
+                        array('form' => $form->createView(),
+                            'personne' => $personne));
+                }
+                */
+
                 //Si l'adresse email est déjà utilisé
                 if ($email != null && $email->getEmail() != $emailBefore) {
                     $errorEmail = new FormError('L\'adresse email est déjà utilisée!');

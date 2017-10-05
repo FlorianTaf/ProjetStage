@@ -47,6 +47,21 @@ class RegistrationController extends Controller
         ));
     }
 
+    //On redirige vers la bonne page en fonction du rôle
+    public function loginRedirectAction(Request $request)
+    {
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return $this->redirectToRoute('login');
+            // throw $this->createAccessDeniedException();
+        }
+
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            return $this->redirectToRoute('ft_admin_dashboard');
+        } else {
+            return $this->redirectToRoute('ft_personne_dashboard');
+        }
+    }
+
     public function registrationAction(Request $request)
     {
         $error = false;

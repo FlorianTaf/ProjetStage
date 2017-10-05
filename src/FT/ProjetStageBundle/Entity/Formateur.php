@@ -3,12 +3,14 @@
 namespace FT\ProjetStageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FT\UploadBundle\Annotation\Uploadable;
 
 /**
  * Formateur
  *
  * @ORM\Table(name="formateur")
  * @ORM\Entity(repositoryClass="FT\ProjetStageBundle\Repository\FormateurRepository")
+ * @Uploadable()
  */
 class Formateur extends Personne
 {

@@ -16,10 +16,10 @@ login_check:
     path: /login_check
 logout:
     path: /logout
-personne_dashboard:
-    path: /personne/dashboard
+personne_redirect:
+    path: /personne/redirect
     defaults:
-        _controller: FTProjetStageBundle:Personne:dashboard
+        _controller: FTProjetStageBundle:Registration:loginRedirect
 
 #JSRouting
 fos_js_routing:

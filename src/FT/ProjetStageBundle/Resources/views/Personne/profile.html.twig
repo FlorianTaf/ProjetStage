@@ -8,3 +8,15 @@
         </div>
     </div>
 {% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function () {
+            var username = $('#personne_edit_username').val();
+            var mail = $('#personne_edit_email').val();
+            $('#personne_edit_save').on('click', function () {
+                alert(username + mail);
+            });
+        });
+    </script>
+{% endblock %}

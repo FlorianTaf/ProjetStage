@@ -107,6 +107,7 @@ abstract class Personne implements AdvancedUserInterface, \Serializable
 
     /**
      * @UploadableField(filename="filename", path="uploads")
+     * @Assert\Image(maxHeight="1000", maxWidth="1000")
      */
     protected $file;
 

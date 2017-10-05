@@ -31,4 +31,12 @@ class PersonneRepository extends \Doctrine\ORM\EntityRepository
             ->orWhere('p.email LIKE :nomMail')->setParameter('nomMail', '%' . $nomMail . '%' )
             ->getQuery()->getResult();
     }
+
+    public function getPersonneWithMailOrUsername($username, $mail)
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.username = :username')->setParameter('username', $username)
+            ->orWhere('p.email = :mail')->setParameter('mail', $mail)
+            ->getQuery()->getResult();
+    }
 }

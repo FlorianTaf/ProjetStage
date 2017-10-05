@@ -9,6 +9,8 @@
                 <th>Titre</th>
                 <th>Sujet</th>
                 <th>Propriétaire</th>
+                <th>Date de création</th>
+                <th>Date limite de rendue</th>
             </tr>
             </thead>
             <tbody>
@@ -17,6 +19,8 @@
                     <td>{{ projet.titre }}</td>
                     <td>{{ projet.sujet }}</td>
                     <td>{{ projet.proprietaire.nom }} {{ projet.proprietaire.prenom }}</td>
+                    <td>{{ projet.dateCreation|date('d/m/Y') }}</td>
+                    <td>{{ projet.dateLimite|date('d/m/Y') }}</td>
                     <td><button class="btn btn-primary" type="submit"><a href="{{ path('ft_projet_equipes_participantes', {'id': projet.id }) }}">Voir les équipes participantes</a></button></td>
                 </tr>
             {% endfor %}
