@@ -60,9 +60,11 @@ class Etudiant extends Personne
      *
      * @return Etudiant
      */
-    public function addEquipe(\FT\ProjetStageBundle\Entity\Etudiant $equipe)
+    public function addEquipe(\FT\ProjetStageBundle\Entity\Equipe $equipe)
     {
         $this->equipes[] = $equipe;
+
+        $equipe->setProprietaire($this);
 
         return $this;
     }

@@ -32,23 +32,23 @@ class PersonneType extends AbstractType
             ->add('nom', TextType::class, array(
                 'label' => 'Nom', 'required' => true, 'label_attr' => array(
                     'class' => 'form-control'), 'attr' => array(
-                        'class' => 'form-control', 'placeholder' => 'Taffaneau')))
+                        'class' => 'form-control','datas-id' => 'Nom', 'placeholder' => 'Taffaneau')))
             ->add('prenom', TextType::class, array(
                 'label' => 'Prénom', 'required' => true, 'label_attr' => array(
                     'class' => 'form-control'), 'attr' => array(
-                        'class' => 'form-control', 'placeholder' => 'Florian')))
+                        'class' => 'form-control','datas-id' => 'Prenom', 'placeholder' => 'Florian')))
             ->add('username', TextType::class, array(
                 'label' => 'Pseudo', 'required' => true, 'label_attr' => array(
                     'class' => 'form-control'), 'attr' => array(
-                        'class' => 'form-control', 'placeholder' => 'Altoros')))
+                        'class' => 'form-control', 'datas-id' => 'Username', 'placeholder' => 'Altoros')))
             ->add('telephone', TextType::class, array(
                 'label' => 'Téléphone', 'required' => false, 'label_attr' => array(
                     'class' => 'form-control'), 'attr' => array(
-                        'class' => 'form-control', 'placeholder' => '06/88/49/43/58')))
+                        'class' => 'form-control','datas-id' => 'Telephone', 'placeholder' => '06/88/49/43/58')))
             ->add('email', EmailType::class, array(
                 'label' => 'Email', 'required' => true, 'label_attr' => array(
                     'class' => 'form-control'), 'attr' => array(
-                        'class' => 'form-control', 'placeholder' => 'florian.taffaneau@laposte.net')))
+                        'class' => 'form-control', 'datas-id' => 'Email' , 'placeholder' => 'florian.taffaneau@laposte.net')))
             ->add('password', PasswordType::class, array(
                 'label' => 'Mot de passe', 'required' => true, 'label_attr' => array(
                     'class' => 'form-control'), 'attr' => array(
@@ -66,13 +66,14 @@ class PersonneType extends AbstractType
                 'expanded' => true,
                 'label' => 'Role',
                 'label_attr' => array(
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'datas-id' => 'Role'
                 ),
             ))
             ->add('file', FileType::class, array(
                 'label' => 'Image', 'required' => false, 'label_attr' => array(
                     'class' => 'form-control'), 'attr' => array(
-                        'class' => 'form-control', 'id' => 'image')))
+                        'class' => 'form-control','datas-id' => 'File', 'id' => 'image')))
             ->add('save', SubmitType::class, array(
                 'attr' => array(
                     'class' => 'login-button')));

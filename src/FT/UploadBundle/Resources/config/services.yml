@@ -6,8 +6,11 @@ services:
         class: FT\UploadBundle\Annotation\UploadAnnotationReader
         arguments: ["@annotations.reader"]
 
+    upload.handler:
+        class: FT\UploadBundle\Handler\UploadHandler
+
     upload.subscriber:
         class: FT\UploadBundle\Listener\UploadSubscriber
-        arguments: ["@upload.annotation_reader"]
+        arguments: ["@upload.annotation_reader", "@upload.handler"]
         tags:
           - { name: doctrine.event_subscriber, connection: default }

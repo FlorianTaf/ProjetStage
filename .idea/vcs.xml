@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../DtBundleDemo10" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../Symfony" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../accor" vcs="Git" />
   </component>
 </project>

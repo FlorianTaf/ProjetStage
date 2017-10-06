@@ -104,3 +104,11 @@ ft_admin_delete_personne:
 ft_chat_messages:
     path: /chat
     defaults: { _controller: FTProjetStageBundle:Message:listeMessages }
+
+
+#Ajax
+ft_personne_profile_modif_ajax:
+    path: /personne/profile_modif_ajax
+    defaults: { _controller: FTProjetStageBundle:Personne:profileAjax }
+    options:
+        expose: true

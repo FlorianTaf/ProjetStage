@@ -11,9 +11,7 @@ namespace FT\UploadBundle\Listener;
 use Doctrine\Common\EventArgs;
 use Doctrine\Common\EventSubscriber;
 use FT\UploadBundle\Annotation\UploadAnnotationReader;
-use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\PropertyAccess\PropertyAccess;
+use FT\UploadBundle\Handler\UploadHandler;
 
 class UploadSubscriber implements EventSubscriber
 {
@@ -22,36 +20,35 @@ class UploadSubscriber implements EventSubscriber
      */
     private $reader;
 
-    public function __construct(UploadAnnotationReader $reader)
+    /**
+     * @var UploadHandler
+     */
+    private $handler;
+
+    public function __construct(UploadAnnotationReader $reader, UploadHandler $handler)
     {
         $this->reader = $reader;
+        $this->handler = $handler;
     }
 
     public function getSubscribedEvents()
     {
         return [
             'prePersist',
+            'preUpdate',
             'postLoad', //Pour pouvoir hydrater notre entité Personne avec le file
-            'postUpdate'
+            'postRemove'
         ];
     }
 
     public function prePersist(EventArgs $event)
     {
-        $entity = $event->getEntity();
-        //On récupère la propriété et en valeur l'annotation
-        foreach ($this->reader->getUploadableFields($entity) as $property => $annotation) {
-            //On va faire appel à la classe qui permet d'accéder aux getters et setters
-            $accessor = PropertyAccess::createPropertyAccessor();
-            $file = $accessor->getValue($entity, $property);
-            if ($file instanceof UploadedFile) {
-                $filename = $file->getClientOriginalName();
-                //Le 1er argument est le chemin, le 2ème le nom qu'on lui donne (on lui donne ici le même nom que celui d'origine)
-                $file->move($annotation->getPath(), $filename);
-                //On met à jour notre filename (le champ de notre bdd lié au fichier (1er argument l'entité, 2ème le champ qu'on veut modifier, 3ème la valeur qu'on lui donne)
-                $accessor->setValue($entity, $annotation->getFilename(), $filename);
-            }
-        }
+        $this->preEvent($event);
+    }
+
+    public function preUpdate(EventArgs $event)
+    {
+        $this->preEvent($event);
     }
 
     public function postLoad(EventArgs $event)
@@ -59,37 +56,24 @@ class UploadSubscriber implements EventSubscriber
         $entity = $event->getEntity();
         //On récupère la propriété et en valeur l'annotation
         foreach ($this->reader->getUploadableFields($entity) as $property => $annotation) {
-            //On va faire appel à la classe qui permet d'accéder aux getters et setters
-            $accessor = PropertyAccess::createPropertyAccessor();
-            //On récupère le nom du fichier
-            $filename = $accessor->getValue($entity, $annotation->getFileName());
-            if ($filename != null) {
-                //On va générer le fichier avec le chemin correspondant
-                $file = new File($annotation->getPath() . DIRECTORY_SEPARATOR . $filename); //On aurait pu utiliser le ' . "/" . ' à la place du directory separator
-                //On hydrate notre objet avec le fichier
-                $accessor->setValue($entity, $property, $file);
-                dump($file);
-            }
+            $this->handler->setFileFromFilename($entity, $property, $annotation);
         }
     }
 
-    public function postUpdate(EventArgs $event)
+    public function postRemove(EventArgs $event)
     {
         $entity = $event->getEntity();
-        //On récupère la propriété et en valeur l'annotation
         foreach ($this->reader->getUploadableFields($entity) as $property => $annotation) {
-            //On va faire appel à la classe qui permet d'accéder aux getters et setters
-            $accessor = PropertyAccess::createPropertyAccessor();
-            $file = $accessor->getValue($entity, $property);
-            if ($file instanceof UploadedFile) {
-                $filename = $file->getClientOriginalName();
-                //Le 1er argument est le chemin, le 2ème le nom qu'on lui donne (on lui donne ici le même nom que celui d'origine)
-                $file->move($annotation->getPath(), $filename);
-                //On met à jour notre filename (le champ de notre bdd lié au fichier (1er argument l'entité, 2ème le champ qu'on veut modifier, 3ème la valeur qu'on lui donne)
-                $accessor->setValue($entity, $annotation->getFilename(), $filename);
-                dump($file);
-                dump($filename);
-            }
+            $this->handler->removeFile($entity, $property);
+        }
+    }
+
+    //Méthode qui va nous servir pour le prePersist et preUpdate
+    private function preEvent(EventArgs $event)
+    {
+        $entity = $event->getEntity();
+        foreach ($this->reader->getUploadableFields($entity) as $property => $annotation) {
+            $this->handler->uploadFile($entity, $property, $annotation);
         }
     }
 }

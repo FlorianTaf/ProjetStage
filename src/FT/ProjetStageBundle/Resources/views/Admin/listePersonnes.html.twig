@@ -20,6 +20,7 @@
                     <td>{{ personne.prenom }}</td>
                     <td>{{ personne.email }}</td>
                     <td>{{ personne.username }}</td>
+                    <td>{{ personne.file }}</td>
                     <td>
                         <a href="{{ path('ft_admin_delete_personne', {'id': personne.id }) }}" id="test" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i
                                     class="glyphicon glyphicon-trash"></i>Supprimer</a>

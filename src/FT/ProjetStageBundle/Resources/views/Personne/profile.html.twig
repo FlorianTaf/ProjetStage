@@ -12,10 +12,24 @@
     {{ parent() }}
     <script>
         $(document).ready(function () {
-            var username = $('#personne_edit_username').val();
-            var mail = $('#personne_edit_email').val();
-            $('#personne_edit_save').on('click', function () {
-                alert(username + mail);
+            $(document).on('blur', '.form-control', function () {
+                var path = Routing.generate("ft_personne_profile_modif_ajax")
+                var champSelected = $(this).attr('datas-id');
+                var value = $(this).val();
+                var json = {'champ': champSelected, 'value': value};
+
+                console.log("Champ sélectionné : " + champSelected);
+                console.log("Valeur du champ : " + value);
+
+                $.post(path, json, function (response) {
+                    console.log(response);
+                    if (response.email != undefined) {
+                        console.log('Email erreur');
+                    } else {
+                        console.log('Email pas d\'erreur');
+                    }
+
+                });
             });
         });
     </script>

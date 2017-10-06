@@ -18,8 +18,8 @@ use FT\UploadBundle\Annotation\UploadableField;
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="typePersonne", type="string")
  * @ORM\DiscriminatorMap({"personne" = "Personne", "etudiant" = "Etudiant", "formateur" = "Formateur", "admin" = "Admin"})
- * @ORM\HasLifecycleCallbacks()
  * @Uploadable()
+ * @ORM\HasLifecycleCallbacks()
  */
 abstract class Personne implements AdvancedUserInterface, \Serializable
 {
@@ -80,7 +80,7 @@ abstract class Personne implements AdvancedUserInterface, \Serializable
     protected $role;
 
     /**
-     * @var datetime
+     * @var \DateTime
      *
      * @ORM\Column(name="dateUpdate", type="datetime", nullable=true)
      */
@@ -106,6 +106,7 @@ abstract class Personne implements AdvancedUserInterface, \Serializable
     protected $filename;
 
     /**
+     * @var File
      * @UploadableField(filename="filename", path="uploads")
      * @Assert\Image(maxHeight="1000", maxWidth="1000")
      */
@@ -373,8 +374,8 @@ abstract class Personne implements AdvancedUserInterface, \Serializable
     }
 
     /**
- * @ORM\PreUpdate
- */
+     * @ORM\PreUpdate
+     */
     public function updateDate()
     {
         $this->setDateUpdate(new \DateTime());

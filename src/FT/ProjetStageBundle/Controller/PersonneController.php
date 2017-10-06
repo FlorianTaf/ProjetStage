@@ -13,6 +13,7 @@ use FT\ProjetStageBundle\Entity\Personne;
 use FT\ProjetStageBundle\Form\PersonneEditType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\FormError;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class PersonneController extends Controller
@@ -41,21 +42,6 @@ class PersonneController extends Controller
                 $email = $em->getRepository('FTProjetStageBundle:Personne')->findOneBy(array('email' => $personne->getEmail()));
                 $username = $em->getRepository('FTProjetStageBundle:Personne')->findOneBy(array('username' => $personne->getUsername()));
 
-                /*
-                $mailOrUsername = $em->getRepository('FTProjetStageBundle:Personne')->getPersonneWithMailOrUsername(
-                    $personne->getUsername(),
-                    $personne->getEmail());
-
-                if ($mailOrUsername !== null) {
-                    $errorForm = new FormError('L\'adresse email et/ou le pseudo est déjà utilisé !!!');
-                    $form->get('email')->addError($errorForm);
-                    $form->get('username')->addError($errorForm);
-                    return $this->render('FTProjetStageBundle:Personne:profile.html.twig',
-                        array('form' => $form->createView(),
-                            'personne' => $personne));
-                }
-                */
-
                 //Si l'adresse email est déjà utilisé
                 if ($email != null && $email->getEmail() != $emailBefore) {
                     $errorEmail = new FormError('L\'adresse email est déjà utilisée!');
@@ -77,6 +63,7 @@ class PersonneController extends Controller
                 }
 
                 //Si ok, on flush (pas besoin de persist car les entités nous sont fournis directement par Doctrine ici
+                $personne->setDateUpdate(new \DateTime());
                 $em->flush();
                 return $this->render('FTProjetStageBundle:Personne:profile.html.twig',
                     array('form' => $form->createView(),
@@ -118,5 +105,45 @@ class PersonneController extends Controller
             return $this->redirectToRoute('ft_personne_profile');
         }
         return $this->render('FTProjetStageBundle:Personne:modifPassword.html.twig');
+    }
+
+    public function profileAjaxAction(Request $request)
+    {
+        $personne = $this->getUser();
+        $value = $request->request->get('value');
+        $champ = $request->request->get('champ');
+        $champRepository = strtolower($champ); //Champ à utiliser pour la requête dans le repository
+        $methodName = 'set' . $champ;
+
+        $em = $this->getDoctrine()->getManager();
+
+        //À faire !!!!!!!
+        if ($champ === 'File') {
+            return new JsonResponse(array(
+                'encours' => 'Pas encore codé, fais pas chier.'
+            ));
+        }
+
+        if ($champ !== 'File'){
+            $findPersonne = $em->getRepository('FTProjetStageBundle:Personne')->findOneBy(array($champRepository => $value));
+        }
+
+        if ($findPersonne !== null && $champ == 'Username') {
+            return new JsonResponse(array(
+                'pseudo' => 'Ce pseudo est déjà utilisé !',
+            ));
+        }
+        if ($findPersonne !== null && $champ == 'Email') {
+            return new JsonResponse(array(
+                'email' => 'Cet email est déjà utilisé !',
+            ));
+        }
+
+        $personne->$methodName($value);
+        $em->flush();
+
+        return new JsonResponse(array(
+            'ok' => 'tout est bon'
+        ));
     }
 }

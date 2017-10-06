@@ -56,6 +56,8 @@ class Formateur extends Personne
     {
         $this->projets[] = $projet;
 
+        $projet->setProprietaire($this);
+
         return $this;
     }
 
