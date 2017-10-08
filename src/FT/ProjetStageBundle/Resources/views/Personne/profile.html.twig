@@ -13,6 +13,8 @@
     <script>
         $(document).ready(function () {
             $(document).on('blur', '.form-control', function () {
+                $('#errorEmail').fadeOut();
+                $('#errorUsername').fadeOut();
                 var path = Routing.generate("ft_personne_profile_modif_ajax")
                 var champSelected = $(this).attr('datas-id');
                 var value = $(this).val();
@@ -23,12 +25,21 @@
 
                 $.post(path, json, function (response) {
                     console.log(response);
+                    if (response.Email != undefined) {
+                        console.log('Email erreur');
+                        $('#errorEmail').fadeIn();
+                    }
+                    if (response.Username != undefined) {
+                        console.log('Username erreur');
+                        $('#errorUsername').fadeIn();
+                    }
+                    /*
                     if (response.email != undefined) {
                         console.log('Email erreur');
                     } else {
                         console.log('Email pas d\'erreur');
                     }
-
+                    */
                 });
             });
         });

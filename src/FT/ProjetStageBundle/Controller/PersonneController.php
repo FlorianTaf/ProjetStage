@@ -130,12 +130,23 @@ class PersonneController extends Controller
 
         if ($findPersonne !== null && $champ == 'Username') {
             return new JsonResponse(array(
-                'pseudo' => 'Ce pseudo est déjà utilisé !',
+                $champ => 'Ce pseudo est déjà utilisé !',
             ));
         }
+        if ($champ == 'Username' && $value == '') {
+            return new JsonResponse(array(
+                $champ => 'Vous ne pouvez pas rentrer un pseudo vide !',
+            ));
+        }
+
         if ($findPersonne !== null && $champ == 'Email') {
             return new JsonResponse(array(
-                'email' => 'Cet email est déjà utilisé !',
+                $champ => 'Cet email est déjà utilisé !',
+            ));
+        }
+        if ($champ == 'Email' && $value == '') {
+            return new JsonResponse(array(
+                $champ => 'Vous ne pouvez pas rentrer un email vide !',
             ));
         }
 
