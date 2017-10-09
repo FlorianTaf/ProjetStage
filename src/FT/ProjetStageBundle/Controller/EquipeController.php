@@ -12,6 +12,7 @@ namespace FT\ProjetStageBundle\Controller;
 use FT\ProjetStageBundle\Entity\Equipe;
 use FT\ProjetStageBundle\Form\EquipeType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -54,13 +55,18 @@ class EquipeController extends Controller
                 $equipe->setDateCreation(new \DateTime());
                 $equipe->setProprietaire($personne);
 
-                $projets = $form->get('projets')->getData();
-                foreach ($projets as $projet) {
-                    var_dump('pdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpdpd');
-                    var_dump($projet->getTitre());
+                $listeProjets = $form->get('projets')->getData();
+                foreach ($listeEtudiants as $etudiant) {
+                    foreach ($listeProjets as $projet) {
+                        if ($etudiant->getSessionFormation() != $projet->getSessionFormation()) {
+                            $errorEtudiant = new FormError("Erreur, un ou plusieurs étudiants ne participent pas à la même session de formation");
+                            $form->get('etudiants')->addError($errorEtudiant);
+                            return $this->render('FTProjetStageBundle:Etudiant:creerEquipe.html.twig',
+                                array('form' => $form->createView()));
+                        }
+                    }
                 }
-                var_dump(count($projets));
-                //var_dump($projets);
+                //var_dump($projet->getTitre());
 
                 $em->persist($equipe);
                 $em->flush();
