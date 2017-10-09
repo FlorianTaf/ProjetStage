@@ -18,4 +18,12 @@ class EquipeRepository extends \Doctrine\ORM\EntityRepository
             ->where('p.id = :idProjet')->setParameter('idProjet', $idProjet)
             ->getQuery()->getResult();
     }
+
+    public function getLastThree()
+    {
+        return $this->createQueryBuilder('e')
+            ->orderBy('e.dateCreation', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()->getResult();
+    }
 }

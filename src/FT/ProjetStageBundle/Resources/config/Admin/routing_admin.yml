@@ -1,0 +1,16 @@
+#Dashboard
+ft_admin_dashboard:
+    path: /admin/dashboard
+    defaults: { _controller: FTProjetStageBundle:Admin:dashboard }
+
+#Liste des personnes (avec une fonctionnalité en plus pour l'admin)
+ft_admin_personnes_liste:
+    path: /admin/dashboard_listePersonnes
+    defaults: { _controller: FTProjetStageBundle:Admin:listePersonnes }
+
+#Supprimer une personne
+ft_admin_delete_personne:
+    path: /admin/dashboard_listePersonnes/delete/{id}
+    defaults: { _controller: FTProjetStageBundle:Admin:deletePersonne }
+    requirements:
+        id: \d+

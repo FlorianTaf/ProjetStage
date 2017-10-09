@@ -33,4 +33,32 @@ class EquipeController extends Controller
             'listeMembres' => $listeMembres
         ));
     }
+
+    public function creerEquipeAction(Request $request)
+    {
+        $personne = $this->getUser();
+        $equipe = new Equipe();
+        $em = $this->getDoctrine()->getManager();
+
+        $membresWithoutUser = $em->getRepository('FTProjetStageBundle:Etudiant')->getEtudiantWithouUser($personne->getUSername());
+
+        $form = $this->createForm(EquipeType::class, $equipe, array('usernames' => $membresWithoutUser));
+
+        if ($request->isMethod('POST')) {
+            if ($form->handleRequest($request)->isValid()) {
+
+                $equipe->setDateCreation(new \DateTime());
+                $equipe->setProprietaire($personne);
+
+                $em->persist($equipe);
+                $em->flush();
+
+                return $this->redirectToRoute('ft_personne_dashboard');
+            }
+        }
+
+        return $this->render('FTProjetStageBundle:Etudiant:creerEquipe.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
 }

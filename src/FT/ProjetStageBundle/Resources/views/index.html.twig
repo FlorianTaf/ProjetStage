@@ -79,68 +79,34 @@
 {% block body %}
     <div class="container" style="display: flex;">
         <div id="pagePrincipale" style="flex: 3;">
-            <h3><a href="#">Les 3 derniers projets créés</a></h3>
+            <h3>Les 3 derniers projets créés</h3>
             <div class="row">
-                <div class="col-md-4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                        mauris
-                        condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                        mollis
-                        euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                        mauris
-                        condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                        mollis
-                        euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Heading</h2>
-                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id
-                        ligula
-                        porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
-                        nibh,
-                        ut
-                        fermentum massa justo sit amet risus.</p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div>
+                {% for projet in listeProjets %}
+                    <div class="col-md-4">
+                        <h2>{{ projet.titre }}</h2>
+                        <p style="font-style: italic; font-weight: normal; color: grey;">, créé
+                            le {{ projet.dateCreation|date('d/m/Y') }} par {{ projet.proprietaire.username }}</p>
+                        <p>{{ projet.sujet }} </p>
+                        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                    </div>
+                {% endfor %}
             </div>
 
-            <h3><a href="#">Les 3 dernières équipes créés</a></h3>
+            <h3>Les 3 dernières équipes créés</h3>
             <div class="row">
-                <div class="col-md-4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                        mauris
-                        condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                        mollis
-                        euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                        mauris
-                        condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                        mollis
-                        euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Heading</h2>
-                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id
-                        ligula
-                        porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
-                        nibh,
-                        ut
-                        fermentum massa justo sit amet risus.</p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div>
+                {% for equipe in listeEquipes %}
+                    <div class="col-md-4">
+                        <h2>Equipe n°{{ equipe.id }}</h2>
+                        <p style="font-style: italic; font-weight: normal; color: grey;">, créée
+                            le {{ equipe.dateCreation|date('d/m/Y') }}</p>
+                        <p>Liste des étudiants y participant : <br>
+                            {% for etudiant in equipe.etudiants %}
+                                {{ etudiant.username }}<br>
+                            {% endfor %}
+                        </p>
+                        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                    </div>
+                {% endfor %}
             </div>
         </div>
         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
@@ -177,6 +143,23 @@
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
     <script src=" {{ asset('js/chat.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            var path = Routing.generate("ft_chat_ajax")
+
+            $.post(path, json, function (response) {
+                console.log(response);
+                if (response.Email != undefined) {
+                    console.log('Email erreur');
+                    $('#errorEmail').fadeIn();
+                }
+                if (response.Username != undefined) {
+                    console.log('Username erreur');
+                    $('#errorUsername').fadeIn();
+                }
+            });
+        });
+    </script>
 {% endblock %}
 
 </body>

@@ -1,0 +1,14 @@
+#Page de recherche principale
+ft_recherche:
+    path: /personne/recherche
+    defaults: { _controller: FTProjetStageBundle:Search:search }
+
+#Recherche d'une personne
+ft_recherche_personne:
+    path: /personne/recherchePersonne
+    defaults: { _controller: FTProjetStageBundle:Search:searchPersonne }
+
+#Recherche d'un projet
+ft_recherche_projet:
+    path: /personne/rechercheProjet
+    defaults: { _controller: FTProjetStageBundle:Search:searchProjet }

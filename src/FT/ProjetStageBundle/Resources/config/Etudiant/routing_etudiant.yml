@@ -1,0 +1,11 @@
+#Liste des étudiants
+ft_liste_etudiants:
+    path: /personne/listeEtudiants
+    defaults: { _controller: FTProjetStageBundle:Etudiant:liste }
+
+#Équipes de la personne en question
+ft_personne_mesEquipes:
+    path: /personne/mesEquipes/{id}
+    defaults: { _controller: FTProjetStageBundle:Etudiant:mesEquipes }
+    requirements:
+        id: \d+

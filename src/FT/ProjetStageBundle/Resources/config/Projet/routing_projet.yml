@@ -1,0 +1,16 @@
+#Liste des projets
+ft_liste_projets:
+    path: /personne/listeProjets
+    defaults: { _controller: FTProjetStageBundle:Projet:liste }
+
+#Création de projet
+ft_personne_creerProjet:
+    path: /personne/creerProjet
+    defaults: { _controller: FTProjetStageBundle:Formateur:creerProjet }
+
+#Équipes liées au projet en question
+ft_projet_equipes_participantes:
+    path: /personne/projet/equipesParticipants/{id}
+    defaults: { _controller: FTProjetStageBundle:Projet:equipesParticipantes }
+    requirements:
+        id: \d+

@@ -23,4 +23,12 @@ class ProjetRepository extends \Doctrine\ORM\EntityRepository
             ->where('p.sujet LIKE :sujet')->setParameter('sujet', '%' . $sujet . '%')
             ->getQuery()->getResult();
     }
+
+    public function getLastThree()
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.dateCreation', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()->getResult();
+    }
 }

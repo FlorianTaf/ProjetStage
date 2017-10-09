@@ -1,0 +1,16 @@
+#Connexion utilisateur
+ft_personne_connexion:
+    path:     /login
+    defaults: { _controller: FTProjetStageBundle:Registration:login }
+#Inscription utilisateur
+ft_personne_inscription:
+    path:     /registration
+    defaults: { _controller: FTProjetStageBundle:Registration:registration }
+#Reset password utilisateur
+ft_reset_password:
+    path: /resetPassword
+    defaults: { _controller: FTProjetStageBundle:Registration:resetPassword }
+#Modif profil utilisateur
+ft_personne_modif_password:
+    path:     /personne/modifPassword
+    defaults: { _controller: FTProjetStageBundle:Personne:modifPassword }

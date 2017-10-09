@@ -1,0 +1,16 @@
+#Profil utilisateur
+ft_personne_profile:
+    path: /personne/profile
+    defaults: { _controller: FTProjetStageBundle:Personne:profile }
+
+#Dashboard utilisateur
+ft_personne_dashboard:
+    path: /personne/dashboard
+    defaults: { _controller: FTProjetStageBundle:Personne:dashboard }
+
+#Modification du profil (via Ajax)
+ft_personne_profile_modif_ajax:
+    path: /personne/profile_modif_ajax
+    defaults: { _controller: FTProjetStageBundle:Personne:profileAjax }
+    options:
+        expose: true

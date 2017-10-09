@@ -36,4 +36,50 @@ class ProjetController extends Controller
             'listeEquipes' => $listeEquipes
         ));
     }
+
+    public function creerProjetAction(Request $request)
+    {
+        $personne = $this->getUser();
+        $projet = new Projet();
+
+        $form = $this->createForm(ProjetType::class, $projet);
+
+        if ($request->isMethod('POST')) {
+            if ($form->handleRequest($request)->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+
+                //On stocke le datetime et la date limite dans des variables
+                $dateTime = new \DateTime();
+                $dateLimite = $projet->getDateLimite();
+                //On définit l'interval de jours qu'il y a
+                $interval = $dateTime->diff($dateLimite);
+                $days = $interval->format('%a');
+
+                //On vérifie que la date limite soit supérieure d'au moins 7 jours à la date de création
+                if ($dateTime > $dateLimite || $days < 7) {
+                    $errorDate = new FormError('Erreur, la date limite doit être supérieure ou égale à 7 jours de la date de création');
+                    $form->get('dateLimite')->addError($errorDate);
+                    return $this->render('FTProjetStageBundle:Formateur:creerProjet.html.twig', array(
+                        'form' => $form->createView(),
+                        'personne' => $personne
+                    ));
+                }
+
+                //Si c'est ok, on valide les champs qui ne sont pas demandés à l'utilisateur
+                $projet->setDateCreation(new \DateTime());
+                $projet->setProprietaire($personne);
+
+                //On persiste et on flush
+                $em->persist($projet);
+                $em->flush();
+
+                return $this->redirectToRoute('ft_personne_dashboard');
+            }
+        }
+
+        return $this->render('FTProjetStageBundle:Formateur:creerProjet.html.twig', array(
+            'form' => $form->createView(),
+            'personne' => $personne
+        ));
+    }
 }

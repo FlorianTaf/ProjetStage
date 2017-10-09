@@ -1,0 +1,4 @@
+#liste des messages
+ft_chat_messages:
+    path: /chat
+    defaults: { _controller: FTProjetStageBundle:Message:listeMessages }

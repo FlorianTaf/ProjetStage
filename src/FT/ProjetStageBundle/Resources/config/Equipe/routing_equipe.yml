@@ -1,0 +1,16 @@
+#Liste des équipes
+ft_liste_equipes:
+    path: /personne/listeEquipes
+    defaults: { _controller: FTProjetStageBundle:Equipe:liste }
+
+#Création d'équipe
+ft_personne_creerEquipe:
+    path: /personne/creerEquipe
+    defaults: { _controller: FTProjetStageBundle:Etudiant:creerEquipe }
+
+#Étudiants dans l'équipe en question
+ft_equipe_etudiants:
+    path: /personne/equipe/etudiants/{id}
+    defaults: { _controller: FTProjetStageBundle:Equipe:equipeEtudiants }
+    requirements:
+        id: \d+

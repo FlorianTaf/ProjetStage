@@ -15,9 +15,13 @@ class AccueilController extends Controller
 {
     public function indexAction()
     {
-        $personne = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $lastProjets = $em->getRepository('FTProjetStageBundle:Projet')->getLastThree();
+        $lastEquipes = $em->getRepository('FTProjetStageBundle:Equipe')->getLastThree();
+
         return $this->render('FTProjetStageBundle::index.html.twig', array(
-            'personne' => $personne
+            'listeProjets' => $lastProjets,
+            'listeEquipes' => $lastEquipes
         ));
     }
 }

@@ -1,0 +1,11 @@
+#Liste des formateurs
+ft_liste_formateurs:
+    path: /personne/listeFormateurs
+    defaults: { _controller: FTProjetStageBundle:Formateur:liste }
+
+#Projets du formateur en question
+ft_personne_mesProjets_proprietaire:
+    path: /personne/mesProjetsProprietaire/{id}
+    defaults: { _controller: FTProjetStageBundle:Formateur:mesProjetsProprietaire }
+    requirements:
+        id: \d+

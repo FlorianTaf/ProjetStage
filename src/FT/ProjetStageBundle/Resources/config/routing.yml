@@ -3,112 +3,38 @@ ft_projet_stage_homepage:
     path:     /
     defaults: { _controller: FTProjetStageBundle:Accueil:index }
 
-#Tout ce qui concerne l'utilisateur
-#Connexion utilisateur
-ft_personne_connexion:
-    path:     /login
-    defaults: { _controller: FTProjetStageBundle:Registration:login }
-#Inscription utilisateur
-ft_personne_inscription:
-    path:     /registration
-    defaults: { _controller: FTProjetStageBundle:Registration:registration }
-#Reset password utilisateur
-ft_reset_password:
-    path: /resetPassword
-    defaults: { _controller: FTProjetStageBundle:Registration:resetPassword }
-#Modif profil utilisateur
-ft_personne_modif_password:
-    path:     /personne/modifPassword
-    defaults: { _controller: FTProjetStageBundle:Personne:modifPassword }
-ft_personne_profile:
-    path: /personne/profile
-    defaults: { _controller: FTProjetStageBundle:Personne:profile }
-#Dashboard utilisateur
-ft_personne_dashboard:
-    path: /personne/dashboard
-    defaults: { _controller: FTProjetStageBundle:Personne:dashboard }
+#Tout ce qui concerne l'authentification, l'inscription, etc ...
+ft_registration:
+    resource: "@FTProjetStageBundle/Resources/config/Registration/routing_registration.yml"
 
-#Liste des étudiants/formateurs/projets/équipes
-ft_liste_etudiants:
-    path: /personne/listeEtudiants
-    defaults: { _controller: FTProjetStageBundle:Etudiant:liste }
-ft_liste_formateurs:
-    path: /personne/listeFormateurs
-    defaults: { _controller: FTProjetStageBundle:Formateur:liste }
-ft_liste_projets:
-    path: /personne/listeProjets
-    defaults: { _controller: FTProjetStageBundle:Projet:liste }
-ft_liste_equipes:
-    path: /personne/listeEquipes
-    defaults: { _controller: FTProjetStageBundle:Equipe:liste }
+#Profil utilisateur, dashboard
+ft_personne:
+    resource: "@FTProjetStageBundle/Resources/config/Personne/routing_personne.yml"
 
-#Projets de la personne en question
-ft_personne_mesProjets_proprietaire:
-    path: /personne/mesProjetsProprietaire/{id}
-    defaults: { _controller: FTProjetStageBundle:Formateur:mesProjetsProprietaire }
-    requirements:
-        id: \d+
-#Création de projet
-ft_personne_creerProjet:
-    path: /personne/creerProjet
-    defaults: { _controller: FTProjetStageBundle:Formateur:creerProjet }
-#Équipes liées au projet en question
-ft_projet_equipes_participantes:
-    path: /personne/projet/equipesParticipants/{id}
-    defaults: { _controller: FTProjetStageBundle:Projet:equipesParticipantes }
-    requirements:
-        id: \d+
+#Tout ce qui touche à l'étudiant
+ft_etudiant:
+    resource: "@FTProjetStageBundle/Resources/config/Etudiant/routing_etudiant.yml"
 
-#Équipes de la personne en question
-ft_personne_mesEquipes:
-    path: /personne/mesEquipes/{id}
-    defaults: { _controller: FTProjetStageBundle:Etudiant:mesEquipes }
-    requirements:
-        id: \d+
-#Création d'équipe
-ft_personne_creerEquipe:
-    path: /personne/creerEquipe
-    defaults: { _controller: FTProjetStageBundle:Etudiant:creerEquipe }
-#Étudiants dans l'équipe
-ft_equipe_etudiants:
-    path: /personne/equipe/etudiants/{id}
-    defaults: { _controller: FTProjetStageBundle:Equipe:equipeEtudiants }
-    requirements:
-        id: \d+
+#Tout ce qui touche au formateur
+ft_formateur:
+    resource: "@FTProjetStageBundle/Resources/config/Formateur/routing_formateur.yml"
 
-#Onglet de recherche
-ft_recherche:
-    path: /personne/recherche
-    defaults: { _controller: FTProjetStageBundle:Search:search }
-ft_recherche_personne:
-    path: /personne/recherchePersonne
-    defaults: { _controller: FTProjetStageBundle:Search:searchPersonne }
-ft_recherche_projet:
-    path: /personne/rechercheProjet
-    defaults: { _controller: FTProjetStageBundle:Search:searchProjet }
+#Tout ce qui touche à l'équipe
+ft_equipe:
+    resource: "@FTProjetStageBundle/Resources/config/Equipe/routing_equipe.yml"
 
-#Gestion admin
-ft_admin_dashboard:
-    path: /admin/dashboard
-    defaults: { _controller: FTProjetStageBundle:Admin:dashboard }
-ft_admin_personnes_liste:
-    path: /admin/dashboard_listePersonnes
-    defaults: { _controller: FTProjetStageBundle:Admin:listePersonnes }
-ft_admin_delete_personne:
-    path: /admin/dashboard_listePersonnes/delete/{id}
-    defaults: { _controller: FTProjetStageBundle:Admin:deletePersonne }
-    requirements:
-        id: \d+
+#Tout ce qui touche au projet
+ft_projet:
+    resource: "@FTProjetStageBundle/Resources/config/Projet/routing_projet.yml"
 
-#Chat
-ft_chat_messages:
-    path: /chat
-    defaults: { _controller: FTProjetStageBundle:Message:listeMessages }
+#Tout ce qui touche à l'admin
+ft_admin:
+    resource: "@FTProjetStageBundle/Resources/config/Admin/routing_admin.yml"
 
+#Tout ce qui touche à la recherche
+ft_search:
+    resource: "@FTProjetStageBundle/Resources/config/Search/routing_search.yml"
 
-#Ajax
-ft_personne_profile_modif_ajax:
-    path: /personne/profile_modif_ajax
-    defaults: { _controller: FTProjetStageBundle:Personne:profileAjax }
-    options:
-        expose: true
+#Tout ce qui touche au chat
+ft_chat:
+    resource: "@FTProjetStageBundle/Resources/config/Chat/routing_chat.yml"
