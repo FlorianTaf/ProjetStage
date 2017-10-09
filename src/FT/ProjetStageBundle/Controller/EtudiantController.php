@@ -9,11 +9,8 @@
 namespace FT\ProjetStageBundle\Controller;
 
 
-use FT\ProjetStageBundle\Entity\Equipe;
 use FT\ProjetStageBundle\Entity\Personne;
-use FT\ProjetStageBundle\Form\EquipeType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 
 class EtudiantController extends Controller
 {

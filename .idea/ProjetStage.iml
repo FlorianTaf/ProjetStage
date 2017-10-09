@@ -51,10 +51,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="accor" />
     <orderEntry type="module" module-name="TutorielSymfony" />
-    <orderEntry type="module" module-name="DtBundleDemo10" />
-    <orderEntry type="module" module-name="accor" />
     <orderEntry type="module-library">
       <library name="PHP" type="php">
         <CLASSES>

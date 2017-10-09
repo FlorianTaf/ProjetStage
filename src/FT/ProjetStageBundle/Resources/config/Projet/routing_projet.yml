@@ -6,7 +6,7 @@ ft_liste_projets:
 #Création de projet
 ft_personne_creerProjet:
     path: /personne/creerProjet
-    defaults: { _controller: FTProjetStageBundle:Formateur:creerProjet }
+    defaults: { _controller: FTProjetStageBundle:Projet:creerProjet }
 
 #Équipes liées au projet en question
 ft_projet_equipes_participantes:

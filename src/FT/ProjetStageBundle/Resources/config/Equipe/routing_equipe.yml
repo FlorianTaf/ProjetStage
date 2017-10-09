@@ -6,7 +6,7 @@ ft_liste_equipes:
 #Création d'équipe
 ft_personne_creerEquipe:
     path: /personne/creerEquipe
-    defaults: { _controller: FTProjetStageBundle:Etudiant:creerEquipe }
+    defaults: { _controller: FTProjetStageBundle:Equipe:creerEquipe }
 
 #Étudiants dans l'équipe en question
 ft_equipe_etudiants:

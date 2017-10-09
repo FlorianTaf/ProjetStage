@@ -10,7 +10,10 @@ namespace FT\ProjetStageBundle\Controller;
 
 
 use FT\ProjetStageBundle\Entity\Projet;
+use FT\ProjetStageBundle\Form\ProjetType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\FormError;
+use Symfony\Component\HttpFoundation\Request;
 
 class ProjetController extends Controller
 {
