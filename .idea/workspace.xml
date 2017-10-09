@@ -10,7 +10,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../DtBundleDemo10/var/SymfonyRequirements.php" afterPath="$PROJECT_DIR$/../DtBundleDemo10/var/SymfonyRequirements.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../DtBundleDemo10/web/config.php" afterPath="$PROJECT_DIR$/../DtBundleDemo10/web/config.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/EquipeController.php" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/EquipeController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Equipe/liste.html.twig" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Equipe/liste.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Projet/liste.html.twig" afterPath="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Projet/liste.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../accor/accor/src/BC/UserBundle/Controller/AdminUserController.php" afterPath="$PROJECT_DIR$/../accor/accor/src/BC/UserBundle/Controller/AdminUserController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../accor/accor/src/BC/UserBundle/DatasTables/UserTables.php" afterPath="$PROJECT_DIR$/../accor/accor/src/BC/UserBundle/DatasTables/UserTables.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../accor/accor/src/BC/UserBundle/Resources/views/AdminUser/listing.html.twig" afterPath="$PROJECT_DIR$/../accor/accor/src/BC/UserBundle/Resources/views/AdminUser/listing.html.twig" />
@@ -63,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EquipeController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EquipeController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/EquipeController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="324">
-              <caret line="64" column="70" lean-forward="true" selection-start-line="64" selection-start-column="70" selection-end-line="64" selection-end-column="70" />
+              <caret line="64" column="70" lean-forward="false" selection-start-line="64" selection-start-column="70" selection-end-line="64" selection-end-column="70" />
               <folding>
                 <element signature="e#136#175#0#PHP" expanded="true" />
                 <element signature="e#585#613#1#PHP" expanded="true" />
@@ -77,14 +78,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="creerEquipe.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Etudiant/creerEquipe.html.twig">
+      <file leaf-file-name="liste.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Projet/liste.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="3" column="52" lean-forward="false" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
-              <folding>
-                <element signature="e#12#48#0#Twig" expanded="true" />
-              </folding>
+            <state relative-caret-position="483">
+              <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -93,7 +92,7 @@
         <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Etudiant/form.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
-              <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+              <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -171,8 +170,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
-        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Message.php" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Admin/listePersonnes.html.twig" />
         <option value="$PROJECT_DIR$/../accor/accor/src/BC/UserBundle/DatasTables/UserTables.php" />
         <option value="$PROJECT_DIR$/web/js/chat.js" />
@@ -190,7 +187,6 @@
         <option value="$PROJECT_DIR$/app/config/security.yml" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/RegistrationController.php" />
-        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Projet/liste.html.twig" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Repository/PersonneRepository.php" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Etudiant.php" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Formateur.php" />
@@ -222,6 +218,9 @@
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Form/EquipeType.php" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Etudiant/form.html.twig" />
         <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/EquipeController.php" />
+        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Etudiant/listeEquipes.html.twig" />
+        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Equipe/liste.html.twig" />
+        <option value="$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Projet/liste.html.twig" />
       </list>
     </option>
   </component>
@@ -352,7 +351,7 @@
               <item name="ProjetStageBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Etudiant" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Projet" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -423,12 +422,12 @@
       <workItem from="1507277285242" duration="16430000" />
       <workItem from="1507373286618" duration="1306000" />
       <workItem from="1507473568490" duration="2656000" />
-      <workItem from="1507539320772" duration="14371000" />
+      <workItem from="1507539320772" duration="14889000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191654000" />
+    <option name="totallyTimeSpent" value="192172000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -475,9 +474,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../Symfony/src/OC/PlatformBundle/Entity/Skill.php" />
-    <entry file="file://$PROJECT_DIR$/../Symfony/src/OC/PlatformBundle/Entity/Application.php" />
-    <entry file="file://$PROJECT_DIR$/../Symfony/src/OC/PlatformBundle/Entity/Advert.php" />
     <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Entity/Formateur.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
@@ -604,14 +600,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
           <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Projet/liste.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="19" column="47" lean-forward="false" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
           <folding />
         </state>
       </provider>
@@ -755,7 +743,7 @@
         <state relative-caret-position="1449">
           <caret line="74" column="41" lean-forward="false" selection-start-line="74" selection-start-column="41" selection-end-line="74" selection-end-column="41" />
           <folding>
-            <element signature="e#136#175#0#PHP" expanded="true" />
+            <element signature="e#136#175#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -770,20 +758,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Equipe/liste.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="51" lean-forward="false" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/EtudiantController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
           <caret line="29" column="87" lean-forward="false" selection-start-line="29" selection-start-column="87" selection-end-line="29" selection-end-column="87" />
           <folding>
-            <element signature="e#136#177#0#PHP" expanded="true" />
+            <element signature="e#136#177#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -855,20 +835,66 @@
     <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Etudiant/form.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+          <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Etudiant/liste.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#12#48#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Etudiant/listeEquipes.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="21" column="20" lean-forward="false" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+          <folding>
+            <element signature="e#12#48#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Equipe/liste.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="20" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Formateur/liste.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="48" lean-forward="true" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+          <folding>
+            <element signature="e#12#48#0#Twig" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Controller/EquipeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
-          <caret line="64" column="70" lean-forward="true" selection-start-line="64" selection-start-column="70" selection-end-line="64" selection-end-column="70" />
+          <caret line="64" column="70" lean-forward="false" selection-start-line="64" selection-start-column="70" selection-end-line="64" selection-end-column="70" />
           <folding>
             <element signature="e#136#175#0#PHP" expanded="true" />
             <element signature="e#585#613#1#PHP" expanded="true" />
             <element signature="e#1368#1398#1#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FT/ProjetStageBundle/Resources/views/Projet/liste.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>

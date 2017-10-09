@@ -18,10 +18,20 @@
                 <tr>
                     <td>{{ projet.titre }}</td>
                     <td>{{ projet.sujet }}</td>
-                    <td>{{ projet.proprietaire.nom }} {{ projet.proprietaire.prenom }}</td>
+                    <td>
+                        {% if app.user.username is same as (equipe.proprietaire.username) %}
+                            Moi-même
+                        {% else %}
+                            {{ projet.proprietaire.nom }} {{ projet.proprietaire.prenom }}
+                        {% endif %}
+                    </td>
                     <td>{{ projet.dateCreation|date('d/m/Y') }}</td>
                     <td>{{ projet.dateLimite|date('d/m/Y') }}</td>
-                    <td><button class="btn btn-primary" type="submit"><a href="{{ path('ft_projet_equipes_participantes', {'id': projet.id }) }}">Voir les équipes participantes</a></button></td>
+                    <td>
+                        <button class="btn btn-primary" type="submit"><a
+                                    href="{{ path('ft_projet_equipes_participantes', {'id': projet.id }) }}">Voir les
+                                équipes participantes</a></button>
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>
