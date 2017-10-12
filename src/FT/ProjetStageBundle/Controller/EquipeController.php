@@ -10,8 +10,10 @@ namespace FT\ProjetStageBundle\Controller;
 
 
 use FT\ProjetStageBundle\Entity\Equipe;
+use FT\ProjetStageBundle\Entity\Etudiant;
 use FT\ProjetStageBundle\Form\EquipeType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -87,5 +89,24 @@ class EquipeController extends Controller
         return $this->render('FTProjetStageBundle:Etudiant:creerEquipe.html.twig', array(
             'form' => $form->createView(),
         ));
+    }
+
+    public function deleteEtudiantEquipeAction(Equipe $equipe, Etudiant $etudiant)
+    {
+        //$personne = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $equipe = $em->getRepository('FTProjetStageBundle:Equipe')->find($equipe->getId());
+        $etudiant = $em->getRepository('FTProjetStageBundle:Etudiant')->find($etudiant->getId());
+
+        $etudiants = $equipe->getEtudiants();
+        foreach ($etudiants as $etudiantDelete) {
+            if ($etudiantDelete->getId() == $etudiant->getId()) {
+                $equipe->removeEtudiant($etudiant);
+                $em->flush();
+                return $this->redirectToRoute('ft_personne_mesEquipes', array('id' => $equipe->getId()));
+            }
+        }
+
+        throw new Exception('Erreur, l\'étudiant en question n\'est pas dans l\'équipe');
     }
 }

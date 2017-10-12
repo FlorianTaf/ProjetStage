@@ -14,3 +14,11 @@ ft_equipe_etudiants:
     defaults: { _controller: FTProjetStageBundle:Equipe:equipeEtudiants }
     requirements:
         id: \d+
+
+#Suprrimer l'étudiant de l'équipe en question
+ft_delete_etudiant_equipe:
+    path: /personne/mesEquipes/{id}/{idEtudiant}
+    defaults: { _controller: FTProjetStageBundle:Equipe:deleteEtudiantEquipe }
+    requirements:
+        id: \d+
+        idEtudiant: \d+

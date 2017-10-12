@@ -17,6 +17,16 @@
                     <td>{{ equipe.id }}</td>
                     <td>{{ equipe.proprietaire.nom }} {{ equipe.proprietaire.prenom }}</td>
                     <td>{{ equipe.projets|length }}</td>
+                    <td>
+                        {% for etudiant in equipe.etudiants %}
+                            {{ etudiant.username }}
+                            <button class="btn btn-danger" type="submit"><a
+                                        href="{{ path('ft_delete_etudiant_equipe', {'id': equipe.id, 'idEtudiant': etudiant.id }) }}"
+                                        onclick="return confirm('Are you sure?')"><i
+                                            class="glyphicon glyphicon-trash"></i>Supprimer l'étudiant du groupe</a>
+                            </button><br>
+                        {% endfor %}
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>
