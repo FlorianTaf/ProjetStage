@@ -10,7 +10,7 @@
                 <li class="fixedLi"><a href="{{ path('ft_personne_creerProjet') }}">Créer un projet</a></li>
             {% endif %}
             {% if is_granted('ROLE_ETUDIANT') %}
-                <li class="fixedLi"><a href="{{ path('ft_personne_mesEquipes', {'id': app.user.id}) }}">Voir
+                <li class="fixedLi"><a href="{{ path('ft_personne_mesEquipes_proprietaire', {'id': app.user.id}) }}">Voir
                         mes équipes</a></li>
                 <li class="fixedLi"><a href="{{ path('ft_personne_creerEquipe') }}">Créer une équipe</a></li>
             {% endif %}

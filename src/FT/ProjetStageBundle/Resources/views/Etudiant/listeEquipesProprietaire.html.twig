@@ -1,0 +1,37 @@
+{% extends "FTProjetStageBundle::index.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <h2>Liste de mes équipes</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Numéro de l'équipe</th>
+                <th>Propriétaire</th>
+                <th>Nombre de projets pour l'équipe</th>
+                <th>Nombre d'étudiants dans le groupe</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for equipe in listeEquipes %}
+                <tr>
+                    <td>{{ equipe.id }}</td>
+                    <td>Moi-même</td>
+                    <td>{{ equipe.projets|length }}</td>
+                    <td>{{ equipe.etudiants|length }}</td>
+                    <td>
+                        {% for etudiant in equipe.etudiants %}
+                            {{ etudiant.username }}
+                            <button class="btn btn-danger" type="submit"><a
+                                        href="{{ path('ft_delete_etudiant_equipe', {'id': equipe.id, 'idEtudiant': etudiant.id }) }}"
+                                        onclick="return confirm('Are you sure?')"><i
+                                            class="glyphicon glyphicon-trash"></i>Supprimer l'étudiant du groupe</a>
+                            </button><br>
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

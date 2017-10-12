@@ -9,6 +9,7 @@
 namespace FT\ProjetStageBundle\Controller;
 
 
+use FT\ProjetStageBundle\Entity\Etudiant;
 use FT\ProjetStageBundle\Entity\Personne;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -24,15 +25,24 @@ class EtudiantController extends Controller
         ));
     }
 
-    public function mesEquipesAction(Personne $personne)
+    public function mesEquipesProprietaireAction(Personne $personne)
     {
         $em = $this->getDoctrine()->getManager();
         $listeEquipes = $em->getRepository('FTProjetStageBundle:Equipe')->findBy(array(
             'proprietaire' => $personne->getId()
         ));
 
-        return $this->render('FTProjetStageBundle:Etudiant:listeEquipes.html.twig', array(
+        return $this->render('FTProjetStageBundle:Etudiant:listeEquipesProprietaire.html.twig', array(
             'listeEquipes' => $listeEquipes,
+        ));
+    }
+
+    public function mesEquipesAction(Etudiant $etudiant)
+    {
+        $listeEquipes = $etudiant->getEquipes();
+
+        return $this->render('FTProjetStageBundle:Etudiant:listeEquipes.html.twig', array(
+            'listeEquipes' => $listeEquipes
         ));
     }
 }

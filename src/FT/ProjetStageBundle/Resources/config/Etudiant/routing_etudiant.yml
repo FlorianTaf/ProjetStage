@@ -3,8 +3,14 @@ ft_liste_etudiants:
     path: /personne/listeEtudiants
     defaults: { _controller: FTProjetStageBundle:Etudiant:liste }
 
-#Équipes de la personne en question
-ft_personne_mesEquipes:
+#Équipes dont la personne en question est propriétaire
+ft_personne_mesEquipes_proprietaire:
+    path: /personne/mesEquipesProprietaire/{id}
+    defaults: { _controller: FTProjetStageBundle:Etudiant:mesEquipesProprietaire }
+    requirements:
+        id: \d+
+
+ft_etudiant_mesEquipes:
     path: /personne/mesEquipes/{id}
     defaults: { _controller: FTProjetStageBundle:Etudiant:mesEquipes }
     requirements:
