@@ -10,7 +10,6 @@ namespace FT\ProjetStageBundle\Controller;
 
 
 use FT\ProjetStageBundle\Entity\Equipe;
-use FT\ProjetStageBundle\Entity\Etudiant;
 use FT\ProjetStageBundle\Form\EquipeType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Config\Definition\Exception\Exception;
@@ -91,19 +90,20 @@ class EquipeController extends Controller
         ));
     }
 
-    public function deleteEtudiantEquipeAction(Equipe $equipe, Etudiant $etudiant)
+    public function deleteEtudiantEquipeAction(Equipe $equipe, $idEtudiant)
     {
         //$personne = $this->getUser();
         $em = $this->getDoctrine()->getManager();
         $equipe = $em->getRepository('FTProjetStageBundle:Equipe')->find($equipe->getId());
-        $etudiant = $em->getRepository('FTProjetStageBundle:Etudiant')->find($etudiant->getId());
+        $etudiant = $em->getRepository('FTProjetStageBundle:Etudiant')->find($idEtudiant);
 
-        $etudiants = $equipe->getEtudiants();
-        foreach ($etudiants as $etudiantDelete) {
+        var_dump(count($equipe->getEtudiants()) . ' Avant la suppression');
+        foreach ($equipe->getEtudiants() as $etudiantDelete) {
             if ($etudiantDelete->getId() == $etudiant->getId()) {
                 $equipe->removeEtudiant($etudiant);
+                var_dump(count($equipe->getEtudiants()) . ' Après la suppression');
                 $em->flush();
-                return $this->redirectToRoute('ft_personne_mesEquipes', array('id' => $equipe->getId()));
+                return $this->redirectToRoute('ft_personne_dashboard');
             }
         }
 
