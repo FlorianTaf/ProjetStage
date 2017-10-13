@@ -17,7 +17,7 @@
                     <td>{{ formateur.nom }}</td>
                     <td>{{ formateur.prenom }}</td>
                     <td>{{ formateur.email }}</td>
-                    <td><button class="btn btn-primary" type="submit"><a href="#">Voir projets</a></button></td>
+                    <td><button class="btn btn-primary" type="submit"><a href="{{ path('ft_formateur_projets', {'id': formateur.id }) }}">Voir projets</a></button></td>
                 </tr>
             {% endfor %}
             </tbody>

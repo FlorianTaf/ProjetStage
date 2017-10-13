@@ -9,7 +9,7 @@
 namespace FT\ProjetStageBundle\Controller;
 
 
-use FT\ProjetStageBundle\Entity\Personne;
+use FT\ProjetStageBundle\Entity\Formateur;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class FormateurController extends Controller
@@ -25,15 +25,21 @@ class FormateurController extends Controller
     }
 
     //Récupère tous les projets créés par le formateur en question
-    public function mesProjetsProprietaireAction(Personne $personne)
+    public function mesProjetsProprietaireAction(Formateur $formateur)
     {
-        $em = $this->getDoctrine()->getManager();
-        $listeProjetsProprietaire = $em->getRepository('FTProjetStageBundle:Projet')->findBy(array(
-            'proprietaire' => $personne->getId()
-        ));
+        $listeProjetsProprietaire = $formateur->getProjets();
 
         return $this->render('FTProjetStageBundle:Formateur:listeProjetsProprietaire.html.twig', array(
             'listeProjetsProprietaire' => $listeProjetsProprietaire
+        ));
+    }
+
+    public function projetsFormateurAction(Formateur $formateur)
+    {
+        $listeProjets = $formateur->getProjets();
+
+        return $this->render('FTProjetStageBundle:Formateur:listeProjets.html.twig', array(
+            'listeProjets' => $listeProjets
         ));
     }
 }

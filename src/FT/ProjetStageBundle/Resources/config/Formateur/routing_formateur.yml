@@ -9,3 +9,10 @@ ft_personne_mesProjets_proprietaire:
     defaults: { _controller: FTProjetStageBundle:Formateur:mesProjetsProprietaire }
     requirements:
         id: \d+
+
+#Projet du formateur en question (partie publique)
+ft_formateur_projets:
+    path: /personne/projetsFormateur/{id}
+    defaults: { _controller: FTProjetStageBundle:Formateur:projetsFormateur }
+    requirements:
+        id: \d+
